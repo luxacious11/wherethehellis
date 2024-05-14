@@ -2,8 +2,79 @@
     Variables
 ********************************/
 :root {
-  --size-xs: 8px;
-  --size-sm: 10px;
-  --size-md: 12px;
-  --size-lg: 14px;
-  --size-xl: 16px; }
+  --font-body: 'Lato', sans-serif;
+  --font-head: 'Roboto Condensed', sans-serif;
+  --size-xs: 9px;
+  --size-sm: 11px;
+  --size-md: 13px;
+  --size-lg: 15px;
+  --size-xl: 17px;
+  --rgb: 177, 202, 204;
+  --black: rgb(18, 18, 18);
+  --ltGrey: rgb(198, 198, 198);
+  --white: rgb(245, 245, 245);
+  --bg-primary: var(--black);
+  --text-primary: var(--ltGrey);
+  --text-secondary: var(--white);
+  --bg-image: url('../images/bg-tiger.jpg');
+  --bg-blend: hard-light;
+  --bg-opacity: 0.1; }
+
+body.lgFont {
+  --size-xs: 11px;
+  --size-sm: 13px;
+  --size-md: 15px;
+  --size-lg: 17px;
+  --size-xl: 19px; }
+
+body.xlFont {
+  --size-xs: 13px;
+  --size-sm: 15px;
+  --size-md: 17px;
+  --size-lg: 19px;
+  --size-xl: 21px; }
+
+body.light {
+  --bg-accent: var(--accent-90);
+  --bg-accent-50: var(--accent-50);
+  --bg-primary: var(--offwhite);
+  --bg-secondary: var(--white);
+  --bg-tertiary: var(--grey-xlight);
+  --bg-quaternary: var(--grey-light);
+  --bg-transparent: var(--white-75);
+  --bg-transparent-low: var(--white-50);
+  --text-accent: var(--accent);
+  --text-primary: var(--grey-dark);
+  --text-secondary: var(--grey-xdark);
+  --border-primary: var(--grey-mlight); }
+  body.light[class*="g-"],
+  body.light [class*="g-"] {
+    --bg-accent: var(--accent-90); }
+
+body[class*="g-"],
+body [class*="g-"] {
+  --accent: rgb(var(--rgb));
+  --border-accent: var(--accent);
+  --bg-accent: var(--accent);
+  --text-accent: var(--accent); }
+
+body.g-1,
+body .g-1, body.g-2,
+body .g-2, body.g-3,
+body .g-3, body.g-5,
+body .g-5 {
+  --rgb: 177, 202, 204; }
+
+body.g-4,
+body .g-4,
+body [data-group="staff"],
+body [data-group="Staff"],
+body [data-group="STAFF"] {
+  --rgb: 130, 147, 109; }
+
+body.g-6,
+body .g-6,
+body [data-group="writer"],
+body [data-group="Writer"],
+body [data-group="WRITER"] {
+  --rgb: 95, 138, 138; }

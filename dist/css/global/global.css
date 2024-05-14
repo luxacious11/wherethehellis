@@ -1,3 +1,12 @@
 /*******************************
     Global
 ********************************/
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-md);
+  line-height: 200%;
+  color: var(--text-primary);
+  background: var(--bg-primary); }
+
+a[href=""], a[href="<i>No Information</i>"] {
+  display: none; }

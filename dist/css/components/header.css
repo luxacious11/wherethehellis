@@ -1,3 +1,86 @@
 /*******************************
     Header
 ********************************/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 600px;
+  font-family: var(--font-head); }
+  .header--inner {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: end;
+    gap: 0 30px; }
+    .header--inner > a {
+      text-transform: uppercase;
+      letter-spacing: -0.1em;
+      font-size: 30px;
+      font-family: 'Roboto Condensed';
+      text-align: right;
+      color: var(--text-secondary); }
+      @media only screen and (min-width: 480px) {
+        .header--inner > a {
+          font-size: calc(30px + 30 * (100vw - 480px) / (1024 - 480)); } }
+      @media only screen and (min-width: 1024px) {
+        .header--inner > a {
+          font-size: 60px; } }
+      @media (max-width: 768px) {
+        .header--inner > a {
+          border-right: 10px solid var(--border-accent);
+          padding-right: 30px; } }
+      .header--inner > a h1 {
+        margin: 0; }
+        .header--inner > a h1 span {
+          line-height: 110%; }
+          .header--inner > a h1 span:first-child {
+            font-size: 16px;
+            letter-spacing: 6px;
+            margin-right: -1.5em;
+            color: var(--text-accent); }
+            @media (max-width: 768px) {
+              .header--inner > a h1 span:first-child {
+                display: none; } }
+          .header--inner > a h1 span:last-child {
+            display: block;
+            margin-top: -0.225em;
+            margin-bottom: -0.2em; }
+    .header--inner > p {
+      grid-column: 1 / -1;
+      margin: 0 20px;
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: var(--text-primary); }
+      @media (max-width: 768px) {
+        .header--inner > p {
+          display: none; } }
+  .header--tag {
+    writing-mode: vertical-lr;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: var(--text-secondary); }
+    @media (max-width: 768px) {
+      .header--tag {
+        display: none; } }
+    .header--tag b {
+      font-weight: 600; }
+    .header--tag u {
+      text-decoration: none;
+      font-weight: 200;
+      letter-spacing: 3px;
+      padding: 5px 0; }
+      .header--tag u::before {
+        content: '';
+        position: absolute;
+        bottom: 1.5px;
+        left: 0;
+        width: 12px;
+        height: 100%;
+        background: var(--accent);
+        z-index: -1; }
