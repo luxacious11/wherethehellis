@@ -3,3 +3,33 @@
 ********************************/
 #navstrip {
   display: none; }
+
+.nav--primary {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55px;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 0;
+  background: var(--bg-primary);
+  border-right: 5px solid var(--border-accent); }
+  .nav--primary button,
+  .nav--primary a {
+    font-size: var(--size-sm);
+    color: var(--text-primary);
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0;
+    background: transparent;
+    border: none; }
+    .nav--primary button:hover,
+    .nav--primary a:hover {
+      background: var(--bg-accent);
+      color: var(--text-secondary); }

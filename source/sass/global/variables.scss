@@ -11,7 +11,7 @@
     --size-lg: 15px;
     --size-xl: 17px;
 
-    --rgb: 177, 202, 204;
+    --rgb: 145, 74, 74;
 
     --black: rgb(18, 18, 18);
     --ltGrey: rgb(198, 198, 198);
@@ -80,10 +80,14 @@ body {
     &.g-2,
     .g-2,
     &.g-3,
-    .g-3,
+    .g-3 {
+        --rgb: 145, 74, 74;
+    }
+
+    //Banned & Inactive
     &.g-5,
     .g-5 {
-        --rgb: 177, 202, 204;
+        --rgb: 121, 121, 121;
     }
 
     //Staff
@@ -92,7 +96,7 @@ body {
     [data-group="staff"],
     [data-group="Staff"],
     [data-group="STAFF"] {
-        --rgb: 130, 147, 109;
+        --rgb: 93, 125, 118;
     }
 
     //Sorted
@@ -101,6 +105,114 @@ body {
     [data-group="writer"],
     [data-group="Writer"],
     [data-group="WRITER"] {
-        --rgb: 95, 138, 138;
+        --rgb: 142, 84, 61;
+    }
+
+    //Tiger
+    &.g-7,
+    .g-7,
+    [data-group="tiger"],
+    [data-group="Tiger"],
+    [data-group="TIGER"] {
+        --rgb: 153, 117, 78;
+    }
+
+    //Wolf
+    &.g-8,
+    .g-8,
+    [data-group="wolf"],
+    [data-group="Wolf"],
+    [data-group="WOLF"] {
+        --rgb: 88, 92, 98;
+    }
+
+    //Rabbit
+    &.g-9,
+    .g-9,
+    [data-group="rabbit"],
+    [data-group="Rabbit"],
+    [data-group="RABBIT"] {
+        --rgb: 189, 91, 132;
+    }
+
+    //Adder
+    &.g-10,
+    .g-10,
+    [data-group="adder"],
+    [data-group="Adder"],
+    [data-group="ADDER"] {
+        --rgb: 87, 98, 64;
+    }
+
+    //Eagle
+    &.g-11,
+    .g-11,
+    [data-group="eagle"],
+    [data-group="Eagle"],
+    [data-group="EAGLE"] {
+        --rgb: 119, 157, 164;
+    }
+
+    //Otter
+    &.g-12,
+    .g-12,
+    [data-group="otter"],
+    [data-group="Otter"],
+    [data-group="OTTER"] {
+        --rgb: 162, 147, 118;
+    }
+
+    //Crow
+    &.g-13,
+    .g-13,
+    [data-group="crow"],
+    [data-group="Crow"],
+    [data-group="CROW"] {
+        --rgb: 95, 89, 117;
+    }
+
+    //Deer
+    &.g-14,
+    .g-14,
+    [data-group="deer"],
+    [data-group="Deer"],
+    [data-group="DEER"] {
+        --rgb: 149, 155, 127;
+    }
+
+    //Unicorn
+    &.g-15,
+    .g-15,
+    [data-group="unicorn"],
+    [data-group="Unicorn"],
+    [data-group="UNICORN"] {
+        --rgb: 168, 146, 159;
+    }
+
+    //Phoenix
+    &.g-16,
+    .g-16,
+    [data-group="phoenix"],
+    [data-group="Phoenix"],
+    [data-group="PHOENIX"] {
+        --rgb: 189, 141, 79;
+    }
+
+    //Dragon
+    &.g-17,
+    .g-17,
+    [data-group="dragon"],
+    [data-group="Dragon"],
+    [data-group="DRAGON"] {
+        --rgb: 83, 34, 34;
+    }
+
+    //Selkie
+    &.g-18,
+    .g-18,
+    [data-group="selkie"],
+    [data-group="Selkie"],
+    [data-group="SELKIE"] {
+        --rgb: 34, 86, 96;
     }
 }

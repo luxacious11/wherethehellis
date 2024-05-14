@@ -28,6 +28,35 @@
 <!--Settings-->
 <script type='text/javascript' src='../dist/js/settings.js'></script>
 <link rel="stylesheet" href="../dist/css/settings.css" />  
+        <style>
+            .color-test {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+            }
+            .scheme {
+                padding: 20px 0;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .scheme > div {
+                margin: 10px auto;
+                width: 200px;
+                text-align: center;
+                background: var(--bg-accent);
+                color: var(--text-on-accent, var(--text-secondary));
+                padding: 15px;
+                font-size: var(--size-xs);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+            }
+            .scheme.text > div {
+                color: var(--text-accent);
+                background: transparent;
+            }
+        </style>
     </head>
     <body id="Pages" class="g-4">
 <div class="noise fixed bg"></div>
@@ -53,20 +82,8 @@
     </button>
 </nav>
 <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
-<header class="header">
-    <div class="header--inner">
-        <a href="../public/index.html"><h1>
-            <span>Home Is</span>
-            <span>Where</span>
-            <span>the <tag-hl>Hell</tag-hl> Is</span>
-        </h1></a>
-        <div class="header--tag">
-            <b>i'm having terrors</b>
-            <u>having nightmares</u>
-        </div>
-        <p>Est. (Month) 2024</p>
-    </div>
-</header>
+        
+
 
         <!--Main Body-->
         <main>
@@ -74,25 +91,44 @@
 		
             
             <!--Webpage-->
-            <section class="webpage"></section>
-
-            <!-- Copyright Information -->
-            <div class="tableborder" align="center">
-                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
-                    <div class="copyright" align="center">
-                        Powered by 
-                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
-                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
-                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
-                        ) © 2020 &nbsp;
-                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
-                        <br>
-                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
-                        <a href="index.php?act=Mobile">Mobile Version</a> · 
-                        <a href="index.php?act=privacy">Privacy Policy</a>
-                    </div>
+            <section class="color-test">
+                <div class="scheme">
+                    <div class="g-17">Dragon</div>
+                    <div class="g-2">Default</div>
+                    <div class="g-6">Writer</div>
+                    <div class="g-16">Phoenix</div>
+                    <div class="g-7">Tiger</div>
+                    <div class="g-12">Otter</div>
+                    <div class="g-14">Deer</div>
+                    <div class="g-10">Adder</div>
+                    <div class="g-4">Admin</div>
+                    <div class="g-11">Eagle</div>
+                    <div class="g-18">Selkie</div>
+                    <div class="g-13">Crow</div>
+                    <div class="g-5">Inactive</div>
+                    <div class="g-8">Wolf</div>
+                    <div class="g-15">Unicorn</div>
+                    <div class="g-9">Rabbit</div>
                 </div>
-            </div> 
+                <div class="scheme text">
+                    <div class="g-17">Dragon</div>
+                    <div class="g-2">Default</div>
+                    <div class="g-6">Writer</div>
+                    <div class="g-16">Phoenix</div>
+                    <div class="g-7">Tiger</div>
+                    <div class="g-12">Otter</div>
+                    <div class="g-14">Deer</div>
+                    <div class="g-10">Adder</div>
+                    <div class="g-4">Admin</div>
+                    <div class="g-11">Eagle</div>
+                    <div class="g-18">Selkie</div>
+                    <div class="g-13">Crow</div>
+                    <div class="g-5">Inactive</div>
+                    <div class="g-8">Wolf</div>
+                    <div class="g-15">Unicorn</div>
+                    <div class="g-9">Rabbit</div>
+                </div>
+            </section>
         </main>
         
         <script src="../dist/js/scripts.js"></script>   

@@ -10,3 +10,50 @@ body {
 
 a[href=""], a[href="<i>No Information</i>"] {
   display: none; }
+
+button {
+  cursor: pointer; }
+
+body:not(.g-4) .staffOnly,
+body:not(.g-2) .guestOnly,
+body.g-2 .memOnly {
+  display: none !important; }
+
+@media (min-width: 769px) {
+  .onlyMobile {
+    display: none !important; } }
+
+@media (max-width: 768px) {
+  .notMobile {
+    display: none !important; } }
+
+.fa-brand {
+  font-family: 'Font Awesome 6 Brands' !important;
+  font-style: normal !important;
+  font-weight: 700 !important; }
+
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+  font-family: 'Font Awesome 6 Pro' !important;
+  font-style: normal !important; }
+
+.fa-solid {
+  font-weight: 700 !important; }
+
+.fa-regular {
+  font-weight: 500 !important; }
+
+.fa-light {
+  font-weight: 300 !important; }
+
+.fa-thin {
+  font-weight: 100 !important; }
+
+.newstext,
+.wrapmini,
+#submenu,
+#userlinks,
+.pagination + .goto-firstunread {
+  display: none; }

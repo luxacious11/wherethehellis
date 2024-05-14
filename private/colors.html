@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+        <style>
+            .color-test {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+            }
+            .scheme {
+                padding: 20px 0;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .scheme > div {
+                margin: 10px auto;
+                width: 200px;
+                text-align: center;
+                background: var(--bg-accent);
+                color: var(--text-on-accent, var(--text-secondary));
+                padding: 15px;
+                font-size: var(--size-xs);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+            }
+            .scheme.text > div {
+                color: var(--text-accent);
+                background: transparent;
+            }
+        </style>
+    </head>
+    <body id="Pages" class="g-4">
+@@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
+        
+
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+            
+            <!--Webpage-->
+            <section class="color-test">
+                <div class="scheme">
+                    <div class="g-17">Dragon</div>
+                    <div class="g-2">Default</div>
+                    <div class="g-6">Writer</div>
+                    <div class="g-16">Phoenix</div>
+                    <div class="g-7">Tiger</div>
+                    <div class="g-12">Otter</div>
+                    <div class="g-14">Deer</div>
+                    <div class="g-10">Adder</div>
+                    <div class="g-4">Admin</div>
+                    <div class="g-11">Eagle</div>
+                    <div class="g-18">Selkie</div>
+                    <div class="g-13">Crow</div>
+                    <div class="g-5">Inactive</div>
+                    <div class="g-8">Wolf</div>
+                    <div class="g-15">Unicorn</div>
+                    <div class="g-9">Rabbit</div>
+                </div>
+                <div class="scheme text">
+                    <div class="g-17">Dragon</div>
+                    <div class="g-2">Default</div>
+                    <div class="g-6">Writer</div>
+                    <div class="g-16">Phoenix</div>
+                    <div class="g-7">Tiger</div>
+                    <div class="g-12">Otter</div>
+                    <div class="g-14">Deer</div>
+                    <div class="g-10">Adder</div>
+                    <div class="g-4">Admin</div>
+                    <div class="g-11">Eagle</div>
+                    <div class="g-18">Selkie</div>
+                    <div class="g-13">Crow</div>
+                    <div class="g-5">Inactive</div>
+                    <div class="g-8">Wolf</div>
+                    <div class="g-15">Unicorn</div>
+                    <div class="g-9">Rabbit</div>
+                </div>
+            </section>
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

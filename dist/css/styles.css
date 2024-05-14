@@ -37,7 +37,7 @@ a {
   --size-md: 13px;
   --size-lg: 15px;
   --size-xl: 17px;
-  --rgb: 177, 202, 204;
+  --rgb: 145, 74, 74;
   --black: rgb(18, 18, 18);
   --ltGrey: rgb(198, 198, 198);
   --white: rgb(245, 245, 245);
@@ -89,23 +89,110 @@ body [class*="g-"] {
 body.g-1,
 body .g-1, body.g-2,
 body .g-2, body.g-3,
-body .g-3, body.g-5,
+body .g-3 {
+  --rgb: 145, 74, 74; }
+
+body.g-5,
 body .g-5 {
-  --rgb: 177, 202, 204; }
+  --rgb: 121, 121, 121; }
 
 body.g-4,
 body .g-4,
 body [data-group="staff"],
 body [data-group="Staff"],
 body [data-group="STAFF"] {
-  --rgb: 130, 147, 109; }
+  --rgb: 93, 125, 118; }
 
 body.g-6,
 body .g-6,
 body [data-group="writer"],
 body [data-group="Writer"],
 body [data-group="WRITER"] {
-  --rgb: 95, 138, 138; }
+  --rgb: 142, 84, 61; }
+
+body.g-7,
+body .g-7,
+body [data-group="tiger"],
+body [data-group="Tiger"],
+body [data-group="TIGER"] {
+  --rgb: 153, 117, 78; }
+
+body.g-8,
+body .g-8,
+body [data-group="wolf"],
+body [data-group="Wolf"],
+body [data-group="WOLF"] {
+  --rgb: 88, 92, 98; }
+
+body.g-9,
+body .g-9,
+body [data-group="rabbit"],
+body [data-group="Rabbit"],
+body [data-group="RABBIT"] {
+  --rgb: 189, 91, 132; }
+
+body.g-10,
+body .g-10,
+body [data-group="adder"],
+body [data-group="Adder"],
+body [data-group="ADDER"] {
+  --rgb: 87, 98, 64; }
+
+body.g-11,
+body .g-11,
+body [data-group="eagle"],
+body [data-group="Eagle"],
+body [data-group="EAGLE"] {
+  --rgb: 119, 157, 164; }
+
+body.g-12,
+body .g-12,
+body [data-group="otter"],
+body [data-group="Otter"],
+body [data-group="OTTER"] {
+  --rgb: 162, 147, 118; }
+
+body.g-13,
+body .g-13,
+body [data-group="crow"],
+body [data-group="Crow"],
+body [data-group="CROW"] {
+  --rgb: 95, 89, 117; }
+
+body.g-14,
+body .g-14,
+body [data-group="deer"],
+body [data-group="Deer"],
+body [data-group="DEER"] {
+  --rgb: 149, 155, 127; }
+
+body.g-15,
+body .g-15,
+body [data-group="unicorn"],
+body [data-group="Unicorn"],
+body [data-group="UNICORN"] {
+  --rgb: 168, 146, 159; }
+
+body.g-16,
+body .g-16,
+body [data-group="phoenix"],
+body [data-group="Phoenix"],
+body [data-group="PHOENIX"] {
+  --rgb: 189, 141, 79; }
+
+body.g-17,
+body .g-17,
+body [data-group="dragon"],
+body [data-group="Dragon"],
+body [data-group="DRAGON"] {
+  --rgb: 83, 34, 34; }
+
+body.g-18,
+body .g-18,
+body [data-group="selkie"],
+body [data-group="Selkie"],
+body [data-group="SELKIE"] {
+  --rgb: 34, 86, 96; }
 
 /*******************************
     Global
@@ -118,6 +205,53 @@ body {
   background: var(--bg-primary); }
 
 a[href=""], a[href="<i>No Information</i>"] {
+  display: none; }
+
+button {
+  cursor: pointer; }
+
+body:not(.g-4) .staffOnly,
+body:not(.g-2) .guestOnly,
+body.g-2 .memOnly {
+  display: none !important; }
+
+@media (min-width: 769px) {
+  .onlyMobile {
+    display: none !important; } }
+
+@media (max-width: 768px) {
+  .notMobile {
+    display: none !important; } }
+
+.fa-brand {
+  font-family: 'Font Awesome 6 Brands' !important;
+  font-style: normal !important;
+  font-weight: 700 !important; }
+
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+  font-family: 'Font Awesome 6 Pro' !important;
+  font-style: normal !important; }
+
+.fa-solid {
+  font-weight: 700 !important; }
+
+.fa-regular {
+  font-weight: 500 !important; }
+
+.fa-light {
+  font-weight: 300 !important; }
+
+.fa-thin {
+  font-weight: 100 !important; }
+
+.newstext,
+.wrapmini,
+#submenu,
+#userlinks,
+.pagination + .goto-firstunread {
   display: none; }
 
 /*******************************
@@ -166,6 +300,46 @@ tag-hl {
 ********************************/
 #navstrip {
   display: none; }
+
+.nav--primary {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55px;
+  height: 100vh;
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+  gap: 0;
+  background: var(--bg-primary);
+  border-right: 5px solid var(--border-accent); }
+  .nav--primary button,
+  .nav--primary a {
+    font-size: var(--size-sm);
+    color: var(--text-primary);
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0;
+    background: transparent;
+    border: none; }
+    .nav--primary button:hover,
+    .nav--primary a:hover {
+      background: var(--bg-accent);
+      color: var(--text-secondary); }
 
 /*******************************
     Header

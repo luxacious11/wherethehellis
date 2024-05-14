@@ -31,6 +31,27 @@
     </head>
     <body id="Members" class="g-4">
 <div class="noise fixed bg"></div>
+<nav class="nav--primary">
+    <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="../public/index.html" title="Index"><i class="fa-solid fa-home"></i></a>
+    <a href="../public/webpage.html" title="Guidebook"><i class="fa-solid fa-books"></i></a>
+    <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
+    <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+    <a href="../public/profile.html" title="View First Last" class="memOnly"><i class="fa-solid fa-user"></i></a>
+    <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pen"></i></a>
+    <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+    <a href="../public/usercp/user-inbox.html" title="Messages (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
+    <a href="/" title="Alerts (1)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
+    <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+    <a href="../public/store/store.html" title="Store" class="memOnly"><i class="fa-solid fa-store"></i></a>
+    <a href="/" title="Join Discord"><i class="fa-brand fa-discord"></i></a>
+    <a href="/" title="Admin CP" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+    <button title="Skin Settings" onClick="toggleSettingsMenu(this)" class="button--menu">
+        <i class="fa-solid fa-gear"></i>
+    </button>
+</nav>
 <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
 <header class="header">
     <div class="header--inner">
