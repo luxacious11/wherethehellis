@@ -1,45 +1,86 @@
 /*******************************
     User CP
 ********************************/
-#UserCP main > table:first-of-type,
-#Msg main > table:first-of-type {
-  display: block; }
-  #UserCP main > table:first-of-type ~ *,
-  #Msg main > table:first-of-type ~ * {
-    display: none; }
-  #UserCP main > table:first-of-type > tbody,
-  #Msg main > table:first-of-type > tbody {
+#UserCP > header,
+#Msg > header {
+  display: none; }
+
+#UserCP main,
+#Msg main {
+  margin-top: 85px;
+  padding: 30px 20px 0 75px;
+  max-width: none; }
+  @media (min-width: 769px) {
+    #UserCP main,
+    #Msg main {
+      margin-top: 30px; } }
+  #UserCP main > table:first-of-type,
+  #Msg main > table:first-of-type {
     display: block; }
-    #UserCP main > table:first-of-type > tbody > tr,
-    #Msg main > table:first-of-type > tbody > tr {
-      display: flex;
-      gap: var(--spacing-lg); }
-      #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu,
-      #Msg main > table:first-of-type > tbody > tr > td#ucpmenu {
-        flex: 0 0 150px; }
-        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .sticky,
-        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .sticky {
-          display: flex;
-          flex-direction: column;
-          gap: var(--spacing-sm);
+    #UserCP main > table:first-of-type ~ *,
+    #Msg main > table:first-of-type ~ * {
+      display: none; }
+    #UserCP main > table:first-of-type > tbody,
+    #Msg main > table:first-of-type > tbody {
+      display: block; }
+      #UserCP main > table:first-of-type > tbody > tr,
+      #Msg main > table:first-of-type > tbody > tr {
+        display: grid;
+        grid-template-columns: 180px auto;
+        gap: 30px; }
+        @media (min-width: 1025px) {
+          #UserCP main > table:first-of-type > tbody > tr,
+          #Msg main > table:first-of-type > tbody > tr {
+            grid-template-columns: 250px auto; } }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion {
           position: sticky;
-          top: var(--menuHeight); }
-        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .menu-section,
-        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .menu-section {
+          top: 60px;
           display: flex;
-          flex-direction: column;
-          gap: var(--spacing-sm); }
-      #UserCP main > table:first-of-type > tbody > tr > td:nth-child(2),
-      #Msg main > table:first-of-type > tbody > tr > td:nth-child(2) {
-        display: none; }
-      #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
-      #Msg main > table:first-of-type > tbody > tr > td#ucpcontent {
-        flex-grow: 1;
-        padding: var(--spacing-md); }
-        @media (min-width: 601px) {
-          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
-          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent {
-            padding: var(--spacing-lg); } }
+          flex-direction: column; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger {
+            font-family: var(--font-head);
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 900;
+            z-index: 1;
+            width: 100%;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-accent);
+            border-bottom: 1px solid var(--border-accent);
+            padding: 0.2em 0.4em;
+            letter-spacing: 0.2em;
+            margin: 30px 0 10px; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:first-child,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:first-child {
+              margin-top: 0; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content {
+            padding: 10px 20px;
+            gap: 15px;
+            grid-template-rows: repeat(auto-fit, minmax(0, max-content)); }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content.is-active,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content.is-active {
+              display: grid; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a {
+              color: var(--text-secondary);
+              font-size: calc(var(--size-xs) + 1px);
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              border-left: calc(var(--size-xs) + 2px) solid var(--border-accent);
+              padding-left: calc(var(--size-xs) + 2px);
+              line-height: 120%;
+              transition-duration: 0.3s; }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover {
+                border-left-width: var(--size-xs);
+                padding-left: calc(var(--size-xs) + 4px);
+                letter-spacing: 0.15em; }
+        #UserCP main > table:first-of-type > tbody > tr > td:nth-child(2),
+        #Msg main > table:first-of-type > tbody > tr > td:nth-child(2) {
+          display: none; }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"],
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"],
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"],
@@ -104,29 +145,202 @@
                 margin-bottom: 0;
                 padding: 0;
                 text-align: center; }
+        #UserCP main > table:first-of-type > tbody > tr input[type="submit"],
+        #Msg main > table:first-of-type > tbody > tr input[type="submit"] {
+          background: var(--bg-accent);
+          border: 1px solid var(--border-accent);
+          color: var(--text-on-accent);
+          font-family: var(--font-head);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          font-weight: 700;
+          padding: 15px 30px;
+          transition-duration: 0.3s; }
+          #UserCP main > table:first-of-type > tbody > tr input[type="submit"]:hover,
+          #Msg main > table:first-of-type > tbody > tr input[type="submit"]:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary); }
 
-#UserCP.code-01 #ucpcontent form > .pformstrip {
-  display: none; }
-
-#UserCP.code-01 #ucpcontent form #field-birthday,
-#UserCP.code-01 #ucpcontent form #field-website,
-#UserCP.code-01 #ucpcontent form #field-location,
-#UserCP.code-01 #ucpcontent form #field-interests {
-  display: none; }
-
-#UserCP.code-01 #ucpcontent form tbody {
-  display: grid !important;
-  gap: var(--spacing-lg); }
-  @media (min-width: 769px) {
-    #UserCP.code-01 #ucpcontent form tbody {
-      grid-template-columns: repeat(6, 1fr); } }
-  #UserCP.code-01 #ucpcontent form tbody tr {
-    margin-bottom: 0 !important;
-    grid-column: span 3; }
-    #UserCP.code-01 #ucpcontent form tbody tr .pformleft {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm); }
+#UserCP.code-01 #ucpcontent {
+  padding: 0; }
+  #UserCP.code-01 #ucpcontent form > .pformstrip {
+    display: none; }
+  #UserCP.code-01 #ucpcontent form #field-birthday,
+  #UserCP.code-01 #ucpcontent form #field-website,
+  #UserCP.code-01 #ucpcontent form #field-location,
+  #UserCP.code-01 #ucpcontent form #field-interests {
+    display: none; }
+  #UserCP.code-01 #ucpcontent form thead,
+  #UserCP.code-01 #ucpcontent form tbody {
+    display: block; }
+    #UserCP.code-01 #ucpcontent form thead tr,
+    #UserCP.code-01 #ucpcontent form tbody tr {
+      display: block;
+      margin-bottom: 0 !important; }
+      @media (min-width: 1281px) {
+        #UserCP.code-01 #ucpcontent form thead tr,
+        #UserCP.code-01 #ucpcontent form tbody tr {
+          grid-column: span 2; } }
+      @media (min-width: 1281px) {
+        #UserCP.code-01 #ucpcontent form thead tr.halfWidth,
+        #UserCP.code-01 #ucpcontent form tbody tr.halfWidth {
+          grid-column: span 3; } }
+      #UserCP.code-01 #ucpcontent form thead tr.fullWidth,
+      #UserCP.code-01 #ucpcontent form tbody tr.fullWidth {
+        grid-column: 1 / -1; }
+      #UserCP.code-01 #ucpcontent form thead tr .pformleft,
+      #UserCP.code-01 #ucpcontent form tbody tr .pformleft {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm); }
+      #UserCP.code-01 #ucpcontent form thead tr td,
+      #UserCP.code-01 #ucpcontent form tbody tr td {
+        display: block; }
+  #UserCP.code-01 #ucpcontent form thead:first-of-type > .ucp--header {
+    margin-top: 0; }
+  #UserCP.code-01 #ucpcontent form table > tbody > tr:last-child {
+    padding: 30px; }
+  #UserCP.code-01 #ucpcontent form .accordion--trigger {
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: var(--text-secondary);
+    padding: 7px 0 5px 0; }
+    #UserCP.code-01 #ucpcontent form .accordion--trigger::before {
+      content: '';
+      position: absolute;
+      bottom: 1.5px;
+      left: 0;
+      width: 12px;
+      height: 100%;
+      background: var(--accent);
+      z-index: -1; }
+  #UserCP.code-01 #ucpcontent form .ucp--header, #UserCP.code-01 #ucpcontent form .ucp--description {
+    grid-column: 1 / -1; }
+  #UserCP.code-01 #ucpcontent form .ucp--header {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 0.3em;
+    width: 100%;
+    margin: 70px auto 0;
+    line-height: 100%;
+    padding: 20px 30px;
+    overflow: hidden;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-accent);
+    border-bottom: 1px solid var(--border-accent);
+    text-align: center;
+    font-weight: bold; }
+    @media only screen and (min-width: 480px) {
+      #UserCP.code-01 #ucpcontent form .ucp--header {
+        font-size: calc(30px + 20 * (100vw - 480px) / (1440 - 480)); } }
+    @media only screen and (min-width: 1440px) {
+      #UserCP.code-01 #ucpcontent form .ucp--header {
+        font-size: 50px; } }
+  #UserCP.code-01 #ucpcontent form .ucp--description {
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--border-accent); }
+    #UserCP.code-01 #ucpcontent form .ucp--description td {
+      border: 1px solid var(--border-accent);
+      background: var(--bg-tertiary);
+      padding: 30px;
+      max-width: 700px;
+      margin: 10px auto;
+      text-align: justify; }
+      #UserCP.code-01 #ucpcontent form .ucp--description td p:first-of-type {
+        margin-top: 0; }
+      #UserCP.code-01 #ucpcontent form .ucp--description td p:last-of-type {
+        margin-bottom: 0; }
+    #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td {
+      border: 0;
+      background: none;
+      max-width: none;
+      display: grid;
+      grid-template-columns: 200px auto;
+      gap: 30px; }
+      #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .text {
+        border: 1px solid var(--border-accent);
+        background: var(--bg-tertiary);
+        padding: 30px;
+        max-width: 700px;
+        margin: 10px 0;
+        text-align: justify; }
+      #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample {
+        display: grid;
+        height: 100%;
+        gap: 15px; }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample span {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 2px; }
+          #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample .twoTall {
+          grid-row: span 2; }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample .twoWide {
+          grid-column: span 2; }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample .threeTall {
+          grid-row: span 3; }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample .threeWide {
+          grid-column: span 3; }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample.Columns {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 1fr); }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample.SmallMosaic {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(4, 1fr); }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample.LargeMosaic {
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(6, 1fr); }
+  #UserCP.code-01 #ucpcontent form .ucp--section {
+    display: grid;
+    gap: 30px;
+    border: 1px solid var(--border-accent-transparent);
+    padding: 30px;
+    background: var(--bg-tertiary);
+    margin-top: 30px; }
+    @media (min-width: 1281px) {
+      #UserCP.code-01 #ucpcontent form .ucp--section {
+        grid-template-columns: repeat(6, 1fr); } }
+    #UserCP.code-01 #ucpcontent form .ucp--section label {
+      font-family: var(--font-head);
+      font-size: 12px;
+      text-transform: uppercase;
+      z-index: 1;
+      max-width: 100%;
+      width: max-content;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-accent);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 0 0.7em;
+      letter-spacing: 0.2em;
+      font-weight: 500 !important; }
+    #UserCP.code-01 #ucpcontent form .ucp--section input,
+    #UserCP.code-01 #ucpcontent form .ucp--section select {
+      height: 35px;
+      width: 100%;
+      background: var(--bg-quaternary);
+      line-height: 160%;
+      font-size: var(--size-md); }
+    #UserCP.code-01 #ucpcontent form .ucp--section textarea {
+      width: 100%;
+      background: var(--bg-quaternary);
+      line-height: 160%;
+      font-size: var(--size-md); }
+      #UserCP.code-01 #ucpcontent form .ucp--section textarea#field_15_input, #UserCP.code-01 #ucpcontent form .ucp--section textarea#field_16_input, #UserCP.code-01 #ucpcontent form .ucp--section textarea#field_28_input {
+        height: 35px;
+        resize: none; }
 
 #UserCP.code-24 p {
   text-align: center;

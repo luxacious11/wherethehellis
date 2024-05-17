@@ -5,9 +5,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  min-height: 600px;
-  font-family: var(--font-head); }
+  height: 50vh;
+  font-family: var(--font-head);
+  margin-top: 85px;
+  z-index: 1; }
+  body:not(#idx) .header {
+    margin-top: 85px;
+    height: 50vh;
+    min-height: 0; }
+  @media (min-width: 769px) {
+    .header {
+      margin-top: 0;
+      height: 100vh;
+      min-height: 600px; } }
   .header--inner {
     display: grid;
     grid-template-columns: max-content 1fr;

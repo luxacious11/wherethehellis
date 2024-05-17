@@ -7,9 +7,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    min-height: 600px;
+    height: 50vh;
     font-family: var(--font-head);
+    margin-top: 85px;
+    z-index: 1;
+
+    body:not(#idx) & {
+        margin-top: 85px;
+        height: 50vh;
+        min-height: 0;
+    }
+
+    @include mq-up(sm) {
+        margin-top: 0;
+        height: 100vh;
+        min-height: 600px;
+    }
 
     &--inner {
         display: grid;

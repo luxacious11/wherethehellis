@@ -4,63 +4,70 @@
 :root {
     --font-body: 'Lato', sans-serif;
     --font-head: 'Roboto Condensed', sans-serif;
+    --font-fa: 'Font Awesome 6 Pro';
 
-    --size-xs: 9px;
-    --size-sm: 11px;
-    --size-md: 13px;
-    --size-lg: 15px;
-    --size-xl: 17px;
+    --size-xs: 8px;
+    --size-sm: 12px;
+    --size-md: 14px;
+    --size-lg: 16px;
+    --size-xl: 18px;
 
     --rgb: 145, 74, 74;
 
-    --black: rgb(18, 18, 18);
-    --ltGrey: rgb(198, 198, 198);
-    --white: rgb(245, 245, 245);
+    --bg-primary: rgb(18, 18, 18);
+    --bg-secondary: rgb(30, 30, 30);
+    --bg-tertiary: rgb(45, 45, 45);
+    --bg-quaternary: rgb(55, 55, 55);
 
-    --bg-primary: var(--black);
+    --text-primary: rgb(198, 198, 198);
+    --text-secondary: rgb(245, 245, 245);
 
-    --text-primary: var(--ltGrey);
-    --text-secondary: var(--white);
+    --border-primary: rgb(80, 80, 80);
+    --border-secondary: rgb(198, 198, 198);
 
-    --bg-image: url('../images/bg-tiger.jpg');
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_default_min.jpg);
     --bg-blend: hard-light;
     --bg-opacity: 0.1;
+    --bg-position: center;
+    --image-filter: contrast(1.5) brightness(0.6);
 }
 
 body {
+    transition-duration: 0.3s;
+    
     &.lgFont {
-        --size-xs: 11px;
-        --size-sm: 13px;
-        --size-md: 15px;
-        --size-lg: 17px;
-        --size-xl: 19px;
+        --size-xs: 10px;
+        --size-sm: 12px;
+        --size-md: 14px;
+        --size-lg: 16px;
+        --size-xl: 18px;
     }
     &.xlFont {
-        --size-xs: 13px;
-        --size-sm: 15px;
-        --size-md: 17px;
-        --size-lg: 19px;
-        --size-xl: 21px;
+        --size-xs: 12px;
+        --size-sm: 16px;
+        --size-md: 18px;
+        --size-lg: 20px;
+        --size-xl: 22px;
     }
     &.light {
-        --bg-accent: var(--accent-90);
-        --bg-accent-50: var(--accent-50);
-        --bg-primary: var(--offwhite);
-        --bg-secondary: var(--white);
-        --bg-tertiary: var(--grey-xlight);
-        --bg-quaternary: var(--grey-light);
-        --bg-transparent: var(--white-75);
-        --bg-transparent-low: var(--white-50);
+        --bg-primary: rgb(210, 210, 210);
+        --bg-secondary: rgb(220, 220, 220);
+        --bg-tertiary: rgb(230, 230, 230);
+        --bg-quaternary: rgb(240, 240, 240);
     
         --text-accent: var(--accent);
-        --text-primary: var(--grey-dark);
-        --text-secondary: var(--grey-xdark);
+        --text-primary: rgb(45, 45, 45);
+        --text-secondary: rgb(18, 18, 18);
 
-        --border-primary: var(--grey-mlight);
+        --border-primary: rgb(198, 198, 198);
+        --border-secondary: rgb(210, 210, 210);
+
+        --image-filter: contrast(0.6) brightness(1.2);
 
         &[class*="g-"],
         [class*="g-"] {
-            --bg-accent: var(--accent-90);
+            --bg-accent: var(--accent-60);
+            --bg-accent-transparent: var(--accent-30);
         }
     }
 
@@ -68,10 +75,17 @@ body {
     &[class*="g-"],
     [class*="g-"] {
         --accent: rgb(var(--rgb));
+        --accent-60: rgba(var(--rgb), 0.6);
+        --accent-30: rgba(var(--rgb), 0.3);
 
-        --border-accent: var(--accent);
         --bg-accent: var(--accent);
+        --bg-accent-transparent: var(--accent-60);
+        
         --text-accent: var(--accent);
+        --text-on-accent: rgb(245, 245, 245);
+        
+        --border-accent: var(--accent);
+        --border-accent-transparent: var(--accent-60);
     }
 
     //Other
@@ -88,6 +102,8 @@ body {
     &.g-5,
     .g-5 {
         --rgb: 121, 121, 121;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_inactive_min.jpg);
+        --bg-opacity: 0.2;
     }
 
     //Staff
@@ -97,6 +113,7 @@ body {
     [data-group="Staff"],
     [data-group="STAFF"] {
         --rgb: 93, 125, 118;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_staff_min.jpg);
     }
 
     //Sorted
@@ -106,6 +123,7 @@ body {
     [data-group="Writer"],
     [data-group="WRITER"] {
         --rgb: 142, 84, 61;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_writer_min.jpg);
     }
 
     //Tiger
@@ -115,6 +133,7 @@ body {
     [data-group="Tiger"],
     [data-group="TIGER"] {
         --rgb: 153, 117, 78;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_tiger_min.jpg);
     }
 
     //Wolf
@@ -124,6 +143,7 @@ body {
     [data-group="Wolf"],
     [data-group="WOLF"] {
         --rgb: 88, 92, 98;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_wolf_min.jpg);
     }
 
     //Rabbit
@@ -133,6 +153,7 @@ body {
     [data-group="Rabbit"],
     [data-group="RABBIT"] {
         --rgb: 189, 91, 132;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_rabbit_min.jpg);
     }
 
     //Adder
@@ -141,7 +162,9 @@ body {
     [data-group="adder"],
     [data-group="Adder"],
     [data-group="ADDER"] {
-        --rgb: 87, 98, 64;
+        --rgb: 103, 117, 75;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_adder_min.jpg);
+        --bg-opacity: 0.15;
     }
 
     //Eagle
@@ -151,6 +174,8 @@ body {
     [data-group="Eagle"],
     [data-group="EAGLE"] {
         --rgb: 119, 157, 164;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_eagle_min.jpg);
+        --bg-opacity: 0.2;
     }
 
     //Otter
@@ -160,6 +185,8 @@ body {
     [data-group="Otter"],
     [data-group="OTTER"] {
         --rgb: 162, 147, 118;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_otter_min.jpg);
+        --bg-opacity: 0.15;
     }
 
     //Crow
@@ -169,6 +196,7 @@ body {
     [data-group="Crow"],
     [data-group="CROW"] {
         --rgb: 95, 89, 117;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_crow_min.jpg);
     }
 
     //Deer
@@ -178,6 +206,7 @@ body {
     [data-group="Deer"],
     [data-group="DEER"] {
         --rgb: 149, 155, 127;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_deer_min.jpg);
     }
 
     //Unicorn
@@ -187,6 +216,8 @@ body {
     [data-group="Unicorn"],
     [data-group="UNICORN"] {
         --rgb: 168, 146, 159;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_unicorn_min.jpg);
+        --bg-opacity: 0.3;
     }
 
     //Phoenix
@@ -196,6 +227,8 @@ body {
     [data-group="Phoenix"],
     [data-group="PHOENIX"] {
         --rgb: 189, 141, 79;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_phoenix_min.jpg);
+        --bg-opacity: 0.3;
     }
 
     //Dragon
@@ -204,7 +237,9 @@ body {
     [data-group="dragon"],
     [data-group="Dragon"],
     [data-group="DRAGON"] {
-        --rgb: 83, 34, 34;
+        --rgb: 128, 43, 43;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_dragon_min.jpg);
+        --bg-opacity: 0.2;
     }
 
     //Selkie
@@ -213,6 +248,8 @@ body {
     [data-group="selkie"],
     [data-group="Selkie"],
     [data-group="SELKIE"] {
-        --rgb: 34, 86, 96;
+        --rgb: 38, 104, 117;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_selkie_min.jpg);
+        --bg-opacity: 0.2;
     }
 }

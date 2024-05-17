@@ -4,164 +4,179 @@
 :root {
   --font-body: 'Lato', sans-serif;
   --font-head: 'Roboto Condensed', sans-serif;
-  --size-xs: 9px;
-  --size-sm: 11px;
-  --size-md: 13px;
-  --size-lg: 15px;
-  --size-xl: 17px;
+  --font-fa: 'Font Awesome 6 Pro';
+  --size-xs: 8px;
+  --size-sm: 12px;
+  --size-md: 14px;
+  --size-lg: 16px;
+  --size-xl: 18px;
   --rgb: 145, 74, 74;
-  --black: rgb(18, 18, 18);
-  --ltGrey: rgb(198, 198, 198);
-  --white: rgb(245, 245, 245);
-  --bg-primary: var(--black);
-  --text-primary: var(--ltGrey);
-  --text-secondary: var(--white);
-  --bg-image: url('../images/bg-tiger.jpg');
+  --bg-primary: rgb(18, 18, 18);
+  --bg-secondary: rgb(30, 30, 30);
+  --bg-tertiary: rgb(45, 45, 45);
+  --bg-quaternary: rgb(55, 55, 55);
+  --text-primary: rgb(198, 198, 198);
+  --text-secondary: rgb(245, 245, 245);
+  --border-primary: rgb(80, 80, 80);
+  --border-secondary: rgb(198, 198, 198);
+  --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_default_min.jpg);
   --bg-blend: hard-light;
-  --bg-opacity: 0.1; }
+  --bg-opacity: 0.1;
+  --bg-position: center;
+  --image-filter: contrast(1.5) brightness(0.6); }
 
-body.lgFont {
-  --size-xs: 11px;
-  --size-sm: 13px;
-  --size-md: 15px;
-  --size-lg: 17px;
-  --size-xl: 19px; }
-
-body.xlFont {
-  --size-xs: 13px;
-  --size-sm: 15px;
-  --size-md: 17px;
-  --size-lg: 19px;
-  --size-xl: 21px; }
-
-body.light {
-  --bg-accent: var(--accent-90);
-  --bg-accent-50: var(--accent-50);
-  --bg-primary: var(--offwhite);
-  --bg-secondary: var(--white);
-  --bg-tertiary: var(--grey-xlight);
-  --bg-quaternary: var(--grey-light);
-  --bg-transparent: var(--white-75);
-  --bg-transparent-low: var(--white-50);
-  --text-accent: var(--accent);
-  --text-primary: var(--grey-dark);
-  --text-secondary: var(--grey-xdark);
-  --border-primary: var(--grey-mlight); }
-  body.light[class*="g-"],
-  body.light [class*="g-"] {
-    --bg-accent: var(--accent-90); }
-
-body[class*="g-"],
-body [class*="g-"] {
-  --accent: rgb(var(--rgb));
-  --border-accent: var(--accent);
-  --bg-accent: var(--accent);
-  --text-accent: var(--accent); }
-
-body.g-1,
-body .g-1, body.g-2,
-body .g-2, body.g-3,
-body .g-3 {
-  --rgb: 145, 74, 74; }
-
-body.g-5,
-body .g-5 {
-  --rgb: 121, 121, 121; }
-
-body.g-4,
-body .g-4,
-body [data-group="staff"],
-body [data-group="Staff"],
-body [data-group="STAFF"] {
-  --rgb: 93, 125, 118; }
-
-body.g-6,
-body .g-6,
-body [data-group="writer"],
-body [data-group="Writer"],
-body [data-group="WRITER"] {
-  --rgb: 142, 84, 61; }
-
-body.g-7,
-body .g-7,
-body [data-group="tiger"],
-body [data-group="Tiger"],
-body [data-group="TIGER"] {
-  --rgb: 153, 117, 78; }
-
-body.g-8,
-body .g-8,
-body [data-group="wolf"],
-body [data-group="Wolf"],
-body [data-group="WOLF"] {
-  --rgb: 88, 92, 98; }
-
-body.g-9,
-body .g-9,
-body [data-group="rabbit"],
-body [data-group="Rabbit"],
-body [data-group="RABBIT"] {
-  --rgb: 189, 91, 132; }
-
-body.g-10,
-body .g-10,
-body [data-group="adder"],
-body [data-group="Adder"],
-body [data-group="ADDER"] {
-  --rgb: 87, 98, 64; }
-
-body.g-11,
-body .g-11,
-body [data-group="eagle"],
-body [data-group="Eagle"],
-body [data-group="EAGLE"] {
-  --rgb: 119, 157, 164; }
-
-body.g-12,
-body .g-12,
-body [data-group="otter"],
-body [data-group="Otter"],
-body [data-group="OTTER"] {
-  --rgb: 162, 147, 118; }
-
-body.g-13,
-body .g-13,
-body [data-group="crow"],
-body [data-group="Crow"],
-body [data-group="CROW"] {
-  --rgb: 95, 89, 117; }
-
-body.g-14,
-body .g-14,
-body [data-group="deer"],
-body [data-group="Deer"],
-body [data-group="DEER"] {
-  --rgb: 149, 155, 127; }
-
-body.g-15,
-body .g-15,
-body [data-group="unicorn"],
-body [data-group="Unicorn"],
-body [data-group="UNICORN"] {
-  --rgb: 168, 146, 159; }
-
-body.g-16,
-body .g-16,
-body [data-group="phoenix"],
-body [data-group="Phoenix"],
-body [data-group="PHOENIX"] {
-  --rgb: 189, 141, 79; }
-
-body.g-17,
-body .g-17,
-body [data-group="dragon"],
-body [data-group="Dragon"],
-body [data-group="DRAGON"] {
-  --rgb: 83, 34, 34; }
-
-body.g-18,
-body .g-18,
-body [data-group="selkie"],
-body [data-group="Selkie"],
-body [data-group="SELKIE"] {
-  --rgb: 34, 86, 96; }
+body {
+  transition-duration: 0.3s; }
+  body.lgFont {
+    --size-xs: 10px;
+    --size-sm: 12px;
+    --size-md: 14px;
+    --size-lg: 16px;
+    --size-xl: 18px; }
+  body.xlFont {
+    --size-xs: 12px;
+    --size-sm: 16px;
+    --size-md: 18px;
+    --size-lg: 20px;
+    --size-xl: 22px; }
+  body.light {
+    --bg-primary: rgb(210, 210, 210);
+    --bg-secondary: rgb(220, 220, 220);
+    --bg-tertiary: rgb(230, 230, 230);
+    --bg-quaternary: rgb(240, 240, 240);
+    --text-accent: var(--accent);
+    --text-primary: rgb(45, 45, 45);
+    --text-secondary: rgb(18, 18, 18);
+    --border-primary: rgb(198, 198, 198);
+    --border-secondary: rgb(210, 210, 210);
+    --image-filter: contrast(0.6) brightness(1.2); }
+    body.light[class*="g-"],
+    body.light [class*="g-"] {
+      --bg-accent: var(--accent-60);
+      --bg-accent-transparent: var(--accent-30); }
+  body[class*="g-"],
+  body [class*="g-"] {
+    --accent: rgb(var(--rgb));
+    --accent-60: rgba(var(--rgb), 0.6);
+    --accent-30: rgba(var(--rgb), 0.3);
+    --bg-accent: var(--accent);
+    --bg-accent-transparent: var(--accent-60);
+    --text-accent: var(--accent);
+    --text-on-accent: rgb(245, 245, 245);
+    --border-accent: var(--accent);
+    --border-accent-transparent: var(--accent-60); }
+  body.g-1,
+  body .g-1, body.g-2,
+  body .g-2, body.g-3,
+  body .g-3 {
+    --rgb: 145, 74, 74; }
+  body.g-5,
+  body .g-5 {
+    --rgb: 121, 121, 121;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_inactive_min.jpg);
+    --bg-opacity: 0.2; }
+  body.g-4,
+  body .g-4,
+  body [data-group="staff"],
+  body [data-group="Staff"],
+  body [data-group="STAFF"] {
+    --rgb: 93, 125, 118;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_staff_min.jpg); }
+  body.g-6,
+  body .g-6,
+  body [data-group="writer"],
+  body [data-group="Writer"],
+  body [data-group="WRITER"] {
+    --rgb: 142, 84, 61;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_writer_min.jpg); }
+  body.g-7,
+  body .g-7,
+  body [data-group="tiger"],
+  body [data-group="Tiger"],
+  body [data-group="TIGER"] {
+    --rgb: 153, 117, 78;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_tiger_min.jpg); }
+  body.g-8,
+  body .g-8,
+  body [data-group="wolf"],
+  body [data-group="Wolf"],
+  body [data-group="WOLF"] {
+    --rgb: 88, 92, 98;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_wolf_min.jpg); }
+  body.g-9,
+  body .g-9,
+  body [data-group="rabbit"],
+  body [data-group="Rabbit"],
+  body [data-group="RABBIT"] {
+    --rgb: 189, 91, 132;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_rabbit_min.jpg); }
+  body.g-10,
+  body .g-10,
+  body [data-group="adder"],
+  body [data-group="Adder"],
+  body [data-group="ADDER"] {
+    --rgb: 103, 117, 75;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_adder_min.jpg);
+    --bg-opacity: 0.15; }
+  body.g-11,
+  body .g-11,
+  body [data-group="eagle"],
+  body [data-group="Eagle"],
+  body [data-group="EAGLE"] {
+    --rgb: 119, 157, 164;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_eagle_min.jpg);
+    --bg-opacity: 0.2; }
+  body.g-12,
+  body .g-12,
+  body [data-group="otter"],
+  body [data-group="Otter"],
+  body [data-group="OTTER"] {
+    --rgb: 162, 147, 118;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_otter_min.jpg);
+    --bg-opacity: 0.15; }
+  body.g-13,
+  body .g-13,
+  body [data-group="crow"],
+  body [data-group="Crow"],
+  body [data-group="CROW"] {
+    --rgb: 95, 89, 117;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_crow_min.jpg); }
+  body.g-14,
+  body .g-14,
+  body [data-group="deer"],
+  body [data-group="Deer"],
+  body [data-group="DEER"] {
+    --rgb: 149, 155, 127;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_deer_min.jpg); }
+  body.g-15,
+  body .g-15,
+  body [data-group="unicorn"],
+  body [data-group="Unicorn"],
+  body [data-group="UNICORN"] {
+    --rgb: 168, 146, 159;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_unicorn_min.jpg);
+    --bg-opacity: 0.3; }
+  body.g-16,
+  body .g-16,
+  body [data-group="phoenix"],
+  body [data-group="Phoenix"],
+  body [data-group="PHOENIX"] {
+    --rgb: 189, 141, 79;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_phoenix_min.jpg);
+    --bg-opacity: 0.3; }
+  body.g-17,
+  body .g-17,
+  body [data-group="dragon"],
+  body [data-group="Dragon"],
+  body [data-group="DRAGON"] {
+    --rgb: 128, 43, 43;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_dragon_min.jpg);
+    --bg-opacity: 0.2; }
+  body.g-18,
+  body .g-18,
+  body [data-group="selkie"],
+  body [data-group="Selkie"],
+  body [data-group="SELKIE"] {
+    --rgb: 38, 104, 117;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_selkie_min.jpg);
+    --bg-opacity: 0.2; }

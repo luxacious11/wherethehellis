@@ -11,7 +11,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
 
@@ -27,7 +26,60 @@
 
 <!--Settings-->
 <script type='text/javascript' src='../../dist/js/settings.js'></script>
-<link rel="stylesheet" href="../../dist/css/settings.css" />   
+<link rel="stylesheet" href="../../dist/css/settings.css" />
+
+<script>
+    const localUCPLinks = `<div class="accordion--trigger" data-category="account"><b>Account</b></div>
+        <div class="accordion--content" data-category="account">
+            <a href="./user-edit.html">Edit Profile</a>
+            <a href="./user-avatar.html">Update Avatar</a>
+            <a href="./user-accounts.html">Sub-accounts</a>
+            <a href="./user-name.html">Edit Username</a>
+            <a href="./user-pass.html">Change Password</a>
+            <a href="./user-email.html">Update Email</a>
+        </div>
+        <div class="accordion--trigger" data-category="messages"><b>Messages</b></div>
+        <div class="accordion--content" data-category="messages">
+            <a href="./user-inbox.html">Inbox</a>
+            <a href="./user-sendmessage.html">Send Message</a>
+            <a href="./user-viewmessage.html">View Message</a>
+        </div>
+        <div class="accordion--trigger" data-category="tracking"><b>Tracking</b></div>
+        <div class="accordion--content" data-category="tracking">
+            <a href="./user-alerts.html">Alerts</a>
+            <a href="./user-forums.html">Forums</a>
+            <a href="./user-forum-none.html">Forums (None)</a>
+            <a href="./user-topics.html">Topics</a>
+            <a href="./user-topics-none.html">Topics (None)</a>
+        </div>
+        <div class="accordion--trigger" data-category="settings"><b>Settings</b></div>
+        <div class="accordion--content" data-category="settings">
+            <a href="./user-boardset.html">Board</a>
+            <a href="./user-alertset.html">Alerts</a>
+            <a href="./user-emailset.html">Emails</a>
+        </div>`;
+
+    const localStoreLinks = `<a href="./store.html" class="accordion--trigger" data-category="home">Home</a>
+        <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
+        <div class="accordion--content" data-category="shop">
+            <a href="./store-category.html">Category</a>
+        </div>
+        <div class="accordion--trigger" data-category="personal"><b>Personal</b></div>
+        <div class="accordion--content" data-category="personal">
+            <a href="./store-inventory.html">Inventory</a>
+            <a href="./store-sendmoney.html">Send Money</a>
+            <a href="./store-senditem.html">Send Item</a>
+            <a href="./store-useitem.html">Use Item</a>
+        </div>
+        <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
+        <div class="accordion--content staffOnly" data-category="staff">
+            <a href="./store-fine.html" class="staffOnly">Fine</a>
+            <a href="./store-editpoints.html" class="staffOnly">Edit Points</a>
+            <a href="./store-editpoints-screen2.html" class="staffOnly">Edit Points (pt2)</a>
+            <a href="./store-edititems.html" class="staffOnly">Edit Inventory</a>
+            <a href="./store-edititems-screen2.html" class="staffOnly">Edit Inventory (pt2)</a>
+        </div>`;
+</script>   
     </head>
     <body id="modcp" class="dark g-4 code-modlogs">
         <header class="header">
@@ -44,29 +96,98 @@
         <p>Est. (Month) 2024</p>
     </div>
 </header>
+
+<!-- Alerts -->
+<div id="recent-alerts" class="nav--alerts menu">
+    <div class="alert--box modal">
+        <div class="alert--inner">
+            <div class="alert--menu">
+                <a href="javascript:close_alerts();" class="close-alerts" title="close alerts"><i class="fa-solid fa-xmark"></i></a>
+                <a href="javascript:read_alerts();" title="mark as read"><i class="fa-solid fa-envelope-open"></i></a>
+                <a href="?act=UserCP&CODE=alerts" title="view all alerts"><i class="fa-solid fa-inbox"></i></a>
+            </div>
+            <div class="alert--content">
+                <div id="recent-alerts-data" class="alert--main scroll"><% ALERTS %></div>
+            </div>
+        </div>
+    </div>
+</div>
       <div class="noise fixed bg"></div>
+<div class="invisibleEl"></div>
 <nav class="nav--primary">
-    <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-    <a href="../../public/index.html" title="Index"><i class="fa-solid fa-home"></i></a>
-    <a href="../../public/webpage.html" title="Guidebook"><i class="fa-solid fa-books"></i></a>
-    <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
-    <a href="../../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
-    <a href="../../public/profile.html" title="View First Last" class="memOnly"><i class="fa-solid fa-user"></i></a>
-    <a href="../../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pen"></i></a>
-    <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
-    <a href="../../public/usercp/user-inbox.html" title="Messages (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
-    <a href="/" title="Alerts (1)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
-    <a href="../../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
-    <a href="../../public/store/store.html" title="Store" class="memOnly"><i class="fa-solid fa-store"></i></a>
-    <a href="/" title="Join Discord"><i class="fa-brand fa-discord"></i></a>
-    <a href="/" title="Admin CP" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
-    <button title="Skin Settings" onClick="toggleSettingsMenu(this)" class="button--menu">
-        <i class="fa-solid fa-gear"></i>
-    </button>
+    <div class="nav--primary-inner">
+        <button title="Open Menu" onClick="toggleMenu(this)" class="button--menu" data-menu=".nav--popout"><i class="fa-solid fa-bars"></i></button>
+        <a href="../../public/index.html" title="Index" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="../../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <div class="nav--inline guestOnly">
+            <button onclick="toggleMenu(this)" class="button--menu" data-menu=".nav--login"><i class="fa-solid fa-sign-in"></i></button>
+            <div id="quick-login-clip" class="nav--login menu">
+                <div id="quick-login" class="hidden">
+                    <form style="display:inline" action="https://wherethehellis.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+                    <div align="right"><strong>Quick Log In</strong>
+                    <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
+                    <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
+                    <input type="submit" class="forminput" value="Go">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="../../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+        <a href="../../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="../../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pen"></i></a>
+        <button title="Switch Accounts" onClick="toggleMenu(this)" class="button--menu memOnly" data-menu=".nav--switcher"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <a href="../../public/usercp/user-inbox.html" title="Messages (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
+        <button title="Alerts (1)" onClick="toggleMenu(this)" data-new="1" class="button--menu memOnly" data-menu=".nav--alerts"><i class="fa-solid fa-bell"></i></button>
+        <a href="../../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="../../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="/" title="Join Discord"><i class="fa-brand fa-discord"></i></a>
+        <a href="/" title="Admin CP" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <div class="nav--inline">
+            <button title="Skin Settings" onClick="toggleMenu(this)" class="button--menu" data-menu=".nav--options">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+            <div class="nav--options menu">
+                <button onclick="toggleTheme()" class="toggle--theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <div><span></span></div>
+                </button>
+                <button onclick="toggleSize()" class="toggle--size">
+                    <i class="fa-solid fa-font-case"></i>
+                    <div><span></span></div>
+                </button>
+            </div>
+        </div>
+    </div>
 </nav>
-<div id="navstrip" align="left">&nbsp;<a href="../../public/index.html">Site Name</a></div>
+<nav class="nav--popout menu">
+    <div class="scroll">
+        <a href="../../public/profile.html" class="onlyMobile">View First Last</a>
+        <a href="../../public/webpage.html" class="onlyMobile">Guidebook</a>
+        <a href="../../public/businesses.html">Business Directory</a>
+        <a href="../../public/connections.html">Connection Planner</a>
+        <a href="../../public/store/store.html" class="onlyMobile">Store</a>
+        <tag-code>
+            <button onclick="highlightCode()" class="copyQuick">copy</button>
+            <pre><textarea class="scroll"><tag-wrap>test code</tag-wrap></textarea></pre>
+        </tag-code>
+    </div>
+</nav>
+<div id="account-switch" class="nav--switcher menu"><div class="scroll">
+    <span id='subaccounts_menu'>
+        <form action='https://totl.jcink.net/index.php?&act=Login&CODE=01&CookieDate=1' name='subswitch' method='POST'>
+        <input type='hidden' name='auth_key' value='3cd898e29b3d65656e340aabb9b6bf66'>
+        <input type='hidden' name='UserName' value='subacct'>
+        <input type='hidden' name='PassWord' value='subacct'>
+        <input type='hidden' name='referer' value='showuser=309' />
+        <select class='forminput' name='sub_id' onchange='this.form.submit()'>
+        <option value='------------' selected='selected'>Switch Account</option>
+        <option value='157'>&nbsp;&nbsp;&raquo; adaline fawley </option><option value='669'>&nbsp;&nbsp;&raquo; archer reid </option><option value='1147'>&nbsp;&nbsp;&raquo; avery hayes </option><option value='670'>&nbsp;&nbsp;&raquo; bryn williams </option><option value='1146'>&nbsp;&nbsp;&raquo; cameron towner </option><option value='57'>&nbsp;&nbsp;&raquo; connor king </option><option value='395'>&nbsp;&nbsp;&raquo; darcy de león </option><option value='906'>&nbsp;&nbsp;&raquo; diana crawford </option><option value='1578'>&nbsp;&nbsp;&raquo; diego serrano alvarez </option><option value='408'>&nbsp;&nbsp;&raquo; draco malfoy </option><option value='58'>&nbsp;&nbsp;&raquo; duncan taggart </option><option value='705'>&nbsp;&nbsp;&raquo; ellis hill </option><option value='273'>&nbsp;&nbsp;&raquo; emmalina fawley </option><option value='1577'>&nbsp;&nbsp;&raquo; everest wilkes </option><option value='901'>&nbsp;&nbsp;&raquo; gavin dunbar </option><option value='750'>&nbsp;&nbsp;&raquo; heiko reynders </option><option value='1088'>&nbsp;&nbsp;&raquo; hiroki becker </option><option value='1145'>&nbsp;&nbsp;&raquo; irina saidova </option><option value='315'>&nbsp;&nbsp;&raquo; lottie fox </option><option value='56'>&nbsp;&nbsp;&raquo; magnolia atwood </option><option value='1089'>&nbsp;&nbsp;&raquo; marica kovac </option><option value='112'>&nbsp;&nbsp;&raquo; milo nott </option><option value='314'>&nbsp;&nbsp;&raquo; noah clark </option><option value='482'>&nbsp;&nbsp;&raquo; percy weasley </option><option value='994'>&nbsp;&nbsp;&raquo; rebecca warrington </option><option value='309'>&nbsp;&nbsp;&raquo; salazar slytherin (P)</option><option value='60'>&nbsp;&nbsp;&raquo; tobias fletcher </option><option value='1148'>&nbsp;&nbsp;&raquo; william talbot </option>
+        </select>
+        </form>
+    </span>
+</div></div>
+<div class="nav--breadcrumb"><div id="navstrip" align="left">&nbsp;<a href="../../public/index.html">Site Name</a></div></div>
 
         <!--Main Body-->
         <main>				

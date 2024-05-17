@@ -1,23 +1,76 @@
 <div class="noise fixed bg"></div>
+<div class="invisibleEl"></div>
 <nav class="nav--primary">
-    <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-    <a href="@@prefix/public/index.html" title="Index"><i class="fa-solid fa-home"></i></a>
-    <a href="@@prefix/public/webpage.html" title="Guidebook"><i class="fa-solid fa-books"></i></a>
-    <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
-    <a href="@@prefix/public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
-    <a href="@@prefix/public/profile.html" title="View First Last" class="memOnly"><i class="fa-solid fa-user"></i></a>
-    <a href="@@prefix/public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pen"></i></a>
-    <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
-    <a href="@@prefix/public/usercp/user-inbox.html" title="Messages (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
-    <a href="/" title="Alerts (1)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
-    <a href="@@prefix/public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
-    <a href="@@prefix/public/store/store.html" title="Store" class="memOnly"><i class="fa-solid fa-store"></i></a>
-    <a href="/" title="Join Discord"><i class="fa-brand fa-discord"></i></a>
-    <a href="/" title="Admin CP" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
-    <button title="Skin Settings" onClick="toggleSettingsMenu(this)" class="button--menu">
-        <i class="fa-solid fa-gear"></i>
-    </button>
+    <div class="nav--primary-inner">
+        <button title="Open Menu" onClick="toggleMenu(this)" class="button--menu" data-menu=".nav--popout"><i class="fa-solid fa-bars"></i></button>
+        <a href="@@prefix/public/index.html" title="Index" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="@@prefix/public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <div class="nav--inline guestOnly">
+            <button onclick="toggleMenu(this)" class="button--menu" data-menu=".nav--login"><i class="fa-solid fa-sign-in"></i></button>
+            <div id="quick-login-clip" class="nav--login menu">
+                <div id="quick-login" class="hidden">
+                    <form style="display:inline" action="https://wherethehellis.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+                    <div align="right"><strong>Quick Log In</strong>
+                    <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
+                    <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
+                    <input type="submit" class="forminput" value="Go">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="@@prefix/public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+        <a href="@@prefix/public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="@@prefix/public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pen"></i></a>
+        <button title="Switch Accounts" onClick="toggleMenu(this)" class="button--menu memOnly" data-menu=".nav--switcher"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <a href="@@prefix/public/usercp/user-inbox.html" title="Messages (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
+        <button title="Alerts (1)" onClick="toggleMenu(this)" data-new="1" class="button--menu memOnly" data-menu=".nav--alerts"><i class="fa-solid fa-bell"></i></button>
+        <a href="@@prefix/public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="@@prefix/public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="/" title="Join Discord"><i class="fa-brand fa-discord"></i></a>
+        <a href="/" title="Admin CP" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <div class="nav--inline">
+            <button title="Skin Settings" onClick="toggleMenu(this)" class="button--menu" data-menu=".nav--options">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+            <div class="nav--options menu">
+                <button onclick="toggleTheme()" class="toggle--theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <div><span></span></div>
+                </button>
+                <button onclick="toggleSize()" class="toggle--size">
+                    <i class="fa-solid fa-font-case"></i>
+                    <div><span></span></div>
+                </button>
+            </div>
+        </div>
+    </div>
 </nav>
-<div id="navstrip" align="left">&nbsp;<a href="@@prefix/public/index.html">Site Name</a></div>
+<nav class="nav--popout menu">
+    <div class="scroll">
+        <a href="@@prefix/public/profile.html" class="onlyMobile">View First Last</a>
+        <a href="@@prefix/public/webpage.html" class="onlyMobile">Guidebook</a>
+        <a href="@@prefix/public/businesses.html">Business Directory</a>
+        <a href="@@prefix/public/connections.html">Connection Planner</a>
+        <a href="@@prefix/public/store/store.html" class="onlyMobile">Store</a>
+        <tag-code>
+            <button onclick="highlightCode()" class="copyQuick">copy</button>
+            <pre><textarea class="scroll"><tag-wrap>test code</tag-wrap></textarea></pre>
+        </tag-code>
+    </div>
+</nav>
+<div id="account-switch" class="nav--switcher menu"><div class="scroll">
+    <span id='subaccounts_menu'>
+        <form action='https://totl.jcink.net/index.php?&act=Login&CODE=01&CookieDate=1' name='subswitch' method='POST'>
+        <input type='hidden' name='auth_key' value='3cd898e29b3d65656e340aabb9b6bf66'>
+        <input type='hidden' name='UserName' value='subacct'>
+        <input type='hidden' name='PassWord' value='subacct'>
+        <input type='hidden' name='referer' value='showuser=309' />
+        <select class='forminput' name='sub_id' onchange='this.form.submit()'>
+        <option value='------------' selected='selected'>Switch Account</option>
+        <option value='157'>&nbsp;&nbsp;&raquo; adaline fawley </option><option value='669'>&nbsp;&nbsp;&raquo; archer reid </option><option value='1147'>&nbsp;&nbsp;&raquo; avery hayes </option><option value='670'>&nbsp;&nbsp;&raquo; bryn williams </option><option value='1146'>&nbsp;&nbsp;&raquo; cameron towner </option><option value='57'>&nbsp;&nbsp;&raquo; connor king </option><option value='395'>&nbsp;&nbsp;&raquo; darcy de león </option><option value='906'>&nbsp;&nbsp;&raquo; diana crawford </option><option value='1578'>&nbsp;&nbsp;&raquo; diego serrano alvarez </option><option value='408'>&nbsp;&nbsp;&raquo; draco malfoy </option><option value='58'>&nbsp;&nbsp;&raquo; duncan taggart </option><option value='705'>&nbsp;&nbsp;&raquo; ellis hill </option><option value='273'>&nbsp;&nbsp;&raquo; emmalina fawley </option><option value='1577'>&nbsp;&nbsp;&raquo; everest wilkes </option><option value='901'>&nbsp;&nbsp;&raquo; gavin dunbar </option><option value='750'>&nbsp;&nbsp;&raquo; heiko reynders </option><option value='1088'>&nbsp;&nbsp;&raquo; hiroki becker </option><option value='1145'>&nbsp;&nbsp;&raquo; irina saidova </option><option value='315'>&nbsp;&nbsp;&raquo; lottie fox </option><option value='56'>&nbsp;&nbsp;&raquo; magnolia atwood </option><option value='1089'>&nbsp;&nbsp;&raquo; marica kovac </option><option value='112'>&nbsp;&nbsp;&raquo; milo nott </option><option value='314'>&nbsp;&nbsp;&raquo; noah clark </option><option value='482'>&nbsp;&nbsp;&raquo; percy weasley </option><option value='994'>&nbsp;&nbsp;&raquo; rebecca warrington </option><option value='309'>&nbsp;&nbsp;&raquo; salazar slytherin (P)</option><option value='60'>&nbsp;&nbsp;&raquo; tobias fletcher </option><option value='1148'>&nbsp;&nbsp;&raquo; william talbot </option>
+        </select>
+        </form>
+    </span>
+</div></div>
+<div class="nav--breadcrumb"><div id="navstrip" align="left">&nbsp;<a href="@@prefix/public/index.html">Site Name</a></div></div>

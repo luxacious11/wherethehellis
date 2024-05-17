@@ -1,3 +1,5 @@
 **/.DS_Store
 **/node_modules/*
+dist/js/appReference.js
+source/js/appReference.js
 package-lock.json

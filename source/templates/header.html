@@ -12,3 +12,19 @@
         <p>Est. (Month) 2024</p>
     </div>
 </header>
+
+<!-- Alerts -->
+<div id="recent-alerts" class="nav--alerts menu">
+    <div class="alert--box modal">
+        <div class="alert--inner">
+            <div class="alert--menu">
+                <a href="javascript:close_alerts();" class="close-alerts" title="close alerts"><i class="fa-solid fa-xmark"></i></a>
+                <a href="javascript:read_alerts();" title="mark as read"><i class="fa-solid fa-envelope-open"></i></a>
+                <a href="?act=UserCP&CODE=alerts" title="view all alerts"><i class="fa-solid fa-inbox"></i></a>
+            </div>
+            <div class="alert--content">
+                <div id="recent-alerts-data" class="alert--main scroll"><% ALERTS %></div>
+            </div>
+        </div>
+    </div>
+</div>
