@@ -275,6 +275,12 @@
     .nav--breadcrumb a:first-of-type {
       color: var(--text-secondary); }
 
+.button--menu:not(.is-open) i.fa-xmark {
+  display: none; }
+
+.button--menu.is-open i:not(.fa-xmark) {
+  display: none; }
+
 .switch {
   display: grid;
   gap: 15px; }

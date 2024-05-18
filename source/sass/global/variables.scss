@@ -18,6 +18,7 @@
     --bg-secondary: rgb(30, 30, 30);
     --bg-tertiary: rgb(45, 45, 45);
     --bg-quaternary: rgb(55, 55, 55);
+    --bg-overlay: rgba(18, 18, 18, 0.5);
 
     --text-primary: rgb(198, 198, 198);
     --text-secondary: rgb(245, 245, 245);
@@ -54,6 +55,7 @@ body {
         --bg-secondary: rgb(220, 220, 220);
         --bg-tertiary: rgb(230, 230, 230);
         --bg-quaternary: rgb(240, 240, 240);
+        --bg-overlay: rgba(210, 210, 210, 0.5);
     
         --text-accent: var(--accent);
         --text-primary: rgb(45, 45, 45);

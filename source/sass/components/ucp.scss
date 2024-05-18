@@ -12,12 +12,13 @@
     }
 
     main {
-        margin-top: 85px;
-        padding: 30px 20px 0 75px;
+        margin: 85px 0 0;
+        padding: 0;
         max-width: none;
 
         @include mq-up(sm) {
-            margin-top: 30px;
+            margin: 30px auto 0;
+            padding: 30px 20px 0 75px;
         }
 
         & > table:first-of-type {
@@ -32,8 +33,11 @@
 
                 & > tr {
                     display: grid;
-                    grid-template-columns: 180px auto;
                     gap: 30px;
+
+                    @include mq-up(sm) {
+                        grid-template-columns: 180px auto;
+                    }
 
                     @include mq-up(md) {
                         grid-template-columns: 250px auto;
@@ -41,6 +45,51 @@
                     
                     & > td {
                         &#ucpmenu {
+                            @include mq-down(sm) {
+                                position: fixed;
+                                top: 85px;
+                                left: 0;
+                                width: 100%;
+                                z-index: 7;
+                                height: 50px;
+                                background: var(--bg-secondary);
+                                padding: 10px;
+
+                                button {
+                                    border: 0;
+                                    background: var(--bg-accent);
+                                    width: 30px;
+                                    height: 30px;
+                                    border-radius: 2px;
+                                    color: var(--text-on-accent);
+                                    cursor: pointer;
+                                }
+
+                                &:not(.is-open) {
+                                    .accordion {
+                                        display: none;
+                                    }
+                                    .fa-xmark {
+                                        display: none;
+                                    }
+                                }
+                                &.is-open {
+                                    .fa-ellipsis-h {
+                                        display: none;
+                                    }
+                                }
+
+                                .accordion {
+                                    position: fixed !important;
+                                    top: 135px !important;
+                                    height: calc(100vh - 110px);
+                                    background: var(--bg-tertiary);
+                                    left: 0;
+                                    width: 100%;
+                                    padding: 30px 20px;
+                                }
+                            }
+
                             .accordion {
                                 position: sticky;
                                 top: 60px;
@@ -97,6 +146,10 @@
                             display: none;
                         }
                         &#ucpcontent {
+                            @include mq-down(sm) {
+                                padding: 70px 20px 20px;
+                            }
+
                             input[type="text"],
                             input[type="file"],
                             input[type="password"],

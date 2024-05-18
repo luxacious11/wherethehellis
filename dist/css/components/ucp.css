@@ -7,13 +7,14 @@
 
 #UserCP main,
 #Msg main {
-  margin-top: 85px;
-  padding: 30px 20px 0 75px;
+  margin: 85px 0 0;
+  padding: 0;
   max-width: none; }
   @media (min-width: 769px) {
     #UserCP main,
     #Msg main {
-      margin-top: 30px; } }
+      margin: 30px auto 0;
+      padding: 30px 20px 0 75px; } }
   #UserCP main > table:first-of-type,
   #Msg main > table:first-of-type {
     display: block; }
@@ -26,12 +27,53 @@
       #UserCP main > table:first-of-type > tbody > tr,
       #Msg main > table:first-of-type > tbody > tr {
         display: grid;
-        grid-template-columns: 180px auto;
         gap: 30px; }
+        @media (min-width: 769px) {
+          #UserCP main > table:first-of-type > tbody > tr,
+          #Msg main > table:first-of-type > tbody > tr {
+            grid-template-columns: 180px auto; } }
         @media (min-width: 1025px) {
           #UserCP main > table:first-of-type > tbody > tr,
           #Msg main > table:first-of-type > tbody > tr {
             grid-template-columns: 250px auto; } }
+        @media (max-width: 768px) {
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu {
+            position: fixed;
+            top: 85px;
+            left: 0;
+            width: 100%;
+            z-index: 7;
+            height: 50px;
+            background: var(--bg-secondary);
+            padding: 10px; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu button,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu button {
+              border: 0;
+              background: var(--bg-accent);
+              width: 30px;
+              height: 30px;
+              border-radius: 2px;
+              color: var(--text-on-accent);
+              cursor: pointer; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu:not(.is-open) .accordion,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu:not(.is-open) .accordion {
+              display: none; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu:not(.is-open) .fa-xmark,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu:not(.is-open) .fa-xmark {
+              display: none; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu.is-open .fa-ellipsis-h,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu.is-open .fa-ellipsis-h {
+              display: none; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion {
+              position: fixed !important;
+              top: 135px !important;
+              height: calc(100vh - 110px);
+              background: var(--bg-tertiary);
+              left: 0;
+              width: 100%;
+              padding: 30px 20px; } }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion,
         #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion {
           position: sticky;
@@ -81,6 +123,10 @@
         #UserCP main > table:first-of-type > tbody > tr > td:nth-child(2),
         #Msg main > table:first-of-type > tbody > tr > td:nth-child(2) {
           display: none; }
+        @media (max-width: 768px) {
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent {
+            padding: 70px 20px 20px; } }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"],
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"],
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"],

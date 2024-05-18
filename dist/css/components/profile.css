@@ -266,6 +266,9 @@
       font-weight: 400;
       line-height: 130%;
       text-align: left; }
+    .profile--scale-item.None {
+      filter: grayscale(1);
+      opacity: 0.5; }
     .profile--scale-item.Very.Low .profile--scale span {
       left: 1.5px; }
     .profile--scale-item.Low .profile--scale span {
@@ -472,13 +475,3 @@
         font-weight: 500;
         font-style: italic;
         align-self: start; }
-
-tag-tabset {
-  display: flex;
-  height: 100%;
-  overflow: hidden;
-  flex-direction: row-reverse; }
-  tag-tabset > tag-tab {
-    flex: 0 0 100%;
-    right: 0;
-    transition-duration: 0.75s; }

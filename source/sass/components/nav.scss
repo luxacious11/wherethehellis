@@ -361,6 +361,19 @@
     }
 }
 
+.button--menu {
+    &:not(.is-open) {
+        i.fa-xmark {
+            display: none;
+        }
+    }
+    &.is-open {
+        i:not(.fa-xmark) {
+            display: none;
+        }
+    }
+}
+
 .switch {
     display: grid;
     gap: 15px;

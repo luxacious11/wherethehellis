@@ -2292,6 +2292,38 @@ img {
   .ucp--description tag-shipsubtitle:not(:first-child) {
     margin-top: 10px; }
 
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--bg-overlay);
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--text-secondary); }
+  #loading i {
+    color: var(--text-accent); }
+
+tag-tabset {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  flex-direction: row-reverse; }
+  tag-tabset > tag-tab {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    right: 0;
+    transition-duration: 0.75s; }
+
 ul {
   margin: 20px 0;
   padding-left: 10px; }
@@ -2321,6 +2353,11 @@ textarea {
   line-height: 160%;
   font-size: var(--size-md);
   border-radius: 2px; }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--border-accent); }
 
 .scroll {
   overflow-x: hidden;

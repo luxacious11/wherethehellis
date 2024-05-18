@@ -17,9 +17,281 @@
         <main>
             <a name="top"></a>
 		
-            
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+
             <!--Webpage-->
-            <section class="webpage"></section>
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <button class="onlyMobile" onClick="toggleWebpageMenu(this)">
+                        <i class="fa-solid fa-ellipsis-h"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <tag-labels class="accordion scroll">
+                        <tag-label data-category="info" class="tab-category accordion--trigger">
+                            <span>Required Reading</span>
+                        </tag-label>
+                        <div data-category="info" class="tab-category accordion--content">
+                            <a href="#etiquette">Etiquette</a>
+                            <a href="#premise">Premise</a>
+                            <a href="#setting">Setting</a>
+                            <a href="#groups">Member Groups</a>
+                            <a href="#credits">Credits</a>
+                        </div>
+                        <tag-label data-category="plots" class="tab-category accordion--trigger">
+                            <span>Subplots</span>
+                        </tag-label>
+                        <div data-category="plots" class="tab-category accordion--content"></div>
+                        <tag-label data-category="guides" class="tab-category accordion--trigger">
+                            <span>Guides</span>
+                        </tag-label>
+                        <div data-category="guides" class="tab-category accordion--content">
+                            <a href="#start">Getting Started</a>
+                            <a href="./businesses.html" class="external">Businesses</a>
+                            <a href="./connections.html#neighborhoods" class="external">Neighborhoods</a>
+                            <a href="#restricted-faces">Restricted Faces</a>
+                        </div>
+                        <tag-label data-category="registration" class="tab-category accordion--trigger">
+                            <span>Registration</span>
+                        </tag-label>
+                        <div data-category="registration" class="tab-category accordion--content">
+                            <a href="#reserve-face">Reserve a Face</a>
+                            <a href="#reserve-role">Reserve a Subplot Role</a>
+                            <a href="#add-business">Register a Business</a>
+                            <a href="#sort">Get Sorted</a>
+                            <a href="./connections.html#add-address" class="external">Register an Address</a>
+                            <a href="./connections.html#add-connection" class="external">Add Connections</a>
+                        </div>
+                        <tag-label data-category="claims" class="tab-category accordion--trigger">
+                            <span>Claims</span>
+                        </tag-label>
+                        <div data-category="claims" class="tab-category accordion--content">
+                            <a href="#face-reserves">Face Reserves</a>
+                            <a href="#plot-reserves">Subplot Role Reserves</a>
+                            <a href="./memberDirectory.html" class="external">Members</a>
+                            <a href="#faces">Faces</a>
+                            <a href="./businesses.html" class="external">Jobs</a>
+                            <a href="./connections.html" class="external">Connections</a>
+                        </div>
+                        <tag-label data-category="moderation" class="tab-category accordion--trigger">
+                            <span>Moderation</span>
+                        </tag-label>
+                        <div data-category="moderation" class="tab-category accordion--content">
+                            <a href="#edit-member">Edit Member Claims</a>
+                            <a href="#edit-claims">Edit Character Claims</a>
+                            <a href="#edit-business">Edit a Business</a>
+                            <a href="#request-help">Request Staff Help</a>
+                        </div>
+                        <tag-label data-category="staff" class="tab-category accordion--trigger staffOnly">
+                            <span>Staff Only</span>
+                        </tag-label>
+                        <div data-category="staff" class="tab-category accordion--content staffOnly">
+                            <a href="#approve-character">Approve Character</a>
+                            <a href="#add-plot">Add Plot</a>
+                        </div>
+                    </tag-labels>
+                </div>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="info">
+                        <tag-tabset>
+                            <tag-tab data-key="#etiquette">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    Rules
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#premise">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    premise
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#setting">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    setting
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#groups">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    groups
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#credits">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    credits
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="plots">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="guides">
+                        <tag-tabset>
+                            <tag-tab data-key="#start">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    start guide
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#restricted-faces">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    restricted faces
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="registration">
+                        <tag-tabset>
+                            <tag-tab data-key="#reserve-face">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    @@include('../source/templates/forms/reserve-face.html')
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#reserve-role">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    reserve a role
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#add-business">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    add business
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#sort">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    sort form
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="claims">
+                        <tag-tabset>
+                            <tag-tab data-key="#face-reserves">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    face reserves
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#plot-reserves">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    plot reserves
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#faces">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    faces
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="moderation">
+                        <tag-tabset>
+                            <tag-tab data-key="#edit-member">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    edit member
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#edit-claims">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    edit claims
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#edit-business">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    edit business
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#request-help">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    request help
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category staffOnly" data-category="staff">
+                        <tag-tabset>
+                            <tag-tab data-key="#approve-character">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    Approve Character
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#add-plot">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    Add Plot
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+            </section>
+            <script>
+                const sheetID = '1buBqX-7xF2PTnk4KPGZkJplEGdsKv0vzT6n3kMhwvaY';
+                const deployID = 'AKfycbwIJm8O49PGWgdZ4fU8E-WhjaCoqj-nvXU9h7x6n7v82jlOX96TStYBdbY6g0nNJbx46w';
+
+                const reserveLogs = `1241133077795704872/_AQMeJpMJJIgUXZ_RnfamVdNW19egMkSKrVMl9MmCmZv5UsHpmagJQDIutLmLdNld_Jm`;
+                const claimLogs = `1241133855059218544/z6I5PWzpY0ZqklX3wjBY9fOo-_-vh3nAKe5Kxf1SkDhz70-4pS0aMTp-RF_-Zo12bG7L`;
+                const businessLogs = `1241133925640831006/oc1QdrqDYKhBtTMI9kfQ-3eT0jm1mYsERjTXMkC_B19podkxk-vl2WtjhIfEnxji7Gcb`;
+                const modLogs = `1241133990518460436/Y3nr7TlizQqWWPtO2C_4LDR9Yw6acDpCLyGwzQSRdUkw34CnoLaov-XsXNDVHOlWDzrf`;
+                const sort = `1241133648426700930/hdNYP_cEJ0980RDrZLNGSAZZUlevGJF8v3WubBE9bnRd691ge7dgoNiBUwbbqdLmZjkT`;
+                const announce = `1241133773786058893/FNIz3HbifQL-CycJnK2EQ4n_Lmnmh8-xAU-JoXjmoZeufYZ3aG8Ol53Sbr9AmMIdwvKt`;
+
+                const faceReserves = `https://opensheet.elk.sh/${sheetID}/FaceReserves`;
+                const subplotReserves = `https://opensheet.elk.sh/${sheetID}/PlotReserves`;
+                const claims = `https://opensheet.elk.sh/${sheetID}/Claims`;
+                const plots = `https://opensheet.elk.sh/${sheetID}/Plots`;
+                const businesses = `https://opensheet.elk.sh/${sheetID}/Businesses`;
+
+                let businessList = ``;
+            </script>
+            <script src="../dist/js/webpageFunctions.js"></script>
+            <script src="../dist/js/formatFunctions.js"></script>
+            <script src="../dist/js/claims.js"></script>
+            <script src="../dist/js/webpageScripts.js"></script>
+            <script src="../dist/js/forms.js"></script>
+            <script>
+                fetch(claims)
+                .then((response) => response.json())
+                .then((claimsData) => {
+                    //console.log('claims');
+                    //console.log(claimsData);
+                    
+                    fetch(faceReserves)
+                    .then((response) => response.json())
+                    .then((reservesData) => {
+                        //console.log('face reserves');
+                        //console.log(reservesData);
+
+                        fetch(subplotReserves)
+                        .then((response) => response.json())
+                        .then((subplotReservesData) => {
+                            //console.log('plot reserves');
+                            //console.log(subplotReservesData);
+
+                            fetch(plots)
+                            .then((response) => response.json())
+                            .then((subplotData) => {
+                                formatSubplots(subplotData, claimsData);
+
+                                fetch(businesses)
+                                .then((response) => response.json())
+                                .then((businessData) => {
+                                    //console.log('businesses');
+                                    //console.log(businessData);
+                                    
+                                }).then(() => {
+                                    initWebpages();
+                                });
+                                
+                            });
+                            
+                        });
+
+                    });
+
+                });
+            </script>
 
             <!-- Copyright Information -->
             <div class="tableborder" align="center">

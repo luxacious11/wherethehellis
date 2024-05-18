@@ -353,6 +353,11 @@
             text-align: left;
         }
 
+        &.None {
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+
         &.Very.Low {
             .profile--scale span {
                 left: 1.5px;
@@ -651,19 +656,5 @@
                 align-self: start;
             }
         }
-    }
-}
-
-
-tag-tabset {
-    display: flex;
-    height: 100%;
-    overflow: hidden;
-    flex-direction: row-reverse;
-
-    & > tag-tab {
-        flex: 0 0 100%;
-        right: 0;
-        transition-duration: 0.75s;
     }
 }

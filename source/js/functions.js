@@ -116,42 +116,6 @@ function appendSearchQuery(param, value) {
 	url.searchParams.set(param, value);
 	window.history.replaceState(null, null, url);
 }
-function initClipboard() {
-    let clipboard = new Clipboard('.clipboard');
-    clipboard.on('success', function(e) {
-        console.log('clipboard success: ' + e);
-    });
-    clipboard.on('error', function(e) {
-        console.log('clipboard error: ' + e);
-    });
-    let clipcode = new Clipboard('.codeclick', {
-        target: function(trigger) {
-        return trigger.nextElementSibling;
-        }
-    });
-}
-function initCodebox() {
-    $("table[id='CODE-WRAP']").each(function() {
-        var cc = $(this).find("td[id='CODE']").html();
-
-        $(this).html(
-            "<div class='codeblock code--wrapper'><div class='c-title codeclick'>Click to Copy</div><div class='codecon'><pre><code class='scroll'>"
-            + cc +
-            "</code></pre></div></div>"
-        );
-    });
-}
-function initCopyLink() {
-    let clippedURL = new Clipboard('.post--permalink');
-    document.querySelectorAll('.post--permalink').forEach(link => {
-        link.addEventListener('click', e => {
-            e.currentTarget.querySelector('.note').style.opacity = 1;
-            setTimeout(() => {
-                document.querySelectorAll('.note').forEach(note => note.style.opacity = 0);
-            }, 3000);
-        });
-    });
-}
 function translationSwitch(e) {
         let current = e.innerText;
         let original = e.dataset.original;
@@ -339,6 +303,42 @@ function toggleMenu(e) {
 }
 
 /****** Global Initialization ******/
+function initClipboard() {
+    let clipboard = new Clipboard('.clipboard');
+    clipboard.on('success', function(e) {
+        console.log('clipboard success: ' + e);
+    });
+    clipboard.on('error', function(e) {
+        console.log('clipboard error: ' + e);
+    });
+    let clipcode = new Clipboard('.codeclick', {
+        target: function(trigger) {
+        return trigger.nextElementSibling;
+        }
+    });
+}
+function initCodebox() {
+    $("table[id='CODE-WRAP']").each(function() {
+        var cc = $(this).find("td[id='CODE']").html();
+
+        $(this).html(
+            "<div class='codeblock code--wrapper'><div class='c-title codeclick'>Click to Copy</div><div class='codecon'><pre><code class='scroll'>"
+            + cc +
+            "</code></pre></div></div>"
+        );
+    });
+}
+function initCopyLink() {
+    let clippedURL = new Clipboard('.post--permalink');
+    document.querySelectorAll('.post--permalink').forEach(link => {
+        link.addEventListener('click', e => {
+            e.currentTarget.querySelector('.note').style.opacity = 1;
+            setTimeout(() => {
+                document.querySelectorAll('.note').forEach(note => note.style.opacity = 0);
+            }, 3000);
+        });
+    });
+}
 function initQuickLogin() {
     if($('#quick-login').length) {
         $('#quick-login').appendTo('#quick-login-clip');
@@ -434,6 +434,136 @@ function initMarkdown() {
             spoiler.addEventListener('click', e => {e.currentTarget.classList.add('is-visible')});
         });
     }
+}
+
+/****** Special Function Initialization ******/
+function initTabs(isHash = false, wrapClass, menuClass, tabWrapClass, activeClass = 'is-active', categoryClass = null, firstClasses = []) {
+    if(isHash) {
+        window.addEventListener('hashchange', function(e){
+            initHashTabs(wrapClass, menuClass, tabWrapClass, activeClass, categoryClass);
+        });
+
+        //hash linking
+        if (window.location.hash){
+            initHashTabs(wrapClass, menuClass, tabWrapClass, activeClass, categoryClass);
+        } else {
+            initFirstHashTab(firstClasses, activeClass);
+        }
+    } else {
+        initRegularTabs(menuClass);
+    }
+}
+function initRegularTabs(menuClass) {
+    let labels = document.querySelectorAll(`${menuClass} > tag-label`);
+    labels.forEach(label => {
+        label.addEventListener('click', e => {
+            let selected = e.currentTarget;
+            let tab = document.querySelector(`tag-tab[data-key="${selected.dataset.key}"]`);
+            let tabSiblings = Array.from(tab.parentNode.children);
+            let tabIndex = tabSiblings.indexOf.call(tabSiblings, tab);
+            
+            labels.forEach(label => label.classList.remove('is-active'));
+            tabSiblings.forEach(tab => tab.classList.remove('is-active'));
+            
+            selected.classList.add('is-active');
+            tab.classList.add('is-active');
+            tabSiblings.forEach(sibling => sibling.style.left = `${-100 * tabIndex}%`);
+        });
+    });
+}
+function initHashTabs(wrapClass, menuClass, tabWrapClass, activeClass, categoryClass = null) {
+    //set variables for categories
+    let selectedCategory, hashMain, hashCategory, hashCategoryArray, categorySiblings = [], categoryIndex, hashTab;
+
+    //get hash and set basic variables
+    let hash = $.trim( window.location.hash );
+    let selected = document.querySelector(`${menuClass} a[href="${hash}"]`);
+    let hashContent = document.querySelector(`tag-tab[data-key="${hash}"]`);
+    let unsetDefault = Array.from(selected.parentNode.children);
+    let tabSiblings = Array.from(hashContent.parentNode.children);
+    let tabIndex = tabSiblings.indexOf.call(tabSiblings, hashContent);
+
+    //set category variables document.querySelector(`.webpage--menu a[href="#tab2-2"]`).closest('.tab-category').getAttribute('data-category')
+    if(categoryClass) {
+        selectedCategory = selected.closest(categoryClass).getAttribute('data-category');
+
+        hashMain = document.querySelector(`${menuClass} tag-label[data-category="${selectedCategory}"]`);
+
+        hashCategory = document.querySelector(`${menuClass} tag-label[data-category="${selectedCategory}"]`);
+        hashCategoryArray = document.querySelectorAll(`${menuClass} [data-category="${selectedCategory}"]`);
+        hashCategoryTab = document.querySelector(`tag-tab[data-category="${selectedCategory}"]`);
+        
+        hashTab = document.querySelector(`${tabWrapClass} tag-tab[data-category="${selectedCategory}"]`);
+
+        if(hashCategoryTab) {
+            categorySiblings = Array.from(hashCategoryTab.parentNode.children);
+            categoryIndex = categorySiblings.indexOf.call(categorySiblings, hashCategoryTab);
+        }
+    }
+
+    //find the sub menu/inner menu link with the matching hash
+    if (hash) {
+        $(selected).trigger('click');
+    }
+
+    //Tabs
+    //Remove active from everything
+    document.querySelectorAll(`${menuClass} tag-label`).forEach(label => label.classList.remove(activeClass));
+    document.querySelectorAll(`${menuClass} a`).forEach(label => label.classList.remove(activeClass));
+    unsetDefault.forEach(label => label.classList.remove(activeClass));
+    document.querySelectorAll(`${wrapClass} tag-tab`).forEach(label => label.classList.remove(activeClass));
+    document.querySelectorAll(categoryClass).forEach(item => item.classList.remove(activeClass));
+
+    //Add active
+    selected.classList.add(activeClass);
+    hashCategoryArray.forEach(item => item.classList.add(activeClass));
+    hashContent.classList.add(activeClass);
+    tabSiblings.forEach(tab => tab.style.right = `${tabIndex * -100}%`);
+
+    //add active for category
+    if(categoryClass) {
+        hashMain.classList.add(activeClass);
+        hashTab.classList.add(activeClass);
+        categorySiblings.forEach(tab => tab.style.right = `${categoryIndex * -100}%`);
+    }
+
+    document.querySelector(menuClass).classList.remove('is-open');
+
+    window.scrollTo(0, 0);
+}
+function initFirstHashTab(firstClasses, activeClass) {
+    //Auto-select tab without hashtag present
+    firstClasses.forEach(firstClass => {
+        document.querySelector(firstClass).classList.add(activeClass);
+    });
+}
+function initAccordion(target = '.accordion') {
+    document.querySelectorAll(target).forEach(accordion => {
+        let triggers = accordion.querySelectorAll('.accordion--trigger');
+        let contents = accordion.querySelectorAll('.accordion--content');
+        if(window.innerWidth <= 480) {
+            triggers.forEach(trigger => trigger.classList.remove('is-active'));
+            contents.forEach(trigger => trigger.classList.remove('is-active'));
+        }
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', e => {
+                let alreadyOpen = false;
+                if(e.currentTarget.classList.contains('is-active')) {
+                    alreadyOpen = true;
+                }
+                triggers.forEach(trigger => trigger.classList.remove('is-active'));
+                contents.forEach(trigger => trigger.classList.remove('is-active'));
+                if(alreadyOpen) {
+                    e.currentTarget.classList.remove('is-active');
+                    e.currentTarget.nextElementSibling.classList.remove('is-active');
+                    alreadyOpen = false;
+                } else {
+                    e.currentTarget.classList.add('is-active');
+                    e.currentTarget.nextElementSibling.classList.add('is-active');
+                }
+            });
+        })
+    })
 }
 
 /****** Profile Initialization ******/
@@ -862,151 +992,6 @@ function initDiscordTagging() {
     });
 }
 
-/****** Webpage Initialization ******/
-function initWebpages() {
-    //remove staff for non-staff
-    if(!document.querySelector('body').classList.contains('g-4')) {
-        document.querySelectorAll('.staffOnly').forEach(item => item.remove());
-    }
-
-    //remove loading screen
-    document.querySelector('body').classList.remove('loading');
-    document.querySelector('#loading').remove();
-    initTabs(true, '.webpage', '.webpage--menu', '.webpage--content', 'is-active', '.tab-category', ['.webpage--menu .accordion--trigger', '.webpage--menu .accordion--content', '.webpage--menu .accordion--content a', '.webpage--content .tab-category', '.webpage--content .tab-category tag-tab']);
-
-    //accordions
-    initAccordion();
-}
-function initTabs(isHash = false, wrapClass, menuClass, tabWrapClass, activeClass = 'is-active', categoryClass = null, firstClasses = []) {
-    if(isHash) {
-        window.addEventListener('hashchange', function(e){
-            initHashTabs(wrapClass, menuClass, tabWrapClass, activeClass, categoryClass);
-        });
-
-        //hash linking
-        if (window.location.hash){
-            initHashTabs(wrapClass, menuClass, tabWrapClass, activeClass, categoryClass);
-        } else {
-            initFirstHashTab(firstClasses, activeClass);
-        }
-    } else {
-        initRegularTabs(menuClass);
-    }
-}
-function initRegularTabs(menuClass) {
-    let labels = document.querySelectorAll(`${menuClass} > tag-label`);
-    labels.forEach(label => {
-        label.addEventListener('click', e => {
-            let selected = e.currentTarget;
-            let tab = document.querySelector(`tag-tab[data-key="${selected.dataset.key}"]`);
-            let tabSiblings = Array.from(tab.parentNode.children);
-            let tabIndex = tabSiblings.indexOf.call(tabSiblings, tab);
-            
-            labels.forEach(label => label.classList.remove('is-active'));
-            tabSiblings.forEach(tab => tab.classList.remove('is-active'));
-            
-            selected.classList.add('is-active');
-            tab.classList.add('is-active');
-            tabSiblings.forEach(sibling => sibling.style.left = `${-100 * tabIndex}%`);
-        });
-    });
-}
-function initHashTabs(wrapClass, menuClass, tabWrapClass, activeClass, categoryClass = null) {
-    //set variables for categories
-    let selectedCategory, hashMain, hashCategory, hashCategoryArray, categorySiblings, categoryIndex, hashTab, submenuSiblings, submenuIndex;
-
-    //get hash and set basic variables
-    let hash = $.trim( window.location.hash );
-    let selected = document.querySelector(`${menuClass} a[href="${hash}"]`);
-    let hashContent = document.querySelector(`tag-tab[data-key="${hash}"]`);
-    let unsetDefault = Array.from(selected.parentNode.children);
-    let tabSiblings = Array.from(hashContent.parentNode.children);
-    let tabIndex = tabSiblings.indexOf.call(tabSiblings, hashContent);
-
-    //set category variables document.querySelector(`.webpage--menu a[href="#tab2-2"]`).closest('.tab-category').getAttribute('data-category')
-    if(categoryClass) {
-        selectedCategory = selected.closest(categoryClass).getAttribute('data-category');
-
-        hashMain = document.querySelector(`${menuClass} tag-label[data-category="${selectedCategory}"]`);
-
-        hashCategory = document.querySelector(`${menuClass} tag-tab[data-category="${selectedCategory}"]`);
-        if(!hashCategory) {
-            hashCategoryArray = document.querySelectorAll(`${menuClass} [data-category="${selectedCategory}"]`);
-        }
-        
-        hashTab = document.querySelector(`${tabWrapClass} tag-tab[data-category="${selectedCategory}"]`);
-
-        if(hashCategory) {
-            categorySiblings = Array.from(hashCategory.parentNode.children);
-            categoryIndex = categorySiblings.indexOf.call(categorySiblings, hashCategory);
-        }
-        submenuSiblings = Array.from(hashTab.parentNode.children);
-        submenuIndex = submenuSiblings.indexOf.call(submenuSiblings, hashTab);
-    }
-
-    //find the sub menu/inner menu link with the matching hash
-    if (hash) {
-        $(selected).trigger('click');
-    }
-
-    //Tabs
-    //Remove active from everything
-    document.querySelectorAll(`${menuClass} tag-label`).forEach(label => label.classList.remove(activeClass));
-    document.querySelectorAll(`${menuClass} a`).forEach(label => label.classList.remove(activeClass));
-    unsetDefault.forEach(label => label.classList.remove(activeClass));
-    document.querySelectorAll(`${wrapClass} tag-tab`).forEach(label => label.classList.remove(activeClass));
-    document.querySelectorAll(categoryClass).forEach(item => item.classList.remove(activeClass));
-
-    //Add active
-    selected.classList.add(activeClass);
-    hashContent.classList.add(activeClass);
-    hashCategoryArray.forEach(item => item.classList.add(activeClass));
-
-    //add active for category
-    if(categoryClass) {
-        hashMain.classList.add(activeClass);
-        hashTab.classList.add(activeClass);
-    }
-
-    document.querySelector(menuClass).classList.remove('is-open');
-
-    window.scrollTo(0, 0);
-}
-function initFirstHashTab(firstClasses, activeClass) {
-    //Auto-select tab without hashtag present
-    firstClasses.forEach(firstClass => {
-        document.querySelector(firstClass).classList.add(activeClass);
-    });
-}
-function initAccordion(target = '.accordion') {
-    document.querySelectorAll(target).forEach(accordion => {
-        let triggers = accordion.querySelectorAll('.accordion--trigger');
-        let contents = accordion.querySelectorAll('.accordion--content');
-        if(window.innerWidth <= 480) {
-            triggers.forEach(trigger => trigger.classList.remove('is-active'));
-            contents.forEach(trigger => trigger.classList.remove('is-active'));
-        }
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', e => {
-                let alreadyOpen = false;
-                if(e.currentTarget.classList.contains('is-active')) {
-                    alreadyOpen = true;
-                }
-                triggers.forEach(trigger => trigger.classList.remove('is-active'));
-                contents.forEach(trigger => trigger.classList.remove('is-active'));
-                if(alreadyOpen) {
-                    e.currentTarget.classList.remove('is-active');
-                    e.currentTarget.nextElementSibling.classList.remove('is-active');
-                    alreadyOpen = false;
-                } else {
-                    e.currentTarget.classList.add('is-active');
-                    e.currentTarget.nextElementSibling.classList.add('is-active');
-                }
-            });
-        })
-    })
-}
-
 /****** Members Initialization ******/
 function initMembers() {
     initAccordion();
@@ -1201,7 +1186,11 @@ function debounce(fn, threshold) {
 
 /****** UserCP/Messages ******/
 function initUCPMenu() {
-    document.querySelector('#ucpmenu').innerHTML = `<div class="accordion">
+    document.querySelector('#ucpmenu').innerHTML = `<button class="onlyMobile" onclick="toggleUCPMenu(this)">
+        <i class="fa-solid fa-ellipsis-h"></i>
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="accordion">
         ${typeof localUCPLinks !== 'undefined' ? localUCPLinks : jcinkUCPLinks}
     </div>`;
 
@@ -1338,6 +1327,9 @@ function ucpAesthetics() {
         aestheticsSample.classList.add(aesthetics.replace(' ', ''));
         aestheticsSample.innerHTML = formatAesthetics(aesthetics, imageObj);
     }
+}
+function toggleUCPMenu(e) {
+    e.closest('#ucpmenu').classList.toggle('is-open');
 }
 
 /****** Store ******/

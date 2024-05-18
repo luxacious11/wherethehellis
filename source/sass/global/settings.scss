@@ -178,3 +178,15 @@ ul {
         }
     }
 }
+
+.webpage--menu {
+    .accordion--content {
+        a {
+            &.external {
+                &::after {
+                    content: '\f08e';
+                }
+            }
+        }
+    }
+}

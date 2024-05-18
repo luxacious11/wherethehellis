@@ -54,6 +54,10 @@ const siteName = `wherethehellis`;
 const fileTypes = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultSquare = `https://picsum.photos/200`;
 
+const activeResExists = `<blockquote class="fullWidth warning">Uh-oh! That's already reserved. Maybe we can help you find another option - reach out in the Discord for help!</blockquote>`;
+const prevResExists = `<blockquote class="fullWidth warning">Uh-oh! You've reserved that before! Reserves at Where the Hell Is are non-renewable. If you don't remember doing this, please reach out to staff via Discord and we can review our records and discuss options with you!</blockquote>`;
+const claimExists = `<blockquote class="fullWidth warning">Uh-oh! This is already in play! Maybe we can help you find another option - reach out in the Discord for help!</blockquote>`;
+
 const colors = {
     'tiger': [153, 117, 78],
     'wolf': [88, 92, 98],

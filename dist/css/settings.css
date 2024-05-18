@@ -151,3 +151,6 @@ ul li::marker {
 .member--item .scroll a[target="_blank"]::after,
 .ucp--description a[target="_blank"]::after {
   content: '\f08e'; }
+
+.webpage--menu .accordion--content a.external::after {
+  content: '\f08e'; }
