@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+@@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
+@@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+
+            <!--Webpage-->
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <button class="onlyMobile" onClick="toggleWebpageMenu(this)">
+                        <i class="fa-solid fa-ellipsis-h"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <tag-labels class="accordion scroll">
+                        <a href="./webpage.html#add-business.html">Register a Business</a>
+                        <div class="menu-filters">
+                            <strong>Filter by Business Name</strong>
+                            <input type="text" oninput="filterBusinesses(this)" placeholder="Business Name" style="margin-bottom: 10px;">
+                            <strong>Filter by Employee Name</strong>
+                            <input type="text" oninput="filterEmployees(this)" placeholder="Employee Name">
+                        </div>
+                        <tag-label data-category="education" class="tab-category accordion--trigger">
+                            <span>Education</span>
+                        </tag-label>
+                        <div data-category="education" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="entertainment" class="tab-category accordion--trigger">
+                            <span>Entertainment</span>
+                        </tag-label>
+                        <div data-category="entertainment" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="fooddrink" class="tab-category accordion--trigger">
+                            <span>Food & Drink</span>
+                        </tag-label>
+                        <div data-category="fooddrink" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="government" class="tab-category accordion--trigger">
+                            <span>Government</span>
+                        </tag-label>
+                        <div data-category="government" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="retail" class="tab-category accordion--trigger">
+                            <span>Retail</span>
+                        </tag-label>
+                        <div data-category="retail" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="services" class="tab-category accordion--trigger">
+                            <span>Services</span>
+                        </tag-label>
+                        <div data-category="services" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="sciencetechnology" class="tab-category accordion--trigger">
+                            <span>Science & Technology</span>
+                        </tag-label>
+                        <div data-category="sciencetechnology" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="miscellaneous" class="tab-category accordion--trigger">
+                            <span>Miscellaneous</span>
+                        </tag-label>
+                        <div data-category="miscellaneous" class="tab-category accordion--content">
+                            <p>No businesses registered</p>
+                        </div>
+                        <tag-label data-category="self-employed" class="tab-category accordion--trigger">
+                            <span>Self-Employed</span>
+                        </tag-label>
+                        <div data-category="self-employed" class="tab-category accordion--content">
+                            <p>No self-employed characters</p>
+                        </div>
+                    </tag-labels>
+                </div>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="education">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="entertainment">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="fooddrink">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="government">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="retail">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="sciencetechnology">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="services">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="miscellaneous">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="self-employed">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                </tag-tabset>
+            </section>
+            <script>
+                const sheetID = '1buBqX-7xF2PTnk4KPGZkJplEGdsKv0vzT6n3kMhwvaY';
+                const claims = `https://opensheet.elk.sh/${sheetID}/Claims`;
+                const businesses = `https://opensheet.elk.sh/${sheetID}/Businesses`;
+            </script>
+            <script src="../dist/js/webpageFunctions.js"></script>
+            <script src="../dist/js/formatFunctions.js"></script>
+            <script src="../dist/js/claims.js"></script>
+            <script>
+                fetch(claims)
+                .then((response) => response.json())
+                .then((claimsData) => {
+                    fetch(businesses)
+                    .then((response) => response.json())
+                    .then((businessData) => {
+                        formatBusinesses(businessData, claimsData);
+                    }).then(() => {
+                        initWebpages();
+                    });
+                    
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

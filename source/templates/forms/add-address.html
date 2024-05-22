@@ -1,0 +1,72 @@
+<form class="form-address" data-type="grid" data-columns="2">
+    <label class="fullWidth">
+        <b>Address Type</b>
+        <span><select id="type" required>
+            <option value="">(select)</option>
+            <option value="residential">Residential</option>
+            <option value="business">Business</option>
+        </select></span>
+    </label>
+    <label class="hidden residentOnly fullWidth">
+        <b>Profile</b>
+        <span><input type="text" id="id" placeholder="URL or ID" /></span>
+    </label>
+    <label class="hidden businessOnly fullWidth">
+        <b>Business Name</b>
+        <span><select id="employer" class="business-clip"></select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Region</b>
+        <span><select id="region" required>
+            <option value="">(select)</option>
+            <option value="coastline">Coastline</option>
+            <option value="oldtown">Old Town</option>
+            <option value="centrallimbo">Central Limbo</option>
+            <option value="downtown">Downtown</option>
+            <option value="outskirts">Outskirts</option>
+        </select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <optgroup label="Coastline">
+                <option value="27">The Dockyards</option>
+                <option value="28" class="businessOnly">Carnivale</option>
+                <option value="29">The Graveyard</option>
+            </optgroup>
+            <optgroup label="Old Town">
+                <option value="30">St. Anthony Village</option>
+                <option value="31">Westfall</option>
+                <option value="32">Logan Creek</option>
+            </optgroup>
+            <optgroup label="Central Limbo">
+                <option value="33">Oakland Terrace</option>
+                <option value="34">Holland Heights</option>
+                <option value="35">Brentwood Ridge</option>
+            </optgroup>
+            <optgroup label="Downtown">
+                <option value="36">Bay Road</option>
+                <option value="37">Essex Plaza</option>
+                <option value="38">Pacific Market</option>
+            </optgroup>
+            <optgroup label="Outskirts">
+                <option value="39">Castlepeak Gated Community</option>
+                <option value="40">Hawthorne Hills</option>
+            </optgroup>
+        </select></span>
+    </label>
+    <label class="fullWidth hidden typeOnly">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

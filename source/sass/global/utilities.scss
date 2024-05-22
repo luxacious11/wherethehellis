@@ -100,6 +100,23 @@ tag-hl {
     gap: 30px;
     grid-template-rows: max-content;
 
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    h7,
+    h8,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .h7,
+    .h8 {
+        margin-bottom: 0;
+    }
+
     .fullWidth {
         grid-column: 1 / -1;
     }
@@ -155,62 +172,6 @@ tag-hl {
     [data-box-align="RIGHT"] {
         max-width: max-content;
     }
-
-    &[data-gap="xsmall"],
-    &[data-gap="XSmall"],
-    &[data-gap="Xsmall"],
-    &[data-gap="XSMALL"],
-    &[data-gap="xs"],
-    &[data-gap="Xs"],
-    &[data-gap="XS"] {
-        gap: 5px 15px;
-    }
-
-    &[data-gap="xsmallsquare"],
-    &[data-gap="XSmallSquare"],
-    &[data-gap="XSMALLSQUARE"],
-    &[data-gap="xssquare"],
-    &[data-gap="XsSquare"],
-    &[data-gap="XSSQUARE"] {
-        gap: 5px;
-    }
-
-    &[data-gap="sm"],
-    &[data-gap="Sm"],
-    &[data-gap="SM"],
-    &[data-gap="small"],
-    &[data-gap="Small"],
-    &[data-gap="SMALL"] {
-        gap: 10px 30px;
-    }
-
-    &[data-gap="smsquare"],
-    &[data-gap="SmSquare"],
-    &[data-gap="SMSQUARE"],
-    &[data-gap="smallsquare"],
-    &[data-gap="SmallSquare"],
-    &[data-gap="SMALLSQUARE"] {
-        gap: 10px;
-    }
-
-    &[data-gap="md"],
-    &[data-gap="Md"],
-    &[data-gap="MD"],
-    &[data-gap="medium"],
-    &[data-gap="Medium"],
-    &[data-gap="MEDIUM"] {
-        gap: 30px;
-    }
-
-    &[data-gap="xl"],
-    &[data-gap="Xl"],
-    &[data-gap="XL"],
-    &[data-gap="xlarge"],
-    &[data-gap="XLarge"],
-    &[data-gap="Xlarge"],
-    &[data-gap="XLARGE"] {
-        gap: 60px;
-    }
 }
 [data-type="imagegrid"],
 [data-type="imageGrid"],
@@ -221,4 +182,60 @@ tag-hl {
     tag-image {
         width: 100% !important;
     }
+}
+
+[data-gap="xsmall"],
+[data-gap="XSmall"],
+[data-gap="Xsmall"],
+[data-gap="XSMALL"],
+[data-gap="xs"],
+[data-gap="Xs"],
+[data-gap="XS"] {
+    gap: 5px 15px;
+}
+
+[data-gap="xsmallsquare"],
+[data-gap="XSmallSquare"],
+[data-gap="XSMALLSQUARE"],
+[data-gap="xssquare"],
+[data-gap="XsSquare"],
+[data-gap="XSSQUARE"] {
+    gap: 5px;
+}
+
+[data-gap="sm"],
+[data-gap="Sm"],
+[data-gap="SM"],
+[data-gap="small"],
+[data-gap="Small"],
+[data-gap="SMALL"] {
+    gap: 10px 30px;
+}
+
+[data-gap="smsquare"],
+[data-gap="SmSquare"],
+[data-gap="SMSQUARE"],
+[data-gap="smallsquare"],
+[data-gap="SmallSquare"],
+[data-gap="SMALLSQUARE"] {
+    gap: 10px;
+}
+
+[data-gap="md"],
+[data-gap="Md"],
+[data-gap="MD"],
+[data-gap="medium"],
+[data-gap="Medium"],
+[data-gap="MEDIUM"] {
+    gap: 30px;
+}
+
+[data-gap="xl"],
+[data-gap="Xl"],
+[data-gap="XL"],
+[data-gap="xlarge"],
+[data-gap="XLarge"],
+[data-gap="Xlarge"],
+[data-gap="XLARGE"] {
+    gap: 60px;
 }

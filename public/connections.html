@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site Name</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Styles-->
+<link rel="stylesheet" href="../dist/css/styles.css" />
+
+<!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+
+<!--Icons-->
+<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+
+<!--Script Libraries-->
+<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="../dist/js/clipboard.js"></script>
+<script src="../dist/js/functions.js"></script>
+
+<!--Settings-->
+<script type='text/javascript' src='../dist/js/settings.js'></script>
+<link rel="stylesheet" href="../dist/css/settings.css" />
+
+<script>
+    const localUCPLinks = `<div class="accordion--trigger" data-category="account"><b>Account</b></div>
+        <div class="accordion--content" data-category="account">
+            <a href="./user-edit.html">Edit Profile</a>
+            <a href="./user-avatar.html">Update Avatar</a>
+            <a href="./user-accounts.html">Sub-accounts</a>
+            <a href="./user-name.html">Edit Username</a>
+            <a href="./user-pass.html">Change Password</a>
+            <a href="./user-email.html">Update Email</a>
+        </div>
+        <div class="accordion--trigger" data-category="messages"><b>Messages</b></div>
+        <div class="accordion--content" data-category="messages">
+            <a href="./user-inbox.html">Inbox</a>
+            <a href="./user-sendmessage.html">Send Message</a>
+            <a href="./user-viewmessage.html">View Message</a>
+        </div>
+        <div class="accordion--trigger" data-category="tracking"><b>Tracking</b></div>
+        <div class="accordion--content" data-category="tracking">
+            <a href="./user-alerts.html">Alerts</a>
+            <a href="./user-forums.html">Forums</a>
+            <a href="./user-forum-none.html">Forums (None)</a>
+            <a href="./user-topics.html">Topics</a>
+            <a href="./user-topics-none.html">Topics (None)</a>
+        </div>
+        <div class="accordion--trigger" data-category="settings"><b>Settings</b></div>
+        <div class="accordion--content" data-category="settings">
+            <a href="./user-boardset.html">Board</a>
+            <a href="./user-alertset.html">Alerts</a>
+            <a href="./user-emailset.html">Emails</a>
+        </div>`;
+
+    const localStoreLinks = `<a href="./store.html" class="accordion--trigger" data-category="home">Home</a>
+        <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
+        <div class="accordion--content" data-category="shop">
+            <a href="./store-category.html">Category</a>
+        </div>
+        <div class="accordion--trigger" data-category="personal"><b>Personal</b></div>
+        <div class="accordion--content" data-category="personal">
+            <a href="./store-inventory.html">Inventory</a>
+            <a href="./store-sendmoney.html">Send Money</a>
+            <a href="./store-senditem.html">Send Item</a>
+            <a href="./store-useitem.html">Use Item</a>
+        </div>
+        <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
+        <div class="accordion--content staffOnly" data-category="staff">
+            <a href="./store-fine.html" class="staffOnly">Fine</a>
+            <a href="./store-editpoints.html" class="staffOnly">Edit Points</a>
+            <a href="./store-editpoints-screen2.html" class="staffOnly">Edit Points (pt2)</a>
+            <a href="./store-edititems.html" class="staffOnly">Edit Inventory</a>
+            <a href="./store-edititems-screen2.html" class="staffOnly">Edit Inventory (pt2)</a>
+        </div>`;
+</script>  
+    </head>
+    <body id="Pages" class="g-4">
+<div class="noise fixed bg"></div>
+<div class="invisibleEl"></div>
+<nav class="nav--primary">
+    <div class="nav--primary-inner">
+        <button title="Open Menu" onClick="toggleMenu(this)" class="button--menu" data-menu=".nav--popout">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="../public/index.html" title="Index" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <div class="nav--inline guestOnly">
+            <button onclick="toggleMenu(this)" class="button--menu" data-menu=".nav--login"><i class="fa-solid fa-sign-in"></i><i class="fa-solid fa-xmark"></i></button>
+            <div id="quick-login-clip" class="nav--login menu">
+                <div id="quick-login" class="hidden">
+                    <form style="display:inline" action="https://wherethehellis.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+                    <div align="right"><strong>Quick Log In</strong>
+                    <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
+                    <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
+                    <input type="submit" class="forminput" value="Go">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+        <a href="../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pen"></i></a>
+        <button title="Switch Accounts" onClick="toggleMenu(this)" class="button--menu memOnly" data-menu=".nav--switcher"><i class="fa-solid fa-arrow-right-arrow-left"></i><i class="fa-solid fa-xmark"></i></button>
+        <a href="../public/usercp/user-inbox.html" title="Messages (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
+        <button title="Alerts (1)" onClick="toggleMenu(this)" data-new="1" class="button--menu memOnly" data-menu=".nav--alerts"><i class="fa-solid fa-bell"></i><i class="fa-solid fa-xmark"></i></button>
+        <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="/" title="Join Discord"><i class="fa-brand fa-discord"></i></a>
+        <a href="/" title="Admin CP" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <div class="nav--inline">
+            <button title="Skin Settings" onClick="toggleMenu(this)" class="button--menu" data-menu=".nav--options">
+                <i class="fa-solid fa-gear"></i><i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="nav--options menu">
+                <button onclick="toggleTheme()" class="toggle--theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <div><span></span></div>
+                </button>
+                <button onclick="toggleSize()" class="toggle--size">
+                    <i class="fa-solid fa-font-case"></i>
+                    <div><span></span></div>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="nav--popout menu">
+    <div class="scroll">
+        <a href="../public/profile.html" class="onlyMobile">View First Last</a>
+        <a href="../public/webpage.html" class="onlyMobile">Guidebook</a>
+        <a href="../public/businesses.html">Business Directory</a>
+        <a href="../public/connections.html">Connection Planner</a>
+        <a href="../public/store/store.html" class="onlyMobile">Store</a>
+        <tag-code>
+            <button onclick="highlightCode()" class="copyQuick">copy</button>
+            <pre><textarea class="scroll"><tag-wrap>test code</tag-wrap></textarea></pre>
+        </tag-code>
+    </div>
+</nav>
+<div id="account-switch" class="nav--switcher menu"><div class="scroll">
+    <span id='subaccounts_menu'>
+        <form action='https://totl.jcink.net/index.php?&act=Login&CODE=01&CookieDate=1' name='subswitch' method='POST'>
+        <input type='hidden' name='auth_key' value='3cd898e29b3d65656e340aabb9b6bf66'>
+        <input type='hidden' name='UserName' value='subacct'>
+        <input type='hidden' name='PassWord' value='subacct'>
+        <input type='hidden' name='referer' value='showuser=309' />
+        <select class='forminput' name='sub_id' onchange='this.form.submit()'>
+        <option value='------------' selected='selected'>Switch Account</option>
+        <option value='157'>&nbsp;&nbsp;&raquo; adaline fawley </option><option value='669'>&nbsp;&nbsp;&raquo; archer reid </option><option value='1147'>&nbsp;&nbsp;&raquo; avery hayes </option><option value='670'>&nbsp;&nbsp;&raquo; bryn williams </option><option value='1146'>&nbsp;&nbsp;&raquo; cameron towner </option><option value='57'>&nbsp;&nbsp;&raquo; connor king </option><option value='395'>&nbsp;&nbsp;&raquo; darcy de león </option><option value='906'>&nbsp;&nbsp;&raquo; diana crawford </option><option value='1578'>&nbsp;&nbsp;&raquo; diego serrano alvarez </option><option value='408'>&nbsp;&nbsp;&raquo; draco malfoy </option><option value='58'>&nbsp;&nbsp;&raquo; duncan taggart </option><option value='705'>&nbsp;&nbsp;&raquo; ellis hill </option><option value='273'>&nbsp;&nbsp;&raquo; emmalina fawley </option><option value='1577'>&nbsp;&nbsp;&raquo; everest wilkes </option><option value='901'>&nbsp;&nbsp;&raquo; gavin dunbar </option><option value='750'>&nbsp;&nbsp;&raquo; heiko reynders </option><option value='1088'>&nbsp;&nbsp;&raquo; hiroki becker </option><option value='1145'>&nbsp;&nbsp;&raquo; irina saidova </option><option value='315'>&nbsp;&nbsp;&raquo; lottie fox </option><option value='56'>&nbsp;&nbsp;&raquo; magnolia atwood </option><option value='1089'>&nbsp;&nbsp;&raquo; marica kovac </option><option value='112'>&nbsp;&nbsp;&raquo; milo nott </option><option value='314'>&nbsp;&nbsp;&raquo; noah clark </option><option value='482'>&nbsp;&nbsp;&raquo; percy weasley </option><option value='994'>&nbsp;&nbsp;&raquo; rebecca warrington </option><option value='309'>&nbsp;&nbsp;&raquo; salazar slytherin (P)</option><option value='60'>&nbsp;&nbsp;&raquo; tobias fletcher </option><option value='1148'>&nbsp;&nbsp;&raquo; william talbot </option>
+        </select>
+        </form>
+    </span>
+</div></div>
+<div class="nav--breadcrumb"><div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div></div>
+<header class="header">
+    <div class="header--inner">
+        <a href="../public/index.html"><h1>
+            <span>Home Is</span>
+            <span>Where</span>
+            <span>the <tag-hl>Hell</tag-hl> Is</span>
+        </h1></a>
+        <div class="header--tag">
+            <b>i'm having terrors</b>
+            <u>having nightmares</u>
+        </div>
+        <p>Est. (Month) 2024</p>
+    </div>
+</header>
+
+<!-- Alerts -->
+<div id="recent-alerts" class="nav--alerts menu">
+    <div class="alert--box modal">
+        <div class="alert--inner">
+            <div class="alert--menu">
+                <a href="javascript:close_alerts();" class="close-alerts" title="close alerts"><i class="fa-solid fa-xmark"></i></a>
+                <a href="javascript:read_alerts();" title="mark as read"><i class="fa-solid fa-envelope-open"></i></a>
+                <a href="?act=UserCP&CODE=alerts" title="view all alerts"><i class="fa-solid fa-inbox"></i></a>
+            </div>
+            <div class="alert--content">
+                <div id="recent-alerts-data" class="alert--main scroll"><% ALERTS %></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+
+            <!--Webpage-->
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <button class="onlyMobile" onClick="toggleWebpageMenu(this)">
+                        <i class="fa-solid fa-ellipsis-h"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <tag-labels class="accordion scroll">
+                        <tag-label data-category="info" class="tab-category accordion--trigger">
+                            <span>Information</span>
+                        </tag-label>
+                        <div data-category="info" class="tab-category accordion--content">
+                            <a href="#limbo">Limbo, WA</a>
+                            <a href="#add-address">Register an Address</a>
+                            <a href="#change-address">Change an Address</a>
+                            <a href="#search-address">Address Lookup</a>
+                        </div>
+                        <tag-label data-category="addresses" class="tab-category accordion--trigger">
+                            <span>Address Book</span>
+                        </tag-label>
+                        <div data-category="addresses" class="tab-category accordion--content"></div>
+                        <tag-label data-category="connections" class="tab-category accordion--trigger">
+                            <span>Connections</span>
+                        </tag-label>
+                        <div data-category="connections" class="tab-category accordion--content">
+                            <a href="#add-connection">Submit a Connection</a>
+                            <a href="#local">Local</a>
+                            <a href="#historical">Historical</a>
+                        </div>
+                    </tag-labels>
+                </div>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="info">
+                        <tag-tabset>
+                            <tag-tab data-key="#limbo">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    <div class="map-wrap">
+    <svg class="map" x="0px" y="0px" viewBox="0 0 156.5 128">
+        <defs>
+          <clipPath id="mask">
+            <rect x="0" y="0" width="157.3" height="128.8"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#mask)">
+            <rect class="water" width="157.3" height="128.8"/>
+            <polygon class="land thickOutline" points="33.6,-0.7 33,7.7 43.4,35.9 36.7,127.1 29.7,134.5 166.2,134.5 162.1,13 153.6,17.5 111.4,-0.8 "/>
+                
+            <polygon data-hover="Carnivale" class="coastline region" points="51.3,71.3 49.4,59.6 58.5,58.6 61.5,69.5 "/>
+            <polygon data-hover="The Dockyards" class="coastline region" points="49.4,59.6 58.5,58.6 54.8,45.4 42.8,43.9 40.8,73.1 51.3,71.3 "/>
+            <polygon data-hover="The Graveyard" class="coastline region" points="54.8,45.4 57.9,20.3 38.5,22.6 43.4,35.9 42.8,43.9 "/>
+            <polygon id="Coastline" class="nofill" points="57.9,20.3 54.8,45.4 61.5,69.5 40.8,73.1 43.4,35.9 38.5,22.6 "/>
+            <polygon data-hover="St. Anthony Village" class="oldtown region" points="86.8,48.8 103.4,14.7 120.6,35.7 103.5,57.4 "/>
+            <polygon data-hover="Logan Creek" class="oldtown region" points="54.8,45.4 93.3,35.4 86.8,48.8 58.5,58.6 "/>
+            <polygon data-hover="Westfall" class="oldtown region" points="93.3,35.4 103.4,14.7 57.9,20.3 54.8,45.4 "/>
+            <polygon id="OldTown" class="nofill" points="57.9,20.3 103.4,14.7 120.6,35.7 103.5,57.4 86.8,48.8 58.5,58.6 54.8,45.4 "/>
+            <polygon data-hover="Castlepeak Gated Community" class="outskirts region" points="101.6,68 115.4,72.6 129.8,70.3 129.8,47.1 120.6,35.7 103.5,57.4 "/>
+            <polygon data-hover="Hawthorne Hills" class="outskirts region" points="129.8,70.3 115.4,72.6 101.6,68 98.3,87 68.4,96.3 81.5,118.6 106.1,117.3 105.7,101.5 116.8,91.3 129.8,85.2 "/>
+            <polygon data-hover="The Pitch" class="outskirts region" points="129.8,85.2 129.8,116.1 106.1,117.3 105.7,101.5 116.8,91.4 "/>
+            <polygon id="Outskirts" class="nofill" points="120.3,35.4 129.8,47.1 129.8,116.1 81.5,118.6 68.4,96.3 98.3,87 103.5,57.4 "/>
+            <polygon data-hover="Brentwood Ridge" class="central region" points="61.5,69.5 80,72.6 98.3,87 68.4,96.3 51.3,71.3 "/>
+            <polygon data-hover="Oakland Terrace" class="central region" points="80,72.6 93.7,52.3 103.5,57.4 98.3,87 "/>
+            <polygon data-hover="Holland Heights" class="central region" points="93.7,52.3 86.8,48.8 58.5,58.6 61.5,69.5 80,72.6 "/>
+            <polygon id="Central" class="nofill" points="61.5,69.5 58.5,58.6 86.8,48.8 103.5,57.4 98.3,87 68.4,96.3 51.3,71.3 "/>
+            <polygon data-hover="Pacific Market" class="downtown region" points="38.6,100.2 53.9,99.6 46.3,72.2 40.8,73.1 "/>
+            <polygon data-hover="Bay Road" class="downtown region" points="46.3,72.2 51.3,71.3 68.4,96.3 81.5,118.6 59.3,119.8 53.9,99.6 "/>
+            <polygon data-hover="Essex Plaza" class="downtown region" points="53.9,99.6 59.3,119.8 37.1,121 38.6,100.2 "/>
+            <polygon id="Downtown" class="nofill" points="40.8,73.1 51.3,71.3 68.4,96.3 81.5,118.6 37.1,121 "/>
+            <polygon id="Outline" class="thickOutline nofill"  points="33.6,-0.7 33,7.7 43.4,35.9 36.7,127.1 29.7,134.5 166.2,134.5 162.1,13 153.6,17.5 111.4,-0.8 "/>
+        </g>
+    </svg>
+    <div class="region-desc"></div>
+</div>
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#add-address">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    <form class="form-address" data-type="grid" data-columns="2">
+    <label class="fullWidth">
+        <b>Address Type</b>
+        <span><select id="type" required>
+            <option value="">(select)</option>
+            <option value="residential">Residential</option>
+            <option value="business">Business</option>
+        </select></span>
+    </label>
+    <label class="hidden residentOnly fullWidth">
+        <b>Profile</b>
+        <span><input type="text" id="id" placeholder="URL or ID" /></span>
+    </label>
+    <label class="hidden businessOnly fullWidth">
+        <b>Business Name</b>
+        <span><select id="employer" class="business-clip"></select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Region</b>
+        <span><select id="region" required>
+            <option value="">(select)</option>
+            <option value="coastline">Coastline</option>
+            <option value="oldtown">Old Town</option>
+            <option value="centrallimbo">Central Limbo</option>
+            <option value="downtown">Downtown</option>
+            <option value="outskirts">Outskirts</option>
+        </select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <optgroup label="Coastline">
+                <option value="27">The Dockyards</option>
+                <option value="28" class="businessOnly">Carnivale</option>
+                <option value="29">The Graveyard</option>
+            </optgroup>
+            <optgroup label="Old Town">
+                <option value="30">St. Anthony Village</option>
+                <option value="31">Westfall</option>
+                <option value="32">Logan Creek</option>
+            </optgroup>
+            <optgroup label="Central Limbo">
+                <option value="33">Oakland Terrace</option>
+                <option value="34">Holland Heights</option>
+                <option value="35">Brentwood Ridge</option>
+            </optgroup>
+            <optgroup label="Downtown">
+                <option value="36">Bay Road</option>
+                <option value="37">Essex Plaza</option>
+                <option value="38">Pacific Market</option>
+            </optgroup>
+            <optgroup label="Outskirts">
+                <option value="39">Castlepeak Gated Community</option>
+                <option value="40">Hawthorne Hills</option>
+            </optgroup>
+        </select></span>
+    </label>
+    <label class="fullWidth hidden typeOnly">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#change-address">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    <form class="form-address" data-type="grid" data-columns="2">
+    <label class="fullWidth">
+        <b>Address Type</b>
+        <span><select id="type" required>
+            <option value="">(select)</option>
+            <option value="residential">Residential</option>
+            <option value="business">Business</option>
+        </select></span>
+    </label>
+    <label class="hidden residentOnly fullWidth">
+        <b>Profile</b>
+        <span><input type="text" id="id" placeholder="URL or ID" /></span>
+    </label>
+    <label class="hidden businessOnly fullWidth">
+        <b>Business Name</b>
+        <span><select id="employer" class="business-clip"></select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Region</b>
+        <span><select id="region" required>
+            <option value="">(select)</option>
+            <option value="coastline">Coastline</option>
+            <option value="oldtown">Old Town</option>
+            <option value="centrallimbo">Central Limbo</option>
+            <option value="downtown">Downtown</option>
+            <option value="outskirts">Outskirts</option>
+        </select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <optgroup label="Coastline">
+                <option value="27">The Dockyards</option>
+                <option value="28" class="businessOnly">Carnivale</option>
+                <option value="29">The Graveyard</option>
+            </optgroup>
+            <optgroup label="Old Town">
+                <option value="30">St. Anthony Village</option>
+                <option value="31">Westfall</option>
+                <option value="32">Logan Creek</option>
+            </optgroup>
+            <optgroup label="Central Limbo">
+                <option value="33">Oakland Terrace</option>
+                <option value="34">Holland Heights</option>
+                <option value="35">Brentwood Ridge</option>
+            </optgroup>
+            <optgroup label="Downtown">
+                <option value="36">Bay Road</option>
+                <option value="37">Essex Plaza</option>
+                <option value="38">Pacific Market</option>
+            </optgroup>
+            <optgroup label="Outskirts">
+                <option value="39">Castlepeak Gated Community</option>
+                <option value="40">Hawthorne Hills</option>
+            </optgroup>
+        </select></span>
+    </label>
+    <label class="fullWidth hidden typeOnly">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#search-address">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    <form id="form-search-address" data-type="grid" data-columns="2">
+    <label class="fullWidth">
+        <b>Character / Business Name</b>
+        <span><input type="text" id="name" placeholder="Name" /></span>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Search</button>
+</form>
+<div id="lookup-results"></div>
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="addresses">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="connections">
+                        <tag-tabset>
+                            <tag-tab data-key="#add-connection">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    <form id="form-connection" data-type="grid" data-columns="2">
+    <label>
+        <b>Type</b>
+        <span><select id="type" required>
+            <option value="">(select)</option>
+            <option value="historical">Historical</option>
+            <option value="local">Local</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Profile URL / ID</b>
+        <span><input type="text" id="id" placeholder="ID" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Category</b>
+        <span><select id="category" required>
+            <option value="">(select)</option>
+            <option value="1" class="hidden histOnly">Ancient History (Pre-450 AD)</option>
+            <option value="2" class="hidden histOnly">Middle Ages (450 - 1500 AD)</option>
+            <option value="3" class="hidden histOnly">Early Modern (1500 - 1700 AD)</option>
+            <option value="4" class="hidden histOnly">1700s</option>
+            <option value="5" class="hidden histOnly">1800s</option>
+            <option value="6" class="hidden histOnly">1900s</option>
+            <option value="7" class="hidden histOnly">2000s</option>
+            <option value="9" class="hidden localOnly">Local History</option>
+            <option value="10" class="hidden localOnly">Municipal Leadership</option>
+            <option value="11" class="hidden localOnly">High School</option>
+            <option value="12" class="hidden localOnly">Post-Secondary</option>
+            <option value="13" class="hidden localOnly">Volunteer Work</option>
+            <option value="14" class="hidden localOnly">Sports</option>
+            <option value="15" class="hidden localOnly">Interest Clubs</option>
+        </select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Subcategory</b>
+        <span><input type="text" id="subcategory" placeholder="Subcategory" required /></span>
+    </label>
+    <label class="hidden histOnly fullWidth">
+        <b>Location</b>
+        <span><input type="text" id="location" placeholder="Location" /></span>
+    </label>
+    <label class="hidden typeOnly fullWidth">
+        <b>Role / Position / Years / Detail</b>
+        <span><input type="text" id="role" placeholder="Role / Position / Detail" required /></span>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#local">
+                                <div class="webpage--content-inner"><div class="scroll"></div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#historical">
+                                <div class="webpage--content-inner"><div class="scroll"></div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+            </section>
+            <script>
+                const sheetID = '1buBqX-7xF2PTnk4KPGZkJplEGdsKv0vzT6n3kMhwvaY';
+                const deployID = 'AKfycbwIJm8O49PGWgdZ4fU8E-WhjaCoqj-nvXU9h7x6n7v82jlOX96TStYBdbY6g0nNJbx46w';
+                const claimLogs = `1241133855059218544/z6I5PWzpY0ZqklX3wjBY9fOo-_-vh3nAKe5Kxf1SkDhz70-4pS0aMTp-RF_-Zo12bG7L`;
+                const claims = `https://opensheet.elk.sh/${sheetID}/Claims`;
+                const businesses = `https://opensheet.elk.sh/${sheetID}/Businesses`;
+                let claimsDataVar, businessDataVar;
+            </script>
+            <script src="../dist/js/webpageFunctions.js"></script>
+            <script src="../dist/js/formatFunctions.js"></script>
+            <script src="../dist/js/claims.js"></script>
+            <script src="../dist/js/connections.js"></script>
+            <script>
+                fetch(claims)
+                .then((response) => response.json())
+                .then((claimsData) => {
+                        claimsDataVar = claimsData;
+                        formatConnections(claimsData);
+                
+                    fetch(businesses)
+                    .then((response) => response.json())
+                    .then((businessData) => {
+                        businessDataVar = businessData;
+                        populateBusinessList(businessData);
+                        formatAddressBook([...claimsData, ...businessData]);
+
+                    }).then(() => {
+                        initWebpages();
+                    });
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        <script src="../dist/js/scripts.js"></script>   
+    </body>
+</html>

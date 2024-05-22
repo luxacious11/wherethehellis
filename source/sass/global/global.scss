@@ -53,6 +53,7 @@ img {
     .h8 {
         margin-top: 0;
         margin-bottom: 15px;
+        line-height: 120%;
     
         &:not(:first-child) {
             margin-top: 30px;
@@ -520,11 +521,22 @@ img {
 
         & > a {
             background: var(--accent-30);
+            transition-duration: 0.3s;
+
+            &:hover {
+                background: var(--bg-accent-transparent);
+
+                &::before,
+                &::after {
+                    width: 50%;
+                }
+            }
 
             &::before,
             &::after {
                 top: -1px;
                 width: 8px;
+                transition-duration: 0.3s;
             }
         }
 

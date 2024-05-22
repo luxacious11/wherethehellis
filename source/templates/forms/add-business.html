@@ -1,0 +1,89 @@
+<form id="form-add-business" data-type="grid" data-columns="2">
+    <h2 class="fullWidth" data-box-align="center">Register a Business</h2>
+    <label>
+        <b>Alias</b>
+        <span><input type="text" id="alias" placeholder="Alias" required=""></span>
+    </label>
+    <label>
+        <b>OOC Account</b>
+        <span><input type="text" id="id" placeholder="URL or ID" required=""></span>
+    </label>
+    <label>
+        <b>Business Name</b>
+        <span><input type="text" id="employer" placeholder="Business Name" required=""></span>
+    </label>
+    <label>
+        <b>Category</b>
+        <span><select id="category" required>
+            <option value="">(select)</option>
+            <option value="education">Education</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="food-drink">Food & Drink</option>
+            <option value="government">Government</option>
+            <option value="retail">Retail</option>
+            <option value="services">Services</option>
+            <option value="miscellaneous">Miscellaneous</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Location</b>
+        <span><select id="location" required>
+            <option value="">(select)</option>
+            <option value="22">Coastline</option>
+            <option value="27">The Dockyard</option>
+            <option value="28">Carnivale</option>
+            <option value="29">The Graveyard</option>
+            <option value="23">Old Town</option>
+            <option value="30">St. Anthony Village</option>
+            <option value="31">Westfall</option>
+            <option value="32">Logan Creek</option>
+            <option value="24">Central Limbo</option>
+            <option value="33">Oakland Terrance</option>
+            <option value="34">Holland Heights</option>
+            <option value="35">Brentwood Ridge</option>
+            <option value="25">Downtown</option>
+            <option value="36">Bay Road</option>
+            <option value="37">Essex Plaza</option>
+            <option value="38">Pacific Market</option>
+            <option value="26">Outskirts</option>
+            <option value="39">Castlepeak Gated Community</option>
+            <option value="40">Hawthorne Hills</option>
+            <option value="41">The Pitch</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Hiring?</b>
+        <span><select id="hiring" required>
+            <option value="">(select)</option>
+            <option value="yes">Yes</option>
+            <option value="ask first">Ask First</option>
+            <option value="no">No</option>
+        </select></span>
+    </label>
+    <label class="fullWidth">
+        <b>Summary</b>
+        <span><textarea id="summary" placeholder="Overview of the business; maximum 350 characters" required="" maxlength="350"></textarea></span>
+    </label>
+    <label class="fullWidth">
+        <b>Related Wanted Ad</b>
+        <span><input type="text" id="wanted" placeholder="URL (optional)"></span>
+    </label>
+    <label class="fullWidth">
+        <b>Type of Opening Hours</b>
+        <span><select id="hours" required>
+            <option value="">(select)</option>
+            <option value="set hours">Set Hours</option>
+            <option value="by appointment">By Appointment</option>
+            <option value="no set hours">No Set Hours / Not Open to the Public</option>
+        </select></span>
+    </label>
+    <label class="fullWidth adjustable ifSetHours hidden">
+        <b>Hours</b>
+        <div class="rows hours-wrap" data-type="grid"></div>
+        <div class="multi-buttons" data-row-type="hours">
+            <button type="button" onclick="addRow(this)">+ New Row</button>
+            <button type="button" onclick="removeRow(this)">- Remove Row</button>
+        </div>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

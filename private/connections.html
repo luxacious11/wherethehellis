@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+@@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
+@@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+
+            <!--Webpage-->
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <button class="onlyMobile" onClick="toggleWebpageMenu(this)">
+                        <i class="fa-solid fa-ellipsis-h"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <tag-labels class="accordion scroll">
+                        <tag-label data-category="info" class="tab-category accordion--trigger">
+                            <span>Information</span>
+                        </tag-label>
+                        <div data-category="info" class="tab-category accordion--content">
+                            <a href="#limbo">Limbo, WA</a>
+                            <a href="#add-address">Register an Address</a>
+                            <a href="#change-address">Change an Address</a>
+                            <a href="#search-address">Address Lookup</a>
+                        </div>
+                        <tag-label data-category="addresses" class="tab-category accordion--trigger">
+                            <span>Address Book</span>
+                        </tag-label>
+                        <div data-category="addresses" class="tab-category accordion--content"></div>
+                        <tag-label data-category="connections" class="tab-category accordion--trigger">
+                            <span>Connections</span>
+                        </tag-label>
+                        <div data-category="connections" class="tab-category accordion--content">
+                            <a href="#add-connection">Submit a Connection</a>
+                            <a href="#local">Local</a>
+                            <a href="#historical">Historical</a>
+                        </div>
+                    </tag-labels>
+                </div>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="info">
+                        <tag-tabset>
+                            <tag-tab data-key="#limbo">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    @@include('../source/templates/map.html')
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#add-address">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    @@include('../source/templates/forms/add-address.html')
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#change-address">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    @@include('../source/templates/forms/add-address.html')
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#search-address">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    @@include('../source/templates/forms/lookup.html')
+                                </div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="addresses">
+                        <tag-tabset></tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="connections">
+                        <tag-tabset>
+                            <tag-tab data-key="#add-connection">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    @@include('../source/templates/forms/connections.html')
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#local">
+                                <div class="webpage--content-inner"><div class="scroll"></div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#historical">
+                                <div class="webpage--content-inner"><div class="scroll"></div></div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+            </section>
+            <script>
+                const sheetID = '1buBqX-7xF2PTnk4KPGZkJplEGdsKv0vzT6n3kMhwvaY';
+                const deployID = 'AKfycbwIJm8O49PGWgdZ4fU8E-WhjaCoqj-nvXU9h7x6n7v82jlOX96TStYBdbY6g0nNJbx46w';
+                const claimLogs = `1241133855059218544/z6I5PWzpY0ZqklX3wjBY9fOo-_-vh3nAKe5Kxf1SkDhz70-4pS0aMTp-RF_-Zo12bG7L`;
+                const claims = `https://opensheet.elk.sh/${sheetID}/Claims`;
+                const businesses = `https://opensheet.elk.sh/${sheetID}/Businesses`;
+                let claimsDataVar, businessDataVar;
+            </script>
+            <script src="../dist/js/webpageFunctions.js"></script>
+            <script src="../dist/js/formatFunctions.js"></script>
+            <script src="../dist/js/claims.js"></script>
+            <script src="../dist/js/connections.js"></script>
+            <script>
+                fetch(claims)
+                .then((response) => response.json())
+                .then((claimsData) => {
+                        claimsDataVar = claimsData;
+                        formatConnections(claimsData);
+                
+                    fetch(businesses)
+                    .then((response) => response.json())
+                    .then((businessData) => {
+                        businessDataVar = businessData;
+                        populateBusinessList(businessData);
+                        formatAddressBook([...claimsData, ...businessData]);
+
+                    }).then(() => {
+                        initWebpages();
+                    });
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

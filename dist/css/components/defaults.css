@@ -12,21 +12,41 @@ a[href=""] {
   display: none !important; }
 
 /***** Custom Defaults - Input Wraps *****/
-.input-wrap input {
-  display: none; }
-  .input-wrap input:checked ~ .fancy-input {
-    color: black; }
-
-.input-wrap .fancy-input {
-  border: 1px solid black;
-  display: flex;
+.input-wrap {
+  display: flex !important;
+  flex-direction: row !important;
   align-items: center;
-  justify-content: center;
-  color: transparent;
-  width: var(--spacing-lg);
-  height: var(--spacing-lg); }
-  .input-wrap .fancy-input.radio {
-    border-radius: 50%; }
+  font-size: var(--size-md);
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  cursor: pointer; }
+  .input-wrap input {
+    display: none; }
+    .input-wrap input:checked ~ .fancy-input {
+      background: var(--bg-accent);
+      border-color: var(--border-accent); }
+      .input-wrap input:checked ~ .fancy-input i {
+        color: var(--text-on-accent); }
+  .input-wrap .fancy-input {
+    border: 1px solid var(--border-primary);
+    background: var(--bg-quaternary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    transition-duration: 0.3s; }
+    .input-wrap .fancy-input i {
+      color: transparent;
+      transition-duration: 0.3s; }
+    .input-wrap .fancy-input.radio {
+      border-radius: 50%; }
+  .input-wrap:hover .fancy-input {
+    background: var(--bg-accent-transparent);
+    border-color: var(--border-accent-transparent); }
+    .input-wrap:hover .fancy-input i {
+      color: var(--text-secondary); }
 
 /***** Variables for Defaults *****/
 :root {

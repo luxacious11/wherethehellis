@@ -57,6 +57,7 @@ const defaultSquare = `https://picsum.photos/200`;
 const activeResExists = `<blockquote class="fullWidth warning">Uh-oh! That's already reserved. Maybe we can help you find another option - reach out in the Discord for help!</blockquote>`;
 const prevResExists = `<blockquote class="fullWidth warning">Uh-oh! You've reserved that before! Reserves at Where the Hell Is are non-renewable. If you don't remember doing this, please reach out to staff via Discord and we can review our records and discuss options with you!</blockquote>`;
 const claimExists = `<blockquote class="fullWidth warning">Uh-oh! This is already in play! Maybe we can help you find another option - reach out in the Discord for help!</blockquote>`;
+const limitReached = `<blockquote class="fullWidth warning">Uh-oh! This role has limited spots and it looks like they're all taken and/or reserved at this moment!</blockquote>`;
 
 const colors = {
     'tiger': [153, 117, 78],
@@ -115,124 +116,124 @@ const aestheticFields = {
 const powerFields = ['#field_39', '#field_40', '#field_41', '#field_42', '#field_43'];
 
 const allHeaders = [
-    {
-        sectionTitle: `Player`,
-        insertBefore: '#field_1',
-        sectionDescription: `<p>This section is for information about <i>you</i>, the writer! This should be the same as the details on your OOC account for consistency's sake. If something changes, please make sure to update the change on <i>all</i> your accounts for that reason.</p>`,
-        
-    },
-    {
-        sectionTitle: `Account Images`,
-        insertBefore: '#field_54',
-        sectionDescription: `<p>These are mandatory image fields for both OOC and character accounts. The images don't need to be specific sizes as they will crop/resize automatically depending on the size of the viewer's screen. We <i>do</i> ask that you use high-quality images that follow the ratio given in the field, for example a “wide” image should be wider than it is tall.</p>`,
-    },
-    {
-        sectionTitle: `Customization`,
-        insertBefore: '#field_65',
-        sectionDescription: `<p>These are optional "bonus" spots to customize the popout sidebar for you and you alone! You can use hyperlink HTML (provided below) to add custom links for ease of access, or drop a posting template in the code block for your own convenience- whatever you'd like to do, as it will only affect the profile that it's saved to!</p>
-        
-        <tag-code>
-            <div onclick="highlightCode()" class="copyQuick">copy</div>
-            <pre><textarea class="scroll"><a href="URL">text</a></textarea></pre>
-        </tag-code>`,
-    },
-    {
-        sectionTitle: `Links`,
-        insertBefore: '#field_48',
-        sectionDescription: `<p>These are for optional links to further information/resources for your character, or for you as a person on your OOC account! Some things you might include here are links to your development forum/threads, links to playlists, or even to a Pinterest board you've put together. You can even place wanted ads here! Please leave these fields blank if you do not want to use them, and please keep the titles on the shorter side- 1 to 2 words each.</p>`,
-    },
+{
+sectionTitle: `Player`,
+insertBefore: '#field_1',
+sectionDescription: `<p>This section is for information about <i>you</i>, the writer! This should be the same as the details on your OOC account for consistency's sake. If something changes, please make sure to update the change on <i>all</i> your accounts for that reason.</p>`,
+
+},
+{
+sectionTitle: `Account Images`,
+insertBefore: '#field_54',
+sectionDescription: `<p>These are mandatory image fields for both OOC and character accounts. The images don't need to be specific sizes as they will crop/resize automatically depending on the size of the viewer's screen. We <i>do</i> ask that you use high-quality images that follow the ratio given in the field, for example a “wide” image should be wider than it is tall.</p>`,
+},
+{
+sectionTitle: `Customization`,
+insertBefore: '#field_65',
+sectionDescription: `<p>These are optional "bonus" spots to customize the popout sidebar for you and you alone! You can use hyperlink HTML (provided below) to add custom links for ease of access, or drop a posting template in the code block for your own convenience- whatever you'd like to do, as it will only affect the profile that it's saved to!</p>
+
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><a href="URL">text</a></textarea></pre>
+</tag-code>`,
+},
+{
+sectionTitle: `Links`,
+insertBefore: '#field_48',
+sectionDescription: `<p>These are for optional links to further information/resources for your character, or for you as a person on your OOC account! Some things you might include here are links to your development forum/threads, links to playlists, or even to a Pinterest board you've put together. You can even place wanted ads here! Please leave these fields blank if you do not want to use them, and please keep the titles on the shorter side- 1 to 2 words each.</p>`,
+},
 ];
 const charHeaders = [
-    {
-        sectionTitle: `Basic`,
-        insertBefore: '#field_14',
-        sectionDescription: `<p>This section is for basic information about your character. All of it is <u>mandatory</u> except for "Partners", "Specs", and "Defining Features" which can be left blank if you choose. Please make sure to read up on the site setting to choose a residence that fits your character's circumstances, and be sure to update their profile if their living arrangement changes at any point!</p>`,
-    },
-    {
-        sectionTitle: `Powers`,
-        insertBefore: '#field_38',
-        sectionDescription: `<p>This section is specifically for your character's powers, if they have any. If you're unsure which category in the dropdown menu your character's power(s) fall into, feel free to ask a staff member for guidance! Every character should have something selected on the dropdown menu, but only characters with powers will need to actually fill out information about their abilities. As per our rules, we are <i>very</i> open-ended on what powers are allowed on-site, but you <u>must</u> have adequate limitations to balance it out or you will be asked to revise your profile. Again, when in doubt, don't hesitate to open a ticket with staff!</p>`,
-    },
-    {
-        sectionTitle: `Details`,
-        insertBefore: '#field_44',
-        sectionDescription: `<p>This section includes your character's "Quick Facts" and "Freeform”. The "Quick Facts" are a bullet-point set of notes about your character, and should ideally provide a summary of the most important things to know about them. The "Freeform" content is entirely up to you- while there's no minimum length for it, it should give us another taste of what your character is like. Feel free to reach out in the Discord server for freeform ideas if you find yourself drawing a blank!</p>
+{
+sectionTitle: `Basic`,
+insertBefore: '#field_14',
+sectionDescription: `<p>This section is for basic information about your character. All of it is <u>mandatory</u> except for "Partners", "Specs", and "Defining Features" which can be left blank if you choose. Please make sure to read up on the site setting to choose a residence that fits your character's circumstances, and be sure to update their profile if their living arrangement changes at any point!</p>`,
+},
+{
+sectionTitle: `Powers`,
+insertBefore: '#field_38',
+sectionDescription: `<p>This section is specifically for your character's powers, if they have any. If you're unsure which category in the dropdown menu your character's power(s) fall into, feel free to ask a staff member for guidance! Every character should have something selected on the dropdown menu, but only characters with powers will need to actually fill out information about their abilities. As per our rules, we are <i>very</i> open-ended on what powers are allowed on-site, but you <u>must</u> have adequate limitations to balance it out or you will be asked to revise your profile. Again, when in doubt, don't hesitate to open a ticket with staff!</p>`,
+},
+{
+sectionTitle: `Details`,
+insertBefore: '#field_44',
+sectionDescription: `<p>This section includes your character's "Quick Facts" and "Freeform”. The "Quick Facts" are a bullet-point set of notes about your character, and should ideally provide a summary of the most important things to know about them. The "Freeform" content is entirely up to you- while there's no minimum length for it, it should give us another taste of what your character is like. Feel free to reach out in the Discord server for freeform ideas if you find yourself drawing a blank!</p>
 
-        <p>On the other hand, if you happen to hit the character maximum for the freeform, use the "Freeform Overflow" to continue writing. In most cases, however, this field will simply be left blank.</p>
+<p>On the other hand, if you happen to hit the character maximum for the freeform, use the "Freeform Overflow" to continue writing. In most cases, however, this field will simply be left blank.</p>
 
-        <p>Most, if not all, of our HTML-based codes in our <a href="https://wherethehellis.jcink.net/index.php?showforum=4" target="_blank">Codebank</a> should work in our freeform.</p>
-        
-        <p>It is worth noting that these, and most, sections of the application do support some limited markdown options for easier coding. These include ** on either side to bold, _ on either side to italicize, and || on either side to spoiler. Additionally, we have quicker ways to do lists available as markdown. The code is below:</p>
-        
-        <tag-code>
-            <div onclick="highlightCode()" class="copyQuick">copy</div>
-            <pre><textarea class="scroll"><tl>+ List Item
-            + List Item
-            + List Item</tl></textarea></pre>
-        </tag-code>`,
-    },
-    {
-        sectionTitle: `Plotting`,
-        insertBefore: '#field_69',
-        sectionDescription: `<p>This section serves as your "shipper" on-site and should give others a brief summary of your character (a paragraph or two, in the "Overview" field) as well as some ideas for potential plots you're looking for, as well as plots you have no interest in pursuing. Please do not leave either field blank; we ask you provide at <i>least</i> a few solid ideas in the "Plot Hooks" field, and if you are open to any plot types at all, please write that in the "Not Interested" field as well.</p>
-        
-        <p>For relationships, while you're welcome to leave it blank at first if your character has none, we do consider it a required field that you should keep updated. You can do so with the following codes:</p>
-        <div data-type="grid" data-columns="2" data-gap="smsquare" style="margin-top: 30px;">
-            <span>
-            <div class="h6">No Link, No Image</div>
-            <tag-code>
-                <div onclick="highlightCode()" class="copyQuick">copy</div>
-                <pre><textarea class="scroll"><tag-relationship><b>First Last</b>
-                <span>details</span></tag-relationship></textarea></pre>
-            </tag-code>
-            </span>
-            <span>
-            <div class="h6">Linked, No Image</div>
-            <tag-code>
-                <div onclick="highlightCode()" class="copyQuick">copy</div>
-                <pre><textarea class="scroll"><tag-relationship><a href="/">First Last</a>
-                <span>details</span></tag-relationship></textarea></pre>
-            </tag-code>
-            </span>
-            <span>
-            <div class="h6">No Link with Image</div>
-            <tag-code>
-                <div onclick="highlightCode()" class="copyQuick">copy</div>
-                <pre><textarea class="scroll"><tag-relationship><img src="http://picsum.photos/100" />
-                <b>First Last</b>
-                <span>details</span></tag-relationship></textarea></pre>
-            </tag-code>
-            </span>
-            <span>
-            <div class="h6">Linked with Image</div>
-            <tag-code>
-                <div onclick="highlightCode()" class="copyQuick">copy</div>
-                <pre><textarea class="scroll"><tag-relationship><img src="http://picsum.photos/100" />
-                <a href="/">First Last</a>
-                <span>details</span></tag-relationship></textarea></pre>
-            </tag-code>
-            </span>
-            <span>
-            <div class="h6">Title</div>
-            <tag-code>
-                <div onclick="highlightCode()" class="copyQuick">copy</div>
-                <pre><textarea class="scroll"><tag-shiptitle>Text</tag-shiptitle></textarea></pre>
-            </tag-code>
-            </span>
-            <span>
-            <div class="h6">Subtitle</div>
-            <tag-code>
-                <div onclick="highlightCode()" class="copyQuick">copy</div>
-                <pre><textarea class="scroll"><tag-shipsubtitle>Text</tag-shipsubtitle></textarea></pre>
-            </tag-code>
-            </span>
-        </div>`,
-    },
-    {
-        sectionTitle: `Aesthetics`,
-        insertBefore: '#field_56',
-        sectionDescription: `<div class="sample"></div><div class="text"><p>These fields are for your character's "aesthetic" images for their profile. They do not have to be of the character themselves, and can instead be used to give everybody a glance of the character's "aesthetic", whether outfits they would wear, scenery they enjoy, or just general vibes! Please note that Discord does <u>not</u> allow itself to be used as an image host, so none of your profile images should be linked from a Discord server, whether public or private. If you need recommendations for an image host to use, feel free to ask in our Discord server. Any profiles with Discord-linked images will <i>not</i> be accepted until the are hosted elsewhere.</p></div>`,
-    },
+<p>Most, if not all, of our HTML-based codes in our <a href="https://wherethehellis.jcink.net/index.php?showforum=4" target="_blank">Codebank</a> should work in our freeform.</p>
+
+<p>It is worth noting that these, and most, sections of the application do support some limited markdown options for easier coding. These include ** on either side to bold, _ on either side to italicize, and || on either side to spoiler. Additionally, we have quicker ways to do lists available as markdown. The code is below:</p>
+
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tl>+ List Item
++ List Item
++ List Item</tl></textarea></pre>
+</tag-code>`,
+},
+{
+sectionTitle: `Plotting`,
+insertBefore: '#field_69',
+sectionDescription: `<p>This section serves as your "shipper" on-site and should give others a brief summary of your character (a paragraph or two, in the "Overview" field) as well as some ideas for potential plots you're looking for, as well as plots you have no interest in pursuing. Please do not leave either field blank; we ask you provide at <i>least</i> a few solid ideas in the "Plot Hooks" field, and if you are open to any plot types at all, please write that in the "Not Interested" field as well.</p>
+
+<p>For relationships, while you're welcome to leave it blank at first if your character has none, we do consider it a required field that you should keep updated. You can do so with the following codes:</p>
+<div data-type="grid" data-columns="2" data-gap="smsquare" style="margin-top: 30px;">
+<span>
+<div class="h6">No Link, No Image</div>
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tag-relationship><b>First Last</b>
+<span>details</span></tag-relationship></textarea></pre>
+</tag-code>
+</span>
+<span>
+<div class="h6">Linked, No Image</div>
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tag-relationship><a href="/">First Last</a>
+<span>details</span></tag-relationship></textarea></pre>
+</tag-code>
+</span>
+<span>
+<div class="h6">No Link with Image</div>
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tag-relationship><img src="http://picsum.photos/100" />
+<b>First Last</b>
+<span>details</span></tag-relationship></textarea></pre>
+</tag-code>
+</span>
+<span>
+<div class="h6">Linked with Image</div>
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tag-relationship><img src="http://picsum.photos/100" />
+<a href="/">First Last</a>
+<span>details</span></tag-relationship></textarea></pre>
+</tag-code>
+</span>
+<span>
+<div class="h6">Title</div>
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tag-shiptitle>Text</tag-shiptitle></textarea></pre>
+</tag-code>
+</span>
+<span>
+<div class="h6">Subtitle</div>
+<tag-code>
+<div onclick="highlightCode()" class="copyQuick">copy</div>
+<pre><textarea class="scroll"><tag-shipsubtitle>Text</tag-shipsubtitle></textarea></pre>
+</tag-code>
+</span>
+</div>`,
+},
+{
+sectionTitle: `Aesthetics`,
+insertBefore: '#field_56',
+sectionDescription: `<div class="sample"></div><div class="text"><p>These fields are for your character's "aesthetic" images for their profile. They do not have to be of the character themselves, and can instead be used to give everybody a glance of the character's "aesthetic", whether outfits they would wear, scenery they enjoy, or just general vibes! Please note that Discord does <u>not</u> allow itself to be used as an image host, so none of your profile images should be linked from a Discord server, whether public or private. If you need recommendations for an image host to use, feel free to ask in our Discord server. Any profiles with Discord-linked images will <i>not</i> be accepted until the are hosted elsewhere.</p></div>`,
+},
 ];
   
 /** auto-tracker code by FizzyElf - https://fizzyelf.jcink.net **/

@@ -95,7 +95,8 @@ img {
 .ucp--description .h7,
 .ucp--description .h8 {
   margin-top: 0;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  line-height: 120%; }
   .postcolor h2:not(:first-child),
   .postcolor h3:not(:first-child),
   .postcolor h4:not(:first-child),
@@ -2209,7 +2210,24 @@ img {
   .profile .scroll tag-relationship > a,
   .member--item .scroll tag-relationship > a,
   .ucp--description tag-relationship > a {
-    background: var(--accent-30); }
+    background: var(--accent-30);
+    transition-duration: 0.3s; }
+    .postcolor tag-relationship > a:hover,
+    .webpage--content tag-relationship > a:hover,
+    .profile .scroll tag-relationship > a:hover,
+    .member--item .scroll tag-relationship > a:hover,
+    .ucp--description tag-relationship > a:hover {
+      background: var(--bg-accent-transparent); }
+      .postcolor tag-relationship > a:hover::before, .postcolor tag-relationship > a:hover::after,
+      .webpage--content tag-relationship > a:hover::before,
+      .webpage--content tag-relationship > a:hover::after,
+      .profile .scroll tag-relationship > a:hover::before,
+      .profile .scroll tag-relationship > a:hover::after,
+      .member--item .scroll tag-relationship > a:hover::before,
+      .member--item .scroll tag-relationship > a:hover::after,
+      .ucp--description tag-relationship > a:hover::before,
+      .ucp--description tag-relationship > a:hover::after {
+        width: 50%; }
     .postcolor tag-relationship > a::before, .postcolor tag-relationship > a::after,
     .webpage--content tag-relationship > a::before,
     .webpage--content tag-relationship > a::after,
@@ -2220,7 +2238,8 @@ img {
     .ucp--description tag-relationship > a::before,
     .ucp--description tag-relationship > a::after {
       top: -1px;
-      width: 8px; }
+      width: 8px;
+      transition-duration: 0.3s; }
   .postcolor tag-relationship > span,
   .webpage--content tag-relationship > span,
   .profile .scroll tag-relationship > span,

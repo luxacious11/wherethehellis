@@ -1,0 +1,28 @@
+<form id="form-add-plot" data-type="grid" data-columns="2">
+    <h2 class="fullWidth" data-box-align="center">Add a Plot</h2>
+    <label class="fullWidth">
+        <b>Plot Name</b>
+        <span><input type="text" id="plot" placeholder="Plot" required=""></span>
+    </label>
+    <label>
+        <b>Plot Hashtag</b>
+        <span><input type="text" id="id" placeholder="ID" required=""></span>
+    </label>
+    <label>
+        <b>Plot Number</b>
+        <span><input type="number" id="priority" min="1" required=""></span>
+    </label>
+    <label class="fullWidth">
+        <b>Overview</b>
+        <span><textarea id="overview" placeholder="Overview" required=""></textarea></span>
+    </label>
+    <label class="fullWidth adjustable">
+        <b>Sections</b>
+        <div class="multi-buttons" data-row-type="plotsections">
+            <button type="button" onclick="addRow(this)">+ Add</button>
+            <button type="button" onclick="removeRow(this)">- Remove</button>
+        </div>
+        <div class="rows"></div>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

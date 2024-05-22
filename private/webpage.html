@@ -73,9 +73,9 @@
                         </tag-label>
                         <div data-category="claims" class="tab-category accordion--content">
                             <a href="#face-reserves">Face Reserves</a>
-                            <a href="#plot-reserves">Subplot Role Reserves</a>
                             <a href="./memberDirectory.html" class="external">Members</a>
                             <a href="#faces">Faces</a>
+                            <a href="#powers">Powers</a>
                             <a href="./businesses.html" class="external">Jobs</a>
                             <a href="./connections.html" class="external">Connections</a>
                         </div>
@@ -117,7 +117,7 @@
                             </tag-tab>
                             <tag-tab data-key="#groups">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    groups
+                                    @@include('../source/templates/groups.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#credits">
@@ -153,17 +153,17 @@
                             </tag-tab>
                             <tag-tab data-key="#reserve-role">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    reserve a role
+                                    @@include('../source/templates/forms/reserve-role.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#add-business">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    add business
+                                    @@include('../source/templates/forms/add-business.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#sort">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    sort form
+                                    @@include('../source/templates/forms/sorting.html')
                                 </div></div>
                             </tag-tab>
                         </tag-tabset>
@@ -172,17 +172,45 @@
                         <tag-tabset>
                             <tag-tab data-key="#face-reserves">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    face reserves
-                                </div></div>
-                            </tag-tab>
-                            <tag-tab data-key="#plot-reserves">
-                                <div class="webpage--content-inner"><div class="scroll">
-                                    plot reserves
+                                    <h2 data-box-align="center">Reserved Faces</h2>
+                                    <div data-type="grid" data-columns="2" class="filters">
+                                        <div class="filter">
+                                            <strong class="h6">Filter by Face</strong>
+                                            <input type="text" data-filter="#face-reserves" data-objects="> b" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face" style="width: 100%;">
+                                        </div> 
+                                        <div class="filter">
+                                            <strong class="h6">Filter by Member</strong>
+                                            <input type="text" data-filter="#face-reserves" data-objects="> b + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Alias" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div id="clip-face-reserves" class="claim-wrap accordion"></div>
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#faces">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    faces
+                                    <h2 data-box-align="center">Claimed Faces</h2>
+                                    <div data-type="grid" data-columns="3" class="filters">
+                                        <div class="filter">
+                                            <strong class="h6">Filter by Face</strong>
+                                            <input type="text" data-filter="#faces" data-objects="> a" data-headers="h3" data-hide-wrap="true" onkeyup="filterValue(this)" placeholder="Face" style="width: 100%;">
+                                        </div> 
+                                        <div class="filter">
+                                            <strong class="h6">Filter by Character</strong>
+                                            <input type="text" data-filter="#faces" data-objects="> a + span > a" data-headers="h3" data-hide-wrap="true" onkeyup="filterValue(this)" placeholder="Character" style="width: 100%;">
+                                        </div>
+                                        <div class="filter">
+                                            <strong class="h6">Filter by Member</strong>
+                                            <input type="text" data-filter="#faces" data-objects="> a + span + span > a" data-headers="h3" data-hide-wrap="true" onkeyup="filterValue(this)" placeholder="Member" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div id="clip-face-claims" class="claim-wrap accordion"></div>
+                                </div></div>
+                            </tag-tab>
+                            <tag-tab data-key="#powers">
+                                <div class="webpage--content-inner"><div class="scroll">
+                                    <h2 data-box-align="center">Existing Powers</h2>
+                                    <blockquote>Please note that duplicate powers are acceptable! This is just to help quickly reference which characters have what abilities at this given moment.</blockquote>
+                                    <div id="clip-powers" class="claim-wrap accordion"></div>
                                 </div></div>
                             </tag-tab>
                         </tag-tabset>
@@ -191,22 +219,22 @@
                         <tag-tabset>
                             <tag-tab data-key="#edit-member">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    edit member
+                                    @@include('../source/templates/forms/edit-member.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#edit-claims">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    edit claims
+                                    @@include('../source/templates/forms/edit-claims.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#edit-business">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    edit business
+                                    @@include('../source/templates/forms/edit-business.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#request-help">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    request help
+                                    @@include('../source/templates/forms/moderation.html')
                                 </div></div>
                             </tag-tab>
                         </tag-tabset>
@@ -215,12 +243,12 @@
                         <tag-tabset>
                             <tag-tab data-key="#approve-character">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    Approve Character
+                                    @@include('../source/templates/forms/approve.html')
                                 </div></div>
                             </tag-tab>
                             <tag-tab data-key="#add-plot">
                                 <div class="webpage--content-inner"><div class="scroll">
-                                    Add Plot
+                                    @@include('../source/templates/forms/add-plot.html')
                                 </div></div>
                             </tag-tab>
                         </tag-tabset>
@@ -236,6 +264,7 @@
                 const modLogs = `1241133990518460436/Y3nr7TlizQqWWPtO2C_4LDR9Yw6acDpCLyGwzQSRdUkw34CnoLaov-XsXNDVHOlWDzrf`;
                 const sort = `1241133648426700930/hdNYP_cEJ0980RDrZLNGSAZZUlevGJF8v3WubBE9bnRd691ge7dgoNiBUwbbqdLmZjkT`;
                 const announce = `1241133773786058893/FNIz3HbifQL-CycJnK2EQ4n_Lmnmh8-xAU-JoXjmoZeufYZ3aG8Ol53Sbr9AmMIdwvKt`;
+                const staffLogs = `1241512727646830664/M4l0GXpNaSLoj2WCRsPf-b1JxNOfjuMJrBahBHLqQ1p-3lxhrD86egV5mtTjLYg0l3PM`;
 
                 const faceReserves = `https://opensheet.elk.sh/${sheetID}/FaceReserves`;
                 const subplotReserves = `https://opensheet.elk.sh/${sheetID}/PlotReserves`;
@@ -243,7 +272,7 @@
                 const plots = `https://opensheet.elk.sh/${sheetID}/Plots`;
                 const businesses = `https://opensheet.elk.sh/${sheetID}/Businesses`;
 
-                let businessList = ``;
+                let businessDataVar, subplotDataVar, claimsDataVar;
             </script>
             <script src="../dist/js/webpageFunctions.js"></script>
             <script src="../dist/js/formatFunctions.js"></script>
@@ -254,33 +283,34 @@
                 fetch(claims)
                 .then((response) => response.json())
                 .then((claimsData) => {
-                    //console.log('claims');
-                    //console.log(claimsData);
+                    claimsDataVar = claimsData;
+                    formatFaceClaims(claimsData);
+                    formatPowerClaims(claimsData);
                     
                     fetch(faceReserves)
                     .then((response) => response.json())
                     .then((reservesData) => {
-                        //console.log('face reserves');
-                        //console.log(reservesData);
+                        formatFaceReserves(reservesData, claimsData);
 
                         fetch(subplotReserves)
                         .then((response) => response.json())
                         .then((subplotReservesData) => {
-                            //console.log('plot reserves');
-                            //console.log(subplotReservesData);
-
                             fetch(plots)
                             .then((response) => response.json())
                             .then((subplotData) => {
-                                formatSubplots(subplotData, claimsData);
+                                formatSubplots(subplotData, claimsData, subplotReservesData);
+                                setPlotOptions(subplotData, `#form-reserve-role`, `.clip-plots`);
+                                subplotDataVar = subplotData;
 
                                 fetch(businesses)
                                 .then((response) => response.json())
                                 .then((businessData) => {
+                                    businessDataVar = businessData;
                                     //console.log('businesses');
                                     //console.log(businessData);
                                     
                                 }).then(() => {
+                                    pullCharacterClaims(document.querySelector('#form-edit-character #accountid'));
                                     initWebpages();
                                 });
                                 

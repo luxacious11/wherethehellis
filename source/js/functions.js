@@ -84,6 +84,7 @@ function filterValue(e) {
     let wraps = document.querySelectorAll(`[data-key="${e.dataset.filter}"] .claim-wrap`);
     if(searchValue !== '') {
         e.parentNode.classList.add('pb');
+        e.closest('.scroll').querySelectorAll('.accordion--trigger, .accordion--content').forEach(item => item.classList.add('is-active'));
         names.forEach(name => {
             let nameValue = name.innerText.toLowerCase().trim();
             if (nameValue.indexOf(searchValue) > -1) {
@@ -94,14 +95,14 @@ function filterValue(e) {
             let childrenArray = Array.from(name.closest('.claim-wrap').querySelectorAll('.claim')).filter(item => !item.classList.contains('hidden'));
             if(childrenArray.length === 0) {
                 name.closest('.claim-wrap').previousElementSibling.classList.add('hidden');
-		if (e.dataset.hideWrap === 'true') {
-                    name.closest('.claim-wrap').classList.add('hidden');
-		}
+                if (e.dataset.hideWrap === 'true') {
+                            name.closest('.claim-wrap').classList.add('hidden');
+                }
             } else {
                 name.closest('.claim-wrap').previousElementSibling.classList.remove('hidden');
-		if (e.dataset.hideWrap === 'true') {
-                    name.closest('.claim-wrap').classList.remove('hidden');
-		}
+                if (e.dataset.hideWrap === 'true') {
+                            name.closest('.claim-wrap').classList.remove('hidden');
+                }
             }
         });
     } else {
@@ -109,6 +110,7 @@ function filterValue(e) {
         headers.forEach(header => header.classList.remove('hidden'));
         names.forEach(name => name.closest('.claim').classList.remove('hidden'));
         wraps.forEach(wrap => wrap.classList.remove('hidden'));
+        e.closest('.scroll').querySelectorAll('.accordion--trigger, .accordion--content').forEach(item => item.classList.remove('is-active'));
     }
 }
 function appendSearchQuery(param, value) {
@@ -539,8 +541,8 @@ function initFirstHashTab(firstClasses, activeClass) {
 }
 function initAccordion(target = '.accordion') {
     document.querySelectorAll(target).forEach(accordion => {
-        let triggers = accordion.querySelectorAll('.accordion--trigger');
-        let contents = accordion.querySelectorAll('.accordion--content');
+        let triggers = accordion.querySelectorAll(':scope > .accordion--trigger');
+        let contents = accordion.querySelectorAll(':scope > .accordion--content');
         if(window.innerWidth <= 480) {
             triggers.forEach(trigger => trigger.classList.remove('is-active'));
             contents.forEach(trigger => trigger.classList.remove('is-active'));
@@ -708,7 +710,7 @@ function formatPowers(powers) {
 
     return powersHTML;
 }
-function charactersOnly(aesthetics, images, year, month, day, powers, character) {
+function charactersOnly(aesthetics, images, year, month, day, powers, character, overflow) {
     document.querySelectorAll('.memAccOnly').forEach(item => item.remove());
     document.querySelectorAll('.powers--Powerless .powersOnly').forEach(item => item.remove());
 
@@ -721,7 +723,7 @@ function charactersOnly(aesthetics, images, year, month, day, powers, character)
         document.querySelector('power-clip').innerHTML = formatPowers(powers);
     }
 
-    setOverflow(`<i>No Information</i>`);
+    setOverflow(overflow);
 
 	//FillTracker(character, trackerParams);
 }
@@ -847,9 +849,9 @@ function removeBlankFields() {
         }
     })
 }
-function initProfile(type, aesthetics = null, images = {}, year = null, month = null, day = null, powers = {}, character) {
+function initProfile(type, aesthetics = null, images = {}, year = null, month = null, day = null, powers = {}, character, overflow) {
     if(type === 'character') {
-        charactersOnly(aesthetics, images, year, month, day, powers, character);
+        charactersOnly(aesthetics, images, year, month, day, powers, character, overflow);
     } else {
         membersOnly();
     }
