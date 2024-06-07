@@ -205,7 +205,8 @@
       padding: 5px 15px;
       line-height: 160%;
       width: max-content;
-      max-width: 100%; }
+      max-width: 100%;
+      background: none; }
       .webpage .claim > a::before, .webpage .claim > a::after,
       .webpage .claim > b::before,
       .webpage .claim > b::after {

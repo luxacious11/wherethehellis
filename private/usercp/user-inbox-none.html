@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../../source/templates/head.html', {
+            "prefix": "../../dist"
+        })   
+    </head>
+    <body id="Msg" class="dark g-4 code-01">
+        @@include('../../source/templates/header.html', {
+            "prefix": "../.."
+        })
+      @@include('../../source/templates/nav.html', {
+            "prefix": "../.."
+        })
+
+        <!--Main Body-->
+        <main>
+		
+            <!--
+            TABLE TO FIX IE/6 ISSUE
+            The one where 23% margin + 100% table = 123% in IE6 o_O
+            -->
+            <table cellspacing="0" cellpadding="0" width="100%">
+            <tbody><tr>
+             <td id="ucpmenu" valign="top"><button class="onlyMobile" onclick="toggleUCPMenu(this)">
+                    <i class="fa-solid fa-ellipsis-h"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="accordion">
+                    <div class="accordion--trigger" data-category="account"><b>Account</b></div>
+                    <div class="accordion--content" data-category="account">
+                        <a href="?act=UserCP&amp;CODE=01">Edit Profile</a>
+                        <a href="?act=UserCP&amp;CODE=24">Update Avatar</a>
+                        <a href="?act=UserCP&amp;CODE=54">Sub-accounts</a>
+                        <a href="?act=UserCP&amp;CODE=52">Edit Username</a>
+                        <a href="?act=UserCP&amp;CODE=28">Change Password</a>
+                        <a href="?act=UserCP&amp;CODE=08">Update Email</a>
+                    </div>
+                    <div class="accordion--trigger" data-category="messages"><b>Messages</b></div>
+                    <div class="accordion--content" data-category="messages">
+                        <a href="?act=Msg&amp;CODE=01" class="is-active">Inbox</a>
+                        <a href="?act=Msg&amp;CODE=04">Send Message</a>
+                    </div>
+                    <div class="accordion--trigger is-active" data-category="tracking"><b>Tracking</b></div>
+                    <div class="accordion--content is-active" data-category="tracking">
+                        <a href="?act=UserCP&amp;CODE=alerts">Alerts</a>
+                        <a href="?act=UserCP&amp;CODE=50">Forums</a>
+                        <a href="?act=UserCP&amp;CODE=26">Topics</a>
+                    </div>
+                    <div class="accordion--trigger" data-category="settings"><b>Settings</b></div>
+                    <div class="accordion--content" data-category="settings">
+                        <a href="?act=UserCP&amp;CODE=04">Board</a>
+                        <a href="?act=UserCP&amp;CODE=alerts_settings">Alerts</a>
+                        <a href="?act=UserCP&amp;CODE=02">Emails</a>
+                    </div>
+                </div></td>
+             <td style="padding:2px"><!-- --></td>
+            <!-- Start main CP area -->
+             <td id="ucpcontent" valign="top">
+              <div class="maintitle">Welcome to your control panel </div>            
+                             <!-- inbox folder -->
+            <script language="JavaScript" type="text/javascript">
+            <!--
+            
+            var ie  = document.all  ? 1 : 0;
+            //var ns4 = document.layers ? 1 : 0;
+            
+            function hl(cb)
+            {
+               if (ie)
+               {
+                   while (cb.tagName != "TR")
+                   {
+                       cb = cb.parentElement;
+                   }
+               }
+               else
+               {
+                   while (cb.tagName != "TR")
+                   {
+                       cb = cb.parentNode;
+                   }
+               }
+               cb.className = 'hlight';
+            }
+            
+            function dl(cb) {
+               if (ie)
+               {
+                   while (cb.tagName != "TR")
+                   {
+                       cb = cb.parentElement;
+                   }
+               }
+               else
+               {
+                   while (cb.tagName != "TR")
+                   {
+                       cb = cb.parentNode;
+                   }
+               }
+               cb.className = 'dlight';
+            }
+            
+            function cca(cb) {
+               if (cb.checked)
+               {
+                   hl(cb);
+               }
+               else
+               {
+                   dl(cb);
+               }
+            }
+                   
+            function CheckAll(cb) {
+                var fmobj = document.mutliact;
+                for (var i=0;i<fmobj.elements.length;i++) {
+                    var e = fmobj.elements[i];
+                    if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
+                        e.checked = fmobj.allbox.checked;
+                        if (fmobj.allbox.checked)
+                        {
+                           hl(e);
+                        }
+                        else
+                        {
+                           dl(e);
+                        }
+                    }
+                }
+            }
+            function CheckCheckAll(cb) {	
+                var fmobj = document.mutliact;
+                var TotalBoxes = 0;
+                var TotalOn = 0;
+                for (var i=0;i<fmobj.elements.length;i++) {
+                    var e = fmobj.elements[i];
+                    if ((e.name != 'allbox') && (e.type=='checkbox')) {
+                        TotalBoxes++;
+                        if (e.checked) {
+                            TotalOn++;
+                        }
+                    }
+                }
+                if (TotalBoxes==TotalOn) {fmobj.allbox.checked=true;}
+                else {fmobj.allbox.checked=false;}
+            }
+            
+            function select_read() {	
+                var fmobj = document.mutliact;
+                for (var i=0;i<fmobj.elements.length;i++) {
+                    var e = fmobj.elements[i];
+                    if ((e.type=='hidden') && (e.value == 1) && (! isNaN(e.name) ))
+                    {
+                        eval("fmobj.msgid_" + e.name + ".checked=true;");
+                        hl(e);
+                    }
+                }
+            }
+            
+            function unselect_all() {	
+                var fmobj = document.mutliact;
+                for (var i=0;i<fmobj.elements.length;i++) {
+                    var e = fmobj.elements[i];
+                    if (e.type=='checkbox') {
+                        e.checked=false;
+                        dl(e);
+                    }
+                }
+            }
+            
+            //-->
+            </script>
+            <div class="pformstrip">Inbox</div>
+            <table width="100%" style="padding:6px">
+            <tbody><tr>
+             <td valign="middle">
+              <!-- LEFT -->
+              <table style="width:250px" cellspacing="1" class="tableborder">
+               <tbody><tr>
+                <td class="row1" align="left" colspan="3">Your folders are 0% full</td>
+               </tr>
+               <tr>
+                <td align="left" valign="middle" class="row2" colspan="3"><img src="style_images/1/bar_left.gif" border="0" width="4" height="11" align="middle" alt=""><img src="style_images/1/bar.gif" border="0" width="1" height="11" align="middle" alt=""><img src="style_images/1/bar_right.gif" border="0" width="4" height="11" align="middle" alt=""></td>
+               </tr>
+               <tr>
+                 <td class="row1" width="33%" align="left" valign="middle">0%</td>
+                 <td class="row1" width="33%" align="center" valign="middle">50%</td>
+                 <td class="row1" width="33%" align="right" valign="middle">100%</td>
+               </tr>
+              </tbody></table>
+             </td>
+             <!-- RIGHT -->
+             <td align="right" valign="bottom" style="line-height:100%;">
+              Pages: <a href="https://wherethehellis.jcink.net/index.php?act=Msg&amp;&amp;CODE=1&amp;&amp;st=0&amp;VID=in&amp;sort=">View all</a><br><br>
+              <a href="javascript:select_read()">Select read messages</a> :: <a href="javascript:unselect_all()">Unselect all</a><br><br>
+              <form action="https://wherethehellis.jcink.net/index.php?CODE=01&amp;act=Msg" name="jump" method="post">
+              <b>Jump to folder: </b>&nbsp; <select name="VID" class="forminput">
+            <option value="in" selected="selected">Inbox</option>
+            <option value="sent">Sent Items</option>
+            <!--EXTRA--></select>
+            
+             <input type="submit" name="submit" value="Go!" class="forminput">
+              </form>
+             </td>
+            </tr>
+            </tbody></table>
+            
+            <!-- INBOX TABLE -->
+              
+            <form action="https://wherethehellis.jcink.net/index.php?CODE=06&amp;act=Msg" name="mutliact" method="post">
+            <div class="tableborder">
+              <table cellpadding="4" cellspacing="1" width="100%">
+              <tbody><tr>
+                <th width="5%" class="titlemedium">&nbsp;</th>
+                <th width="35%" class="titlemedium"><a href="https://wherethehellis.jcink.net/index.php?act=Msg&amp;CODE=01&amp;VID=in&amp;sort=title&amp;st="><b>Message Title</b></a></th>
+                <th width="30%" class="titlemedium"><a href="https://wherethehellis.jcink.net/index.php?act=Msg&amp;CODE=01&amp;VID=in&amp;sort=name&amp;st="><b>Sender</b></a></th>
+                <th width="25%" class="titlemedium"><a href="https://wherethehellis.jcink.net/index.php?act=Msg&amp;CODE=01&amp;VID=in&amp;sort=msg_date&amp;st="><b>Date</b></a></th>
+                <th width="5%" class="titlemedium"><input name="allbox" type="checkbox" value="Check All" onclick="CheckAll();"></th>
+              </tr>      <tr>
+                  <td class="row1" colspan="5" align="center"><b>No messages found</b></td>                
+                  </tr>  <tr>
+               <td align="right" class="titlemedium" colspan="5"> 	
+                <div style="float: left;"><input type="text" name="search" placeholder="Search this folder..." size="20" maxlength="60" class="textinput" onfocus="this.value=''">&nbsp;<input type="submit" name="go_search_folder" value="Go" class="forminput"></div>
+                 <input type="submit" name="move" value="move to" class="forminput"> <select name="VID" class="forminput">
+            <option value="in" selected="selected">Inbox</option>
+            <option value="sent">Sent Items</option>
+            <!--EXTRA--></select>
+            
+             or <input type="submit" name="delete" value="delete" class="forminput"> the selected messages
+              </td>
+            </tr>
+            </tbody></table>
+            </div>
+            </form>
+            <div class="wrapmini" style="padding:6px"><img alt="Read Message" src="//files.jcink.net/themes/default/white-cube-small.png">&nbsp;Read messages<br><img alt="Unread Message" src="//files.jcink.net/themes/default/red-cube-small.png">&nbsp;Unread messages</div>
+            <div align="right" style="padding:6px">Pages: <a href="https://wherethehellis.jcink.net/index.php?act=Msg&amp;&amp;CODE=1&amp;&amp;st=0&amp;VID=in&amp;sort=">View all</a><br><i>You have 0 messages out of 100 maximum storable messages</i></div> </td>
+            </tr>
+            </tbody></table>
+            <!-- end main CP area -->
+            <br clear="all"><div align="right"><form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action="https://wherethehellis.jcink.net/index.php?act=SF" method="get" name="jumpmenu">
+                                     <input type="hidden" name="act" value="SF">
+            <input type="hidden" name="s" value="">
+                                     <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="forminput">
+                                     <optgroup label="Site Jump">
+                                      <option value="sj_home">Forum Home</option>
+                                      <option value="sj_search">Search</option>
+                                      <option value="sj_help">Help</option>
+                                     </optgroup>
+                                     <optgroup label="Forum Jump"><option value="-1">Getting Started</option>
+            <option value="1">&nbsp;&nbsp;- The Guidebook  (Redirect Forum)</option><!--fx:1-->
+            <option value="3">&nbsp;&nbsp;- Announcements </option><!--fx:3-->
+            <option value="4">&nbsp;&nbsp;- Code Bank </option><!--fx:4-->
+            <option value="-1">Characters</option>
+            <option value="5">&nbsp;&nbsp;- Get Started  (Redirect Forum)</option><!--fx:5-->
+            <option value="6">  -Development</option>
+            <option value="8">  ---- Worldbuilding</option>
+            <option value="9">  ---- Group Development</option>
+            <option value="10">  ---- Member Development</option>
+            <option value="11">  ------ Lux</option>
+            <option value="12">  ------ Spyder</option>
+            <option value="7">  -Requests</option>
+            <option value="13">  ---- Platonic</option>
+            <option value="14">  ---- Romantic</option>
+            <option value="15">  ---- Familial</option>
+            <option value="16">  ---- Professional</option>
+            <option value="17">  ---- Other</option>
+            <option value="18">  ---- Filled</option>
+            <option value="-1">Events</option>
+            <option value="59">&nbsp;&nbsp;- Challenges </option><!--fx:59-->
+            <option value="60">&nbsp;&nbsp;- Past Events </option><!--fx:60-->
+            <option value="-1">Communications</option>
+            <option value="19">&nbsp;&nbsp;- Texts &amp; Calls </option><!--fx:19-->
+            <option value="20">&nbsp;&nbsp;- Social Media Profiles </option><!--fx:20-->
+            <option value="21">&nbsp;&nbsp;- Social Media Messages </option><!--fx:21-->
+            <option value="-1">Limbo, WA</option>
+            <option value="22">&nbsp;&nbsp;- Coastline </option><!--fx:22-->
+            <option value="27">  ---- The Dockyards</option>
+            <option value="28">  ---- Carnivale</option>
+            <option value="29">  ---- The Graveyard</option>
+            <option value="23">&nbsp;&nbsp;- Old Town </option><!--fx:23-->
+            <option value="30">  ---- St. Anthony Village</option>
+            <option value="31">  ---- Westfall</option>
+            <option value="32">  ---- Logan Creek</option>
+            <option value="24">&nbsp;&nbsp;- Central Limbo </option><!--fx:24-->
+            <option value="33">  ---- Oakland Terrace</option>
+            <option value="34">  ---- Holland Heights</option>
+            <option value="35">  ---- Brentwood Ridge</option>
+            <option value="25">&nbsp;&nbsp;- Downtown </option><!--fx:25-->
+            <option value="36">  ---- Bay Road</option>
+            <option value="37">  ---- Essex Plaza</option>
+            <option value="38">  ---- Pacific Market</option>
+            <option value="26">&nbsp;&nbsp;- Outskirts </option><!--fx:26-->
+            <option value="39">  ---- Castlepeak Gated Community</option>
+            <option value="40">  ---- Hawthorne Hills</option>
+            <option value="41">  ---- The Pitch</option>
+            <option value="-1">Outside Limbo</option>
+            <option value="42">&nbsp;&nbsp;- Out of Town </option><!--fx:42-->
+            <option value="43">&nbsp;&nbsp;- In the Past </option><!--fx:43-->
+            <option value="44">&nbsp;&nbsp;- In the Future </option><!--fx:44-->
+            <option value="45">&nbsp;&nbsp;- In Another Life </option><!--fx:45-->
+            <option value="-1">Out of Character</option>
+            <option value="46">&nbsp;&nbsp;- General </option><!--fx:46-->
+            <option value="47">&nbsp;&nbsp;- Advertising </option><!--fx:47-->
+            <option value="51">  ---- First Links</option>
+            <option value="52">  ---- Link Back &amp; Accepted</option>
+            <option value="48">&nbsp;&nbsp;- Archives </option><!--fx:48-->
+            <option value="53">  ---- Development</option>
+            <option value="54">  ---- Characters</option>
+            <option value="55">  ---- Communications</option>
+            <option value="56">  ---- Social Media</option>
+            <option value="57">  ---- In Character</option>
+            <option value="58">  ---- Out of Character</option>
+            <option value="-1">Staff Only</option>
+            <option value="2">&nbsp;&nbsp;- Deleted Posts </option><!--fx:2-->
+            <option value="49">&nbsp;&nbsp;- Planning </option><!--fx:49-->
+            <option value="50">&nbsp;&nbsp;- Coding </option><!--fx:50-->
+            </optgroup>
+            </select>&nbsp;<input type="submit" value="Go" class="forminput"></form></div> 
+                    <!-- Copyright Information -->
+            
+            <div align="center" class="tableborder"><div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;"><div align="center" class="copyright">Powered by <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a> (<a href="http://jcink.com" target="_blank">Jcink.com </a> <a href="https://jcink.com" target="_blank">Forum Hosting</a>) © 2024 &nbsp;<a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a> <br>Page creation time: 0.1211 <!-- http://wherethehellis.b1.jcink.com -->   · <a href="index.php?act=privacy">Privacy Policy</a></div></div></div> <script src="//files.jcink.net/html/quickedit/qe.js?v=1.01"></script> 
+                    <script language="JavaScript" type="text/javascript">
+            <!--
+            function buddy_pop() { window.open('index.php?act=buddy&s=','BrowserBuddy','width=250,height=500,resizable=yes,scrollbars=yes'); }
+            function chat_pop(cw,ch)  { window.open('index.php?s=&act=chat&pop=1','Chat','width='+cw+',height='+ch+',resizable=yes,scrollbars=yes'); }
+            function multi_page_jump( url_bit, total_posts, per_page )
+            {
+            pages = 1; cur_st = parseInt(""); cur_page  = 1;
+            if ( total_posts % per_page == 0 ) { pages = total_posts / per_page; }
+             else { pages = Math.ceil( total_posts / per_page ); }
+            msg = "Please enter a page number to jump to between 1 and" + " " + pages;
+            if ( cur_st > 0 ) { cur_page = cur_st / per_page; cur_page = cur_page -1; }
+            show_page = 1;
+            if ( cur_page < pages )  { show_page = cur_page + 1; }
+            if ( cur_page >= pages ) { show_page = cur_page - 1; }
+             else { show_page = cur_page + 1; }
+            userPage = prompt( msg, show_page );
+            if ( userPage > 0  ) {
+                if ( userPage < 1 )     {    userPage = 1;  }
+                if ( userPage > pages ) { userPage = pages; }
+                if ( userPage == 1 )    {     start = 0;    }
+                else { start = (userPage - 1) * per_page; }
+                window.location = url_bit + "&st=" + start;
+            }
+            }
+            
+            Collapse=""
+            Expand=""
+            
+            
+            
+            //-->
+            </script>
+            
+            <!--IBF.BANNER-->
+            <div id="logostrip">
+              <a href="https://wherethehellis.jcink.net/index.php?"><!-- To use this, add <{LOGO}> tag to the Board Wrapper, or this will NOT take effect -->	</a>
+            </div>
+            <table width="100%" cellspacing="6" id="submenu">
+            <tbody><tr>
+             <td><a href=""></a><!--IBF.RULES--></td>
+             <td align="right">
+                <img src="https://files.jcink.net/style_images/1/atb_help.gif" border="0" alt="">&nbsp;<a href="https://wherethehellis.jcink.net/index.php?act=Help">Help</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_search.gif" border="0" alt="">&nbsp;<a href="https://wherethehellis.jcink.net/index.php?act=Search&amp;f=">Search</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_members.gif" border="0" alt="">&nbsp;<a href="https://wherethehellis.jcink.net/index.php?act=Members">Members</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_calendar.gif" border="0" alt="">&nbsp;<a href="https://wherethehellis.jcink.net/index.php?act=calendar">Calendar</a>&nbsp; &nbsp;&nbsp; <img src="https://files.jcink.net/style_images/1/shop.png" border="0" alt="">&nbsp;<a href="?act=store">Shop</a>&nbsp; &nbsp;&nbsp;<img src="https://files.jcink.net/style_images/1/atb_shoutbox.gif" border="0">&nbsp;<a href="https://wherethehellis.jcink.net/index.php?&amp;act=Shoutbox">Shoutbox</a>
+             </td>
+            </tr>
+            </tbody></table>
+            
+            <div align="center">
+            
+            <!-- Ad Removal / Premium Board -->
+            
+            </div>
+            
+            
+            <span id="sub_bar" style="display:none;"> · <span id="subaccounts_menu">
+            <form action="https://wherethehellis.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+            <input type="hidden" name="auth_key" value="54941e21935e67fdce7f955e95f788e9">
+            <input type="hidden" name="UserName" value="subacct">
+            <input type="hidden" name="PassWord" value="subacct">
+            <input type="hidden" name="referer" value="act=Msg&amp;CODE=01">
+            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+            <option value="------------" selected="selected">Switch Account</option>
+            <option value="7"> aiden mitchell </option><option value="10"> emmalina fawley </option><option value="8"> fiore amoretti </option><option value="9"> malcolm murdock </option><option value="11"> naomi bell </option><option value="3"> nikolas kovac </option>
+            </select>
+            </form>
+            </span></span>
+            <table width="100%" id="userlinks" cellspacing="6">
+               <tbody><tr>
+                <td><strong>Logged in as:  <a href="https://wherethehellis.jcink.net/index.php?showuser=1" id="logged-in-as">lux</a></strong> ( <a href="https://wherethehellis.jcink.net/index.php?act=Login&amp;CODE=03&amp;key=54941e21935e67fdce7f955e95f788e9" id="log-out">Log Out</a><span id="subacct_link"> · <a href="javascript:void(0);" onclick="document.getElementById('subacct_link').innerHTML=document.getElementById('sub_bar').innerHTML;">Switch Account</a></span>&nbsp;· <b><a href="https://wherethehellis.jcink.net/admin.php" id="admin-link" target="_blank">Admin CP</a></b> · <b><a href="https://wherethehellis.jcink.net/index.php?act=modcp" id="modcp-link">Mod CP</a></b>   )</td>
+                <td align="right">
+                  <b><a href="https://wherethehellis.jcink.net/index.php?act=UserCP&amp;CODE=00" id="my-controls">My Controls</a></b> · <a href="https://wherethehellis.jcink.net/index.php?act=Msg&amp;CODE=01" id="x-new-messages">0 New Messages</a>
+                  · <a href="https://wherethehellis.jcink.net/index.php?act=Search&amp;CODE=getnew" id="view-new-posts">View New Posts</a> · <a href="https://wherethehellis.jcink.net/index.php?act=UserCP&amp;CODE=alerts" class="alerts-indicator alerts-new" id="alerts-indicator"><strong>Alerts (8)</strong></a> 
+                  
+                 <div id="recent-alerts" style="display: none;">
+                <div class="tableborder">
+                    <div class="pformstrip"> Recent Alerts <div style="float: right;"><a href="javascript:document.getElementById('recent-alerts').style.display='none';void(0);">[x]</a></div></div>
+                        <span id="recent-alerts-data"></span>
+                        <div class="pformstrip" style="text-align: center;">
+                            <a href="https://wherethehellis.jcink.net/index.php?act=UserCP&amp;CODE=alerts">View All Alerts</a> · <a href="javascript:read_alerts();">Mark All Read</a>
+                        </div>
+                    </div>
+                </div>
+                
+                  · <a href="javascript:window.open('index.php?showuser=1&amp;CODE=friends','Friends','width=620,height=460,resizable=yes,scrollbars=yes');void(0);" id="my-friends">My Friends</a><br>	  
+                 </td>
+               </tr>
+              </tbody></table>
+              
+            <br>
+            
+                </main>
+
+        
+        @@include('../../source/templates/scripts.html', {
+            "prefix": "../../dist"
+        })   
+    </body>
+</html>

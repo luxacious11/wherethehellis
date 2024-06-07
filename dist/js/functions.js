@@ -714,8 +714,10 @@ function charactersOnly(aesthetics, images, year, month, day, powers, character,
     document.querySelectorAll('.memAccOnly').forEach(item => item.remove());
     document.querySelectorAll('.powers--Powerless .powersOnly').forEach(item => item.remove());
 
-    document.querySelector('.profile--aesthetic').classList.add(aesthetics.replace(' ', ''));
-    document.querySelector('.profile--aesthetic').innerHTML = formatAesthetics(cleanText(aesthetics), images);
+    if(aesthetics !== `<i>No Information</i>` && aesthetics !== ``) {
+        document.querySelector('.profile--aesthetic').classList.add(aesthetics.replace(' ', ''));
+        document.querySelector('.profile--aesthetic').innerHTML = formatAesthetics(cleanText(aesthetics), images);
+    }
 
     document.querySelector('age-clip').innerText = calculateAge(year, month, day);
 
@@ -725,7 +727,7 @@ function charactersOnly(aesthetics, images, year, month, day, powers, character,
 
     setOverflow(overflow);
 
-	//FillTracker(character, trackerParams);
+    FillTracker(character, trackerParams);
 }
 function membersOnly() {
     document.querySelectorAll('.charOnly').forEach(item => item.remove());

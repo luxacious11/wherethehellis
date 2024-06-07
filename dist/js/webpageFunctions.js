@@ -130,8 +130,9 @@ function getSelectText(field) {
 //Reserve Face
 function checkActiveReserve (timestamp) {
     let current = new Date();
+    current = new Date(current.toLocaleString("en-US", {timeZone: "America/Halifax"}));
     let time = new Date(timestamp);
-    let difference = Math.floor(((current - time) / (1000*60*60*24)));
+    let difference = ((current - time) / (1000*60*60*24));
 
     return difference;
 }
@@ -190,9 +191,24 @@ function checkReservedFaces(form, data, success, staffDiscord = null, publicDisc
 }
 function setExpiry(timestamp) {
     let reserveDate = new Date(timestamp);
+    
+    let current = new Date();
+    current = new Date(current.toLocaleString("en-US", {timeZone: "America/Halifax"}));
+    let time = new Date(timestamp);
+    time = time.setDate(time.getDate() + 14)
+    let difference = time - current;
+    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    days = ('0' + days).slice(-2);
+    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    hours = ('0' + hours).slice(-2);
+    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    minutes = ('0' + minutes).slice(-2);
+    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    seconds = ('0' + seconds).slice(-2);
+
     reserveDate.setDate(reserveDate.getDate() + 14);
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october',	'november', 'december'];
-    let expiry = `${months[reserveDate.getMonth()]} ${reserveDate.getDate()}, ${reserveDate.getFullYear()}`;
+    let expiry = `in ${days}:${hours}:${minutes}:${seconds}`;
     return expiry;
 }
 

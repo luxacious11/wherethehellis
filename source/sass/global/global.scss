@@ -274,29 +274,50 @@ img {
             border-left: none;
         }
     }
-
     b {
-        color: var(--text-accent);
-        font-weight: 900;
-        font-size: 1.1em;
-        font-family: var(--font-head);
+        text-decoration: none;
+        padding: 0 10px;
+        background: var(--bg-accent);
+        display: inline-block;
+        color: var(--text-on-accent);
+        font-weight: 800;
     }
-
     i {
         color: var(--text-accent);
         font-size: 1.1em;
     }
-
     u {
         text-decoration: none;
-        border-bottom: 1px solid var(--border-accent);
-        padding: 0 1px 3px;
-    }
+        padding: 0 3px;
+        z-index: 1;
+        display: inline-block;
 
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: var(--bg-accent);
+            z-index: -1;
+            display: block;
+        }
+    }
     s {
-        text-decoration-color: var(--border-accent);
-        text-decoration-thickness: 1px;
-        text-decoration-style: wavy;
+        text-decoration: none;
+        display: inline-block;
+        padding: 0 3px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--bg-accent);
+        }
     }
 
     tag-spoiler {
@@ -489,6 +510,7 @@ img {
             line-height: 160%;
             width: max-content;
             max-width: 100%;
+            background: none;
 
             &::before,
             &::after {
@@ -755,7 +777,41 @@ tag-code,
     }
 }
 
+.pagination_pagetxt {
+    font-size: 0;
 
+    a {
+        text-transform: uppercase;
+        font-size: calc(var(--size-xs) + 1px);
+        letter-spacing: 0.1em;
+        color: var(--text-primary);
+        padding: 0 4px 0 0;
+        font-weight: 700;
+    }
+}
+.pagination_page,
+.pagination_current {
+    border: 1px solid var(--border-accent);
+    background: var(--bg-quaternary);
+    color: var(--text-accent);
+    font-family: var(--font-head);
+    font-weight: 900;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition-duration: 0.3s;
+}
+.pagination_current {
+    background: var(--bg-accent);
+    border-color: var(--bg-accent);
+    color: var(--text-on-accent);
+}
+.pagination_page:hover {
+    background: var(--bg-secondary);
+}
 
 .accordion {
     &--trigger {

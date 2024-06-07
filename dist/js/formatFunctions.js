@@ -7,7 +7,7 @@ function startAccordion(attributes) {
 function stopAccordion() {
     return `</div></div>`;
 }
-function formatClaim(title, lines, group = null, link = null, classes = ``, filterAttributes) {
+function formatClaim(title, lines, group = null, link = null, classes = ``, filterAttributes = ``) {
     let html = ``;
     if(group) {
         html += `<div class="claim g-${group} ${classes}">`;

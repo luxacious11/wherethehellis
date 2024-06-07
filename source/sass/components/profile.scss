@@ -213,6 +213,7 @@
             font-family: var(--font-head);
             font-weight: 900;
             width: 30px;
+            transition-duration: 0.3s;
 
             &.is-active {
                 background: var(--bg-accent);
@@ -222,6 +223,10 @@
             &::before {
                 counter-increment: menu;
                 content: counter(menu);
+            }
+
+            &:not(.is-active):hover {
+                background: var(--bg-secondary);
             }
         }
     }
@@ -513,7 +518,7 @@
             text-transform: uppercase;
             font-family: var(--font-head);
             font-weight: 800;
-            color: var(--text-secondary);
+            color: var(--text-secondary) !important;
             font-size: 22px;
             line-height: 160%;
             max-width: max-content;
@@ -629,8 +634,10 @@
                 letter-spacing: -1px;
                 transition-duration: 0.3s;
                 max-width: max-content;
-                padding: 0 5px;
+                padding: 0 5px !important;
                 line-height: 100%;
+                background: none !important;
+              
 
                 &::before {
                     content: '';
@@ -654,6 +661,16 @@
                 font-weight: 500;
                 font-style: italic;
                 align-self: start;
+            }
+
+            &:hover {
+                & > b {
+                    letter-spacing: 0;
+
+                    &::before {
+                        width: 60%;
+                    }
+                }
             }
         }
     }

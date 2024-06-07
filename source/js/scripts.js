@@ -181,6 +181,14 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
         document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
         fancyBoxes();
     }
+
+    //inbox
+    if($('body.code-01').length > 0 && pageType === 'Msg') {
+        document.querySelectorAll('#ucpcontent > form .dlight td:last-child .forminput[type="checkbox"]').forEach(input => {
+            inputWrap(input);
+        });
+        fancyBoxes();
+    }
     
     //send message
     if (pageClasses.contains('code-04') && pageType === 'Msg') {

@@ -69,7 +69,7 @@ function formatSubplots(plots, characters, reserves) {
     clipPlotClaims([...characters, ...reserves].filter(item => {
         if(item.Status && item.Status.toLowerCase() === 'approved') {
             return true;
-        } else if(item.Timestamp && checkActiveReserve(item.Timestamp) < 14) {
+        } else if(item.Timestamp && checkActiveReserve(item.Timestamp) <= 14) {
             return true;
         }
         return false;
@@ -138,7 +138,7 @@ function clipPlotClaims(data) {
 function formatFaceReserves(data, claimed) {
     claimed = claimed.filter(item => item.Status && item.Status === 'approved');
     let completed = claimed.map(item => item = item.Face);
-    let active = data.filter(item => checkActiveReserve(item.Timestamp));
+    let active = data.filter(item => checkActiveReserve(item.Timestamp) <= 14);
     active = active.filter(item => !completed.includes(item.Face));
     active.sort((a, b) => {
         if (a.Face < b.Face) {
