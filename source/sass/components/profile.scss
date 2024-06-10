@@ -291,7 +291,7 @@
 
             &.grid {
                 display: grid;
-                gap: 0 30px;
+                gap: 15px 30px;
                 align-items: start;
                 grid-template-rows: max-content max-content max-content;
 
@@ -537,6 +537,14 @@
                 background: var(--bg-accent);
                 z-index: -1;
                 transition-duration: 0.3s;
+            }
+
+            &:hover {
+                letter-spacing: 0;
+
+                &::before {
+                    width: 60%;
+                }
             }
         }
 

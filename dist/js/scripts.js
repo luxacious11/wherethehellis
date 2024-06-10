@@ -98,13 +98,15 @@ if(pageType === 'idx' || pageType === 'SC') {
 if(pageType === 'SF') {
 	initForums();
     initTopicsWrap();
-    initTopicDescription('.topic--description');
+    initTopicDescription('.topic--desc');
+    initStickyBar();
 }
 
 /********** Post View Only **********/
 if(pageType === 'ST') {
     initPostRowDescription();
     initPostContentAlter();
+    initStickyBar();
     //initDiscordTagging();
 }
 

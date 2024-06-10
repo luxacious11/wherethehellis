@@ -222,7 +222,7 @@
       height: 100%; }
       .profile--tab-inner .scroll.grid {
         display: grid;
-        gap: 0 30px;
+        gap: 15px 30px;
         align-items: start;
         grid-template-rows: max-content max-content max-content; }
         @media (min-width: 1281px) {
@@ -390,6 +390,10 @@
         background: var(--bg-accent);
         z-index: -1;
         transition-duration: 0.3s; }
+      .profile--tracker-item > a:hover {
+        letter-spacing: 0; }
+        .profile--tracker-item > a:hover::before {
+          width: 60%; }
     .profile--tracker-item[data-owing="archived"] {
       opacity: 0.5;
       transition-duration: 0.3s; }

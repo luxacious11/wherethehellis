@@ -908,6 +908,16 @@ function initTopicsWrap() {
         $(this).nextUntil(`.macro--header`).wrapAll(`<div class="topics--section"></div>`);
     }); 
 }
+function initStickyBar() {
+    window.addEventListener('scroll', e => {
+        let stickyBar = document.querySelector('main > table:first-of-type');
+        if(stickyBar.getBoundingClientRect().top === 30) {
+            stickyBar.classList.add('is-sticky');
+        } else {
+            stickyBar.classList.remove('is-sticky');
+        }
+    });
+}
 
 /****** Post Initialization ******/
 function initPostRowDescription() {
