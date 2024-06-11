@@ -47,8 +47,8 @@
                             )</span>
                         </td>
                         <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-reply"></i></span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a New Topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
                         </td>
                     </tr>
                 </tbody>
@@ -59,7 +59,7 @@
                 <div class="maintitle">
                     <span class="topic-title-space">&nbsp;</span>
                     <span class="topic-title">Topic Title Goes Here</span>
-                    <span class="topic-desc">Topic Description Goes Here</span>
+                    <span class="topic-desc">[description][second]</span>
                 </div>
                 <!--{IBF.POLL}-->
                 <div class="postlinksbar" align="right">
@@ -73,7 +73,53 @@
                 
                 <!--Post Content-->
                 <a name='entry1' class="anchorLink"></a>
-                <section class="post g-4 p-1"></section>
+                <section class="post g-4 p-1">
+                    <div class="post--left is-image">
+                        <div class="post--sticky">
+                            <div class="post--image">
+                                <div class="post--image-inner"><img src="https://picsum.photos/500/900" /></div>
+                            </div>
+                            <div class="post--slides">
+                                <div class="post--slide is-active"></div>
+                                <div class="post--slide">
+                                    <div class="post--slide-inner">
+                                        <div class="scroll">character info</div>
+                                    </div>
+                                </div>
+                                <div class="post--slide">
+                                    <div class="post--slide-inner">
+                                        <div class="scroll">player info</div>
+                                    </div>
+                                </div>
+                                <div class="post--slide">
+                                    <div class="post--slide-inner">
+                                        <div class="scroll">account info</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post--bullets">
+                                <button class="post--bullet is-active" onclick="carouselPage(this)"></button>
+                                <button class="post--bullet" onclick="carouselPage(this)"></button>
+                                <button class="post--bullet" onclick="carouselPage(this)"></button>
+                                <button class="post--bullet" onclick="carouselPage(this)"></button>
+                            </div>
+                            <div class="post--static">
+                                <a href="./profile.html"><b>Nikolas</b><span>Kovac</span></a>
+                                <div class="post--links">
+                                    <a href="/">Permalink</a>
+                                    <a href="/">Quote</a>
+                                    <a href="/">Edit</a>
+                                    <a href="/">Delete</a>
+                                    <a href="/">Report</a>
+                                </div>
+                                <p class="">and i was raised on excellence, always taught to look my best.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post--right">
+                        main content
+                    </div>
+                </section>
 
                 <!--Remaining Defaults-->
                 <div class="activeuserstrip">1 User(s) are reading this topic (0 Guests and 0 Anonymous Users)</div>
@@ -95,12 +141,12 @@
                 <tbody>
                     <tr>
                         <td width="20%" nowrap="nowrap" align="left">
-                            <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button">Topic Options</span></a>
+                            <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button"><i class="fa-solid fa-cogs"></i></span></a>
                         </td>
                         <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
-                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button">Fast Reply</span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-reply"></i></span></a>
+                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button"><i class="fa-solid fa-bolt"></i></span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a New Topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
                         </td>
                     </tr>
                 </tbody>
@@ -129,7 +175,7 @@
                             &nbsp;Enable Signature
                             <br><br>
                             <!--POST AS FIELD-->
-                            <input type="submit" name="submit" value="Add Reply" class="forminput" tabindex="2" accesskey="s">
+                            <input type="submit" name="submit" value="<i class="fa-solid fa-reply"></i>" class="forminput" tabindex="2" accesskey="s">
                             &nbsp;
                             <input type="submit" name="preview" value="More Options" class="forminput">
                             &nbsp;&nbsp; 
@@ -151,7 +197,7 @@
                         <br><br>
                         <b><a href="?act=Track&amp;f=1&amp;type=forum">Subscribe to this forum</a></b>
                         <br>
-                        <span class="desc">Receive email notification when a new topic is posted in this forum and you are not active on the board.</span>
+                        <span class="desc">Receive email notification when a <i class="fa-solid fa-plus"></i> is posted in this forum and you are not active on the board.</span>
                         <br><br>
                         <b><a href="?act=Print&amp;client=choose&amp;f=1&amp;t=1">Download / Print this Topic</a></b>
                         <br>

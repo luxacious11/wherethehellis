@@ -438,6 +438,100 @@ function initMarkdown() {
     }
 }
 
+/****** Carousel Functions ******/
+function carouselArrowIndex(e) {
+    let {bullets, slides} = carouselVariableSetup(e);
+    let index;
+    bullets.forEach((bullet, i) => {
+        if(bullet.classList.contains('is-active')) {
+            index = i;
+        }
+    });
+    
+    //remove all active
+    bullets.forEach(bullet => bullet.classList.remove('is-active'));
+    slides.forEach(slide => slide.classList.remove('is-active'));
+
+    return index;
+}
+function carouselVariableSetup(e, level = 0) {
+    let wrapper;
+    if(level === 1) {
+        wrapper = e.parentNode.parentNode.parentNode;
+    } else {
+        wrapper = e.parentNode.parentNode;
+    }
+
+    let bullets = wrapper.querySelectorAll('.post--bullet');
+    let slides = wrapper.querySelectorAll('.post--slide');
+
+    return {bullets, slides, wrapper};
+}
+function carouselArrowAct(index, bullets, slides, wrapper, direction = 'left') {
+    //add active as needed
+    bullets[index].classList.add('is-active');
+    slides[index].classList.add('is-active');
+
+    //move slides
+    slides.forEach(slide => {
+        if(direction === 'left') {
+            slide.style.left = `${index * -100}%`;
+        } else {
+            slide.style.right = `${index * -100}%`;
+        }
+    });
+    console.log(index);
+    //handle image
+    if(index !== 0) {
+        wrapper.classList.remove('is-image');
+    } else {
+        wrapper.classList.add('is-image');
+    }
+
+}
+function carouselLeft(e) {
+    //set up variables
+    let index = carouselArrowIndex(e);
+    let {bullets, slides, wrapper} = carouselVariableSetup(e);
+
+    //determine new index
+    if(index === 0) {
+        index = bullets.length - 1;
+    } else {
+        index--;
+    }
+
+    //act on new index
+    carouselArrowAct(index, bullets, slides, wrapper);
+}
+function carouselRight(e) {
+    //set up variables
+    let index = carouselArrowIndex(e);
+    let {bullets, slides, wrapper} = carouselVariableSetup(e);
+
+    //determine new index
+    if(index === bullets.length - 1) {
+        index = 0;
+    } else {
+        index++;
+    }
+
+    //act on new index
+    carouselArrowAct(index, bullets, slides, wrapper);
+}
+function carouselPage(e) {
+    let {bullets, slides, wrapper} = carouselVariableSetup(e, 1);
+    let bulletsArray = Array.from(bullets);
+    let index = bulletsArray.indexOf.call(bulletsArray, e);
+    
+    //remove all active
+    bullets.forEach(bullet => bullet.classList.remove('is-active'));
+    slides.forEach(slide => slide.classList.remove('is-active'));
+
+    //act on new index
+    carouselArrowAct(index, bullets, slides, wrapper, 'right');
+}
+
 /****** Special Function Initialization ******/
 function initTabs(isHash = false, wrapClass, menuClass, tabWrapClass, activeClass = 'is-active', categoryClass = null, firstClasses = []) {
     if(isHash) {
