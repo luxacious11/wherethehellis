@@ -355,7 +355,7 @@ function formatMemberContent(member, characters) {
         <div data-type="grid" data-columns="4">`;
 
         active.forEach(character => {
-            let lines = [character.Face, character.PowerType];
+            let lines = [character.Face, character.PowerType, character.Group];
             html += formatClaim(character.Character, lines, character.GroupID, `?showuser=${character.AccountID}`);
         });
     

@@ -107,6 +107,7 @@ if(pageType === 'ST') {
     initPostRowDescription();
     initPostContentAlter();
     initStickyBar();
+    initMarkdown();
     //initDiscordTagging();
 }
 
@@ -124,6 +125,7 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
         cpShift();
         splitProfile();
         ucpAesthetics();
+        ucpAvatars();
         document.querySelectorAll(fullWidthFields).forEach(field => field.classList.add('fullWidth'));
         document.querySelectorAll(halfWidthFields).forEach(field => field.classList.add('halfWidth'));
         
@@ -132,12 +134,19 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
                 cpShift();
                 splitProfile();
                 ucpAesthetics();
+                ucpAvatars();
             });
         });
 
         aestheticImageFields.forEach(field => {
             document.querySelector(field).addEventListener('keyup', () => {
                 ucpAesthetics();
+            });
+        });
+
+        avatarImageFields.forEach(field => {
+            document.querySelector(field).addEventListener('keyup', () => {
+                ucpAvatars();
             });
         });
     }
@@ -212,6 +221,16 @@ if(pageType === 'store') {
 
 /********** New Post/Reply Only **********/
 if(pageType === 'Post') {
+    if(document.querySelector('#topic-title')) {
+        document.querySelector('#topic-title input').setAttribute('placeholder', 'Topic Title');
+        document.querySelector('#topic-desc input').setAttribute('placeholder', 'Topic Description');
+    }
+
+    if(document.querySelector('#post-preview')) {
+        initPostContentAlter('#post-preview > .row1 > .postcolor');
+    }
+    
+    initMarkdown();
     let textNodes = getAllTextNodes(document.querySelector('#post-options .pformright'));
     if(textNodes) {
         textNodes.forEach(node => {
@@ -283,5 +302,14 @@ if(pageType === 'Login') {
 
 /********** Search Only **********/
 if(pageType === 'Search') {
-    //search page
+    initTopicDescription(`.tablebasic > tbody > tr > td:nth-child(3) .desc`);
+    document.querySelectorAll(`.tablebasic > tbody > tr > td:nth-child(3) .desc`).forEach(desc => {
+        if(desc.innerText.trim() === '') {
+            desc.remove();
+        }
+    });
+
+    if (document.querySelector('body.code-show')) {
+        initPostContentAlter('main > .tableborder .tablebasic .post1');
+    }
 }

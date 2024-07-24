@@ -117,6 +117,8 @@
               transition-duration: 0.3s; }
               #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover,
               #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover {
+                color: var(--text-secondary);
+                border-color: var(--border-accent-transparent);
                 border-left-width: var(--size-xs);
                 padding-left: calc(var(--size-xs) + 4px);
                 letter-spacing: 0.15em; }
@@ -317,14 +319,17 @@
         font-size: 50px; } }
   #UserCP.code-01 #ucpcontent form .ucp--description {
     padding: 20px 30px;
-    border-bottom: 1px solid var(--border-accent); }
+    border-bottom: 1px solid var(--border-accent);
+    font-size: calc(var(--size-md) + 1px); }
     #UserCP.code-01 #ucpcontent form .ucp--description td {
       border: 1px solid var(--border-accent);
       background: var(--bg-tertiary);
-      padding: 30px;
       max-width: 700px;
       margin: 10px auto;
       text-align: justify; }
+      @media (min-width: 601px) {
+        #UserCP.code-01 #ucpcontent form .ucp--description td {
+          padding: 30px; } }
       #UserCP.code-01 #ucpcontent form .ucp--description td p:first-of-type {
         margin-top: 0; }
       #UserCP.code-01 #ucpcontent form .ucp--description td p:last-of-type {
@@ -380,6 +385,53 @@
         #UserCP.code-01 #ucpcontent form .ucp--description[data-section="Aesthetics"] td .sample.LargeMosaic {
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(6, 1fr); }
+    #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td {
+      border: 0;
+      background: none;
+      max-width: none;
+      display: grid;
+      gap: 30px;
+      justify-content: center; }
+      #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .text {
+        border: 1px solid var(--border-accent);
+        background: var(--bg-tertiary);
+        padding: 30px;
+        max-width: 700px;
+        margin: 10px 0;
+        text-align: justify; }
+      #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample {
+        display: flex;
+        height: 120px;
+        gap: 15px;
+        justify-content: center; }
+        @media (min-width: 769px) {
+          #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample {
+            height: 170px; } }
+        #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 2px; }
+          #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; }
+          #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span.tall {
+            width: 70px; }
+            @media (min-width: 769px) {
+              #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span.tall {
+                width: 100px; } }
+            #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span.tall img {
+              aspect-ratio: 250 / 425; }
+          #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span.wide {
+            width: 205px; }
+            @media (min-width: 769px) {
+              #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span.wide {
+                width: 290px; } }
+            #UserCP.code-01 #ucpcontent form .ucp--description[data-section="AccountImages"] td .sample span.wide img {
+              aspect-ratio: 425 / 250; }
   #UserCP.code-01 #ucpcontent form .ucp--section {
     display: grid;
     gap: 30px;
@@ -409,12 +461,12 @@
       width: 100%;
       background: var(--bg-quaternary);
       line-height: 160%;
-      font-size: var(--size-md); }
+      font-size: var(--size-lg); }
     #UserCP.code-01 #ucpcontent form .ucp--section textarea {
       width: 100%;
       background: var(--bg-quaternary);
       line-height: 160%;
-      font-size: var(--size-md); }
+      font-size: var(--size-lg); }
       #UserCP.code-01 #ucpcontent form .ucp--section textarea#field_15_input, #UserCP.code-01 #ucpcontent form .ucp--section textarea#field_16_input, #UserCP.code-01 #ucpcontent form .ucp--section textarea#field_28_input {
         height: 35px;
         resize: none; }
@@ -787,7 +839,7 @@
                   line-height: 160%;
                   font-family: var(--font-body);
                   letter-spacing: 0.05em;
-                  font-size: calc(var(--size-sm) - 1px);
+                  font-size: calc(var(--size-md) - 1px);
                   font-weight: 600;
                   align-self: start;
                   margin: 7px 0 2px; }
@@ -1336,7 +1388,7 @@
         #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
           display: none; }
         #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons .codebuttons {
-          font-size: var(--size-sm) !important; }
+          font-size: var(--size-md) !important; }
   #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr {
     display: block; }
     #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td {
@@ -1369,7 +1421,7 @@
       padding: 15px 30px;
       transition-duration: 0.3s;
       margin-left: 10px;
-      font-size: var(--size-md); }
+      font-size: var(--size-xl); }
       #Msg.code-03 #ucpcontent > .pformstrip:nth-child(3) + div a:hover {
         background: var(--bg-tertiary);
         color: var(--text-secondary); }

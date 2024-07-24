@@ -16,6 +16,20 @@
             padding: 10px 20px;
             margin: 0 -20px;
 
+            tr {
+                display: flex;
+                gap: 10px 30px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                td {
+                    display: flex;
+                    max-width: 100%;
+                    width: max-content;
+                    gap: 10px;
+                }
+            }
+
             &:first-of-type {
                 position: sticky;
                 top: 30px;
@@ -236,7 +250,7 @@
         a {
             color: var(--text-accent);
             font-style: normal;
-            font-size: calc(var(--size-sm) + 1px);
+            font-size: calc(var(--size-md) + 1px);
             font-weight: 900;
             letter-spacing: 0.05em;
             line-height: 160%;

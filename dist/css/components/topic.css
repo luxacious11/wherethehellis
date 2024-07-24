@@ -10,6 +10,16 @@
     width: calc(100% + 40px);
     padding: 10px 20px;
     margin: 0 -20px; }
+    #SF main > table tr {
+      display: flex;
+      gap: 10px 30px;
+      flex-wrap: wrap;
+      justify-content: space-between; }
+      #SF main > table tr td {
+        display: flex;
+        max-width: 100%;
+        width: max-content;
+        gap: 10px; }
     #SF main > table:first-of-type {
       position: sticky;
       top: 30px;
@@ -181,7 +191,7 @@
     .topic--latest a, .topic--started a {
       color: var(--text-accent);
       font-style: normal;
-      font-size: calc(var(--size-sm) + 1px);
+      font-size: calc(var(--size-md) + 1px);
       font-weight: 900;
       letter-spacing: 0.05em;
       line-height: 160%; }

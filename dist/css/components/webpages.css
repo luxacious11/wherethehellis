@@ -15,7 +15,9 @@
 
 .webpage {
   display: grid;
-  gap: 30px; }
+  gap: 30px;
+  font-size: var(--size-lg);
+  line-height: 200%; }
   @media (min-width: 769px) {
     .webpage {
       grid-template-columns: 180px calc(100% - 210px); } }
@@ -88,7 +90,7 @@
       .webpage--menu .accordion--content.is-active {
         display: grid; }
       .webpage--menu .accordion--content a {
-        color: var(--text-secondary);
+        color: var(--text-primary);
         font-size: calc(var(--size-xs) + 1px);
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -99,9 +101,14 @@
         .webpage--menu .accordion--content a:hover {
           border-left-width: var(--size-xs);
           padding-left: calc(var(--size-xs) + 4px);
-          letter-spacing: 0.15em; }
+          color: var(--text-secondary);
+          border-color: var(--border-accent-transparent); }
         .webpage--menu .accordion--content a.is-active {
-          border-left-width: calc(3 * (var(--size-xs) + 2px)); }
+          border-left-width: calc(3 * (var(--size-xs) + 2px));
+          color: var(--text-secondary); }
+          .webpage--menu .accordion--content a.is-active:hover {
+            border-color: var(--border-accent);
+            padding-left: calc(var(--size-xs) + 2px); }
         .webpage--menu .accordion--content a.external::after {
           font-size: 1.2em;
           font-family: 'Font Awesome 6 Pro';
@@ -200,7 +207,7 @@
       font-family: var(--font-head);
       color: var(--text-secondary);
       text-transform: uppercase;
-      font-size: var(--size-xl);
+      font-size: calc(var(--size-xl) + 2px);
       font-weight: 900;
       padding: 5px 15px;
       line-height: 160%;
@@ -338,10 +345,13 @@
       margin-bottom: 15px; }
     .webpage .hour-set b {
       color: var(--text-secondary);
-      font-size: var(--size-lg);
+      font-size: var(--size-xl);
       display: flex;
       align-items: center;
-      gap: 15px; }
+      gap: 15px;
+      padding: 0;
+      background: none;
+      font-weight: 700; }
       .webpage .hour-set b::after {
         content: '';
         display: block;
@@ -370,7 +380,7 @@
       text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 0.2em;
-      font-size: var(--size-lg);
+      font-size: var(--size-xl);
       line-height: 120%;
       border-radius: 2px;
       color: var(--text-secondary);

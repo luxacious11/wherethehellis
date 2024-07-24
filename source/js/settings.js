@@ -25,29 +25,28 @@ const jcinkUCPLinks = `<div class="accordion--trigger" data-category="account"><
             <a href="?act=UserCP&CODE=02">Emails</a>
         </div>`;
 
-const jcinkStoreLinks = `<a href="?act=store" class="accordion--trigger" data-category="home">Home</a>
-    <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
-    <div class="accordion--content" data-category="shop">
-        <a href="?act=store&code=shop&category=1">Appreciation Badges</a>
-        <a href="?act=store&code=shop&category=2">Event Badges</a>
-        <a href="?act=store&code=shop&category=3">Personality Badges</a>
-        <a href="?act=store&code=shop&category=4">Player Badges</a>
-        <a href="?act=store&code=shop&category=6">Premium Features</a>
-        <a href="?act=store&code=shop&category=5">Relationship Badges</a>
-        <a href="?act=store&code=shop&category=7">Zodiac Badges</a>
-    </div>
-    <div class="accordion--trigger" data-category="personal"><b>Personal</b></div>
-    <div class="accordion--content" data-category="personal">
-        <a href="?act=store&CODE=inventory">Inventory</a>
-        <a href="?act=store&code=donate_money">Send Money</a>
-        <a href="?act=store&code=donate_item">Send Item</a>
-    </div>
-    <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
-    <div class="accordion--content staffOnly" data-category="staff">
-        <a href="?act=store&code=fine" class="staffOnly">Fine</a>
-        <a href="?act=store&code=edit_points" class="staffOnly">Edit Points</a>
-        <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a>
-    </div>`;
+const jcinkStoreLinks = `<div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
+        <div class="accordion--content" data-category="shop">
+            <a href="?act=store&code=shop&category=1">Appreciation Badges</a>
+            <a href="?act=store&code=shop&category=2">Event Badges</a>
+            <a href="?act=store&code=shop&category=3">Personality Badges</a>
+            <a href="?act=store&code=shop&category=4">Player Badges</a>
+            <a href="?act=store&code=shop&category=6">Premium Features</a>
+            <a href="?act=store&code=shop&category=5">Relationship Badges</a>
+            <a href="?act=store&code=shop&category=7">Zodiac Badges</a>
+        </div>
+        <div class="accordion--trigger" data-category="personal"><b>Personal</b></div>
+        <div class="accordion--content" data-category="personal">
+            <a href="?act=store&CODE=inventory">Inventory</a>
+            <a href="?act=store&code=donate_money">Send Money</a>
+            <a href="?act=store&code=donate_item">Send Item</a>
+        </div>
+        <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
+        <div class="accordion--content staffOnly" data-category="staff">
+            <a href="?act=store&code=fine" class="staffOnly">Fine</a>
+            <a href="?act=store&code=edit_points" class="staffOnly">Edit Points</a>
+            <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a>
+        </div>`;
         
 const uploads = `uploads2`;
 const siteName = `wherethehellis`;
@@ -74,7 +73,7 @@ const colors = {
     'selkie': [38, 104, 117],
 }
 
-const markdownSafe = `tag-tab[data-key="#basics"] .scroll, tag-tab[data-key="#powers"] .scroll, tag-tab[data-key="#details"] .scroll, tag-tab[data-key="#plotting"] .scroll`;
+const markdownSafe = `tag-tab[data-key="#basics"] .scroll, tag-tab[data-key="#powers"] .scroll, tag-tab[data-key="#details"] .scroll, tag-tab[data-key="#plotting"] .scroll, .postcolor`;
 
 const unusable = ['premium species', 'premium group', 'custom complex event', 'custom discord role & icon', 'custom event', 'custom subplot'];
 
@@ -91,6 +90,8 @@ const columnsOnly = ['#field_58'];
 const mosaicOnly = ['#field_59', '#field_60'];
 const notDefault = ['#field_61', '#field_62'];
 const largeOnly = ['#field_63', '#field_64'];
+
+const avatarImageFields = ['#field_54', '#field_55'];
 
 const aestheticImageFields = [...allLayouts, ...columnsOnly, ...mosaicOnly, ...notDefault, ...largeOnly].map(text => `${text}_input`);
 
@@ -125,7 +126,7 @@ sectionDescription: `<p>This section is for information about <i>you</i>, the wr
 {
 sectionTitle: `Account Images`,
 insertBefore: '#field_54',
-sectionDescription: `<p>These are mandatory image fields for both OOC and character accounts. The images don't need to be specific sizes as they will crop/resize automatically depending on the size of the viewer's screen. We <i>do</i> ask that you use high-quality images that follow the ratio given in the field, for example a “wide” image should be wider than it is tall.</p>`,
+sectionDescription: `<div class="sample"></div><div class="text"><p>These are mandatory image fields for both OOC and character accounts. The images don't need to be specific sizes as they will crop/resize automatically depending on the size of the viewer's screen. We <i>do</i> ask that you use high-quality images that follow the ratio given in the field, for example a “wide” image should be wider than it is tall.</p></div>`,
 },
 {
 sectionTitle: `Customization`,

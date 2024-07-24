@@ -193,7 +193,6 @@ tag-hl {
 [data-gap="XS"] {
     gap: 5px 15px;
 }
-
 [data-gap="xsmallsquare"],
 [data-gap="XSmallSquare"],
 [data-gap="XSMALLSQUARE"],
@@ -202,7 +201,6 @@ tag-hl {
 [data-gap="XSSQUARE"] {
     gap: 5px;
 }
-
 [data-gap="sm"],
 [data-gap="Sm"],
 [data-gap="SM"],
@@ -211,7 +209,6 @@ tag-hl {
 [data-gap="SMALL"] {
     gap: 10px 30px;
 }
-
 [data-gap="smsquare"],
 [data-gap="SmSquare"],
 [data-gap="SMSQUARE"],
@@ -220,7 +217,6 @@ tag-hl {
 [data-gap="SMALLSQUARE"] {
     gap: 10px;
 }
-
 [data-gap="md"],
 [data-gap="Md"],
 [data-gap="MD"],
@@ -229,7 +225,6 @@ tag-hl {
 [data-gap="MEDIUM"] {
     gap: 30px;
 }
-
 [data-gap="xl"],
 [data-gap="Xl"],
 [data-gap="XL"],
@@ -238,4 +233,80 @@ tag-hl {
 [data-gap="Xlarge"],
 [data-gap="XLARGE"] {
     gap: 60px;
+}
+
+[data-width="full"],
+[data-width="Full"],
+[data-width="FULL"] {
+    max-width: none;
+}
+[data-width="comm"],
+[data-width="Comm"],
+[data-width="COMM"],
+[data-width="phone"],
+[data-width="Phone"],
+[data-width="PHONE"] {
+    max-width: 250px;
+}
+[data-width="xs"],
+[data-width="Xs"],
+[data-width="XS"],
+[data-width="extrasmall"],
+[data-width="extraSmall"],
+[data-width="ExtraSmall"],
+[data-width="EXTRASMALL"] {
+    max-width: 275px;
+}
+[data-width="sm"],
+[data-width="Sm"],
+[data-width="SM"],
+[data-width="small"],
+[data-width="Small"],
+[data-width="SMALL"] {
+    max-width: 350px;
+}
+[data-width="lg"],
+[data-width="Lg"],
+[data-width="LG"],
+[data-width="large"],
+[data-width="Large"],
+[data-width="LARGE"] {
+    max-width: 500px;
+}
+[data-width="xl"],
+[data-width="Xl"],
+[data-width="XL"],
+[data-width="extralarge"],
+[data-width="extraLarge"],
+[data-width="ExtraLarge"],
+[data-width="EXTRALARGE"] {
+    max-width: 575px;
+}
+
+[data-ratio="1:1"] {
+    aspect-ratio: 1 / 1;
+}
+[data-ratio="2:3"] {
+    aspect-ratio: 2 / 3;
+}
+[data-ratio="3:2"] {
+    aspect-ratio: 3 / 2;
+}
+[data-ratio="3:4"] {
+    aspect-ratio: 3 / 4;
+}
+[data-ratio="4:3"] {
+    aspect-ratio: 4 / 3;
+}
+[data-ratio="4:5"] {
+    aspect-ratio: 4 / 5;
+}
+[data-ratio="5:4"] {
+    aspect-ratio: 5 / 4;
+}
+[data-ratio="9:16"] {
+    aspect-ratio: 9 / 16;
+}
+[data-ratio="16:9"] {
+    aspect-ratio: 16 / 9;
 }

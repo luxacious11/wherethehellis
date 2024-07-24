@@ -53,6 +53,8 @@
       .category.c-5 .forum--main > a {
         grid-column: 1 / 2;
         grid-row: 1 / 2; } }
+    .category.c-5 .forum--main > a::before {
+      color: var(--text-secondary); }
 
 @media (min-width: 769px) {
   .category.c-5 .forum--latest {
@@ -94,14 +96,14 @@
         padding-left: 40px;
         letter-spacing: 0.15em; }
 
-.category.c-7 h2, .category.c-8 h2 {
+.category.c-7 h2, .category.c-8 h2, .category.subforums h2 {
   font-size: 40px; }
 
-.category.c-7 .forum, .category.c-8 .forum {
+.category.c-7 .forum, .category.c-8 .forum, .category.subforums .forum {
   min-height: 0; }
-  .category.c-7 .forum--main, .category.c-8 .forum--main {
+  .category.c-7 .forum--main, .category.c-8 .forum--main, .category.subforums .forum--main {
     border-left: 5vw solid var(--bg-accent); }
-    .category.c-7 .forum--main > a, .category.c-8 .forum--main > a {
+    .category.c-7 .forum--main > a, .category.c-8 .forum--main > a, .category.subforums .forum--main > a {
       font-size: 24px; }
 
 .accordion--trigger::after {
@@ -109,9 +111,6 @@
 
 .accordion--trigger.is-active::after {
   content: '\f068'; }
-
-ul li::marker {
-  content: '\f178'; }
 
 .postcolor a[target="_blank"]::after,
 .webpage--content a[target="_blank"]::after,

@@ -399,16 +399,22 @@ function formatMarkdown(str, identifier, opening, closing) {
     str = str
       .split(identifier)
       .map((value, index) => {
+        if(str.split(identifier).length - 1 !== index) {
             if ((value.includes('href=') ||
-                   value.includes('target=') ||
-                   value.includes('src=')) &&
-                  str.split(identifier).length > 1) {
+            value.includes('target=') ||
+            value.includes('src=') ||
+            value.includes('class=') ||
+            value.includes('')) &&
+            str.split(identifier).length > 1) {
                 return `${value}${identifier}`;
             } else if(index % 2 == 0) {
                 return value;
             } else {
                 return `${opening}${value}${closing}`;
             }
+        } else {
+            return value;
+        }
       }).join('');
     return str;
 }
@@ -744,6 +750,9 @@ function calculateAge(year, month, day) {
     let currentMonth = current.getMonth() + 1;
     let currentDay = current.getDate();
     let birthYear = year;
+    if(year.includes('calc')) {
+	    birthYear = parseInt(year.split(`<calc>`)[1].split(`</calc>`)[0]);
+    }
     let birthMonth = setMonth(month);;
     let birthDay = day;
     let age = ``;
@@ -784,6 +793,11 @@ function formatAesthetics(aesthetics, images) {
         imageHTML = `<span><img src="${images['tall-1']}" loading="lazy" /></span>`;
             break;
     }
+    return imageHTML;
+}
+function formatAvatars(images) {
+    let imageHTML = `<span class="tall"><img src="${images['tall']}" loading="lazy" /></span>
+    <span class="wide"><img src="${images['wide']}" loading="lazy" /></span>`;
     return imageHTML;
 }
 function formatPowers(powers) {
@@ -1026,8 +1040,8 @@ function initPostRowDescription() {
         document.querySelector('.postlinksbar').classList.add('no-descript');
     }
 }
-function initPostContentAlter() {
-    document.querySelectorAll('.post--content .postcolor').forEach(post => {
+function initPostContentAlter(selector = '.post--content .postcolor') {
+    document.querySelectorAll(selector).forEach(post => {
         if(!post.querySelector('* > tag-wrap') && !post.querySelector('* > tag-comm') && !post.querySelector('* > tag-social') && !post.querySelector('* > div') && !post.querySelector('* > span')) {
             post.classList.add('no-template');
         }
@@ -1436,13 +1450,27 @@ function ucpAesthetics() {
         aestheticsSample.innerHTML = formatAesthetics(aesthetics, imageObj);
     }
 }
+function ucpAvatars() {
+    let avatarSample = document.querySelector('.ucp--description[data-section="AccountImages"] .sample');
+    let avatarObj = {
+        'tall': document.querySelector('#field_54_input').value,
+        'wide': document.querySelector('#field_55_input').value,
+    }
+    if(avatarSample) {
+        avatarSample.innerHTML = formatAvatars(avatarObj);
+    }
+}
 function toggleUCPMenu(e) {
     e.closest('#ucpmenu').classList.toggle('is-open');
 }
 
 /****** Store ******/
 function initStoreMenu() {
-    document.querySelector('#ucpmenu').innerHTML = `<div class="accordion">
+    document.querySelector('#ucpmenu').innerHTML = `<button class="onlyMobile" onclick="toggleUCPMenu(this)">
+        <i class="fa-solid fa-ellipsis-h"></i>
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="accordion">
         ${typeof localStoreLinks !== 'undefined' ? localStoreLinks : jcinkStoreLinks}
     </div>`;
 

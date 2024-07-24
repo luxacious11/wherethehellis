@@ -16,7 +16,7 @@ a[href=""] {
   display: flex !important;
   flex-direction: row !important;
   align-items: center;
-  font-size: var(--size-md);
+  font-size: var(--size-xl);
   font-family: var(--font-head);
   text-transform: uppercase;
   cursor: pointer; }
@@ -58,64 +58,152 @@ a[href=""] {
   --menuHeight: 0;
   --storeImageWidth: 16px; }
 
+/***** Shared ******/
+#Online .maintitle,
+#Post .maintitle,
+#Reg .maintitle,
+#Login .maintitle,
+#Search .maintitle {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 0.3em;
+  width: 100%;
+  margin: 30px auto;
+  line-height: 100%;
+  padding: 20px 30px;
+  overflow: hidden;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-accent);
+  border-bottom: 1px solid var(--border-accent);
+  text-align: center;
+  font-weight: bold; }
+  @media only screen and (min-width: 480px) {
+    #Online .maintitle,
+    #Post .maintitle,
+    #Reg .maintitle,
+    #Login .maintitle,
+    #Search .maintitle {
+      font-size: calc(30px + 20 * (100vw - 480px) / (1440 - 480)); } }
+  @media only screen and (min-width: 1440px) {
+    #Online .maintitle,
+    #Post .maintitle,
+    #Reg .maintitle,
+    #Login .maintitle,
+    #Search .maintitle {
+      font-size: 50px; } }
+  #Online .maintitle a,
+  #Post .maintitle a,
+  #Reg .maintitle a,
+  #Login .maintitle a,
+  #Search .maintitle a {
+    color: var(--text-secondary);
+    font-size: 24px; }
+    @media only screen and (min-width: 480px) {
+      #Online .maintitle a,
+      #Post .maintitle a,
+      #Reg .maintitle a,
+      #Login .maintitle a,
+      #Search .maintitle a {
+        font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+    @media only screen and (min-width: 1440px) {
+      #Online .maintitle a,
+      #Post .maintitle a,
+      #Reg .maintitle a,
+      #Login .maintitle a,
+      #Search .maintitle a {
+        font-size: 36px; } }
+
 /***** Online List ******/
-#Online main > .tableborder:nth-of-type(2) .maintitle {
-  text-align: left;
-  margin: var(--spacing-lg) 0;
-  line-height: 160%;
-  max-width: max-content;
-  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
-  #Online main > .tableborder:nth-of-type(2) .maintitle + table {
-    display: block;
-    width: 100%; }
-    #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md); }
-      @media (min-width: 769px) {
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-          grid-template-columns: repeat(2, 1fr); } }
-      @media (min-width: 1025px) {
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-          grid-template-columns: repeat(3, 1fr); } }
-      @media (min-width: 1281px) {
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-          grid-template-columns: repeat(4, 1fr); } }
-      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr {
-        padding: var(--spacing-md);
-        display: flex;
-        flex-direction: column;
-        align-items: center; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:first-child {
-          display: none; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:last-child {
-          grid-column: 1 / -1; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td {
-          display: block;
-          width: 100%;
-          padding: 0;
-          text-align: center; }
-          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child {
-            text-align: center; }
-            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child span.g-2:first-child,
-            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child a:first-child {
-              display: block;
-              line-height: 120%; }
-          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:last-child:not(:only-child) {
-            display: none; }
+#Online main > .tableborder:nth-of-type(2) .maintitle + table {
+  display: block;
+  width: 100%; }
+  #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md); }
+    @media (min-width: 769px) {
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1025px) {
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
+        grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1281px) {
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
+        grid-template-columns: repeat(4, 1fr); } }
+    #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) {
+      border-left: 30px solid var(--border-accent);
+      padding: 20px 0 20px 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 200%;
+      font-size: var(--size-xs);
+      letter-spacing: 0.1em;
+      font-style: italic; }
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) td {
+        text-align: left; }
+    #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:first-child {
+      display: none; }
+    #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:last-child {
+      grid-column: 1 / -1;
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      font-size: var(--size-lg);
+      letter-spacing: 0.2em;
+      width: 100%;
+      margin: 30px auto;
+      line-height: 100%;
+      padding: 20px 30px;
+      overflow: hidden;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-accent);
+      border-bottom: 1px solid var(--border-accent);
+      text-align: center;
+      font-weight: bold; }
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:last-child select,
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:last-child input {
+        font-family: var(--font-body);
+        height: 35px; }
+    #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td {
+      display: block;
+      width: 100%;
+      padding: 0; }
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td a {
+        color: var(--text-accent); }
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child span.g-2:first-child,
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child a:first-child {
+        font-family: var(--font-head);
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        font-style: normal;
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 120%;
+        display: block; }
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:nth-child(2) {
+        font-style: normal;
+        font-size: var(--size-md);
+        font-weight: 900;
+        line-height: 200%;
+        letter-spacing: 0; }
+      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:last-child:not(:only-child) {
+        display: none; }
 
 /***** Quick Reply/Options *****/
 #ST #qr_open,
 #ST #topic_open {
-  margin: 0 auto var(--spacing-lg);
   text-align: justify;
-  padding: var(--spacing-lg); }
+  margin: 0 auto 30px;
+  padding: 30px;
+  max-width: 800px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 2px; }
 
 #ST #qr_open .maintitle {
   line-height: 160%;
-  max-width: max-content;
-  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg);
-  margin-top: 0; }
+  margin: 0;
+  font-size: 14px; }
 
 #ST #qr_open .tablepad {
   display: flex;
@@ -131,10 +219,21 @@ a[href=""] {
 #ST #qr_open textarea {
   width: 100%;
   flex: 0 0 100%;
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-md); }
-  #ST #qr_open textarea ~ br {
+  margin: 15px 0;
+  background: var(--bg-quaternary);
+  font-size: var(--size-lg);
+  line-height: 160%;
+  padding: 15px; }
+  #ST #qr_open textarea ~ br,
+  #ST #qr_open textarea ~ input[name="enableemo"],
+  #ST #qr_open textarea ~ input[name="enablesig"] {
     display: none; }
+  #ST #qr_open textarea ~ a {
+    font-size: calc(var(--size-xs) + 1px);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    font-weight: 600; }
 
 #ST #qr_open .input-wrap {
   font-size: 1rem; }
@@ -154,22 +253,54 @@ a[href=""] {
 #ST #qr_open #post_as_selector {
   width: 100%;
   flex: 0 0 100%;
-  margin: var(--spacing-md) 0 var(--spacing-xs); }
+  margin: 15px 0; }
   #ST #qr_open #post_as_selector br {
     display: none; }
+  #ST #qr_open #post_as_selector select {
+    max-width: 350px;
+    height: 35px;
+    width: 100%;
+    background: var(--bg-quaternary);
+    line-height: 160%;
+    font-size: var(--size-lg); }
+  #ST #qr_open #post_as_selector ~ input[type="submit"],
+  #ST #qr_open #post_as_selector ~ input[type="button"] {
+    background: var(--bg-accent);
+    border: 1px solid var(--border-accent);
+    color: var(--text-on-accent);
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    padding: 15px 30px;
+    transition-duration: 0.3s;
+    margin: 0 5px; }
+    #ST #qr_open #post_as_selector ~ input[type="submit"]:hover,
+    #ST #qr_open #post_as_selector ~ input[type="button"]:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary); }
 
 #ST #topic_open .maintitle {
-  font-size: 0; }
+  font-size: 0;
+  margin: 0; }
   #ST #topic_open .maintitle a {
-    font-size: 1rem; }
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 160%; }
 
 #ST #topic_open .tablepad b {
   display: block;
   max-width: max-content;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: 0;
   line-height: 160%;
   max-width: max-content;
-  margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  margin: 30px 0 5px; }
+  #ST #topic_open .tablepad b a {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: var(--font-head);
+    font-size: 16px;
+    color: var(--text-accent); }
   #ST #topic_open .tablepad b ~ br {
     display: none; }
 
@@ -180,12 +311,13 @@ a[href=""] {
 #Post #posting-form {
   display: block; }
   #Post #posting-form .maintitle {
-    display: block;
-    text-align: center;
-    grid-column: 1 / -1 !important;
-    line-height: 160%;
-    max-width: max-content;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
+    font-size: 24px; }
+    @media only screen and (min-width: 480px) {
+      #Post #posting-form .maintitle {
+        font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+    @media only screen and (min-width: 1440px) {
+      #Post #posting-form .maintitle {
+        font-size: 36px; } }
   #Post #posting-form > tbody {
     display: block;
     width: 100%; }
@@ -201,7 +333,6 @@ a[href=""] {
     #Post #posting-form > tbody > tr#post-as + tr:not(:last-child),
     #Post #posting-form > tbody > tr#post-as .pformleft,
     #Post #posting-form > tbody > tr#post-options .pformleft,
-    #Post #posting-form > tbody > tr#enter-your-post .pformleft,
     #Post #posting-form > tbody > tr#code-buttons .pformleft,
     #Post #posting-form > tbody > tr#topic-title .pformleft,
     #Post #posting-form > tbody > tr#topic-desc .pformleft,
@@ -214,11 +345,27 @@ a[href=""] {
         #Post #posting-form > tbody > tr#topic-title .pformright input, #Post #posting-form > tbody > tr#topic-desc .pformright input {
           width: 100%;
           box-sizing: border-box;
-          text-transform: none; }
+          text-transform: none;
+          font-family: var(--font-head);
+          padding: 15px 20px;
+          font-weight: 900;
+          letter-spacing: 0.1em; }
     #Post #posting-form > tbody > tr#topic-title .pformright input {
-      padding: var(--spacing-xs) var(--spacing-md); }
+      font-size: 18px; }
+      @media only screen and (min-width: 480px) {
+        #Post #posting-form > tbody > tr#topic-title .pformright input {
+          font-size: calc(18px + 6 * (100vw - 480px) / (1440 - 480)); } }
+      @media only screen and (min-width: 1440px) {
+        #Post #posting-form > tbody > tr#topic-title .pformright input {
+          font-size: 24px; } }
     #Post #posting-form > tbody > tr#topic-desc .pformright input {
-      padding: var(--spacing-xs) var(--spacing-md); }
+      font-size: 14px; }
+      @media only screen and (min-width: 480px) {
+        #Post #posting-form > tbody > tr#topic-desc .pformright input {
+          font-size: calc(14px + 4 * (100vw - 480px) / (1440 - 480)); } }
+      @media only screen and (min-width: 1440px) {
+        #Post #posting-form > tbody > tr#topic-desc .pformright input {
+          font-size: 18px; } }
     #Post #posting-form > tbody > tr#code-buttons {
       display: block;
       padding: var(--spacing-md); }
@@ -235,19 +382,48 @@ a[href=""] {
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons select {
             margin: 0;
-            font-size: 1rem;
-            line-height: 160%; }
+            line-height: 160%;
+            font-size: var(--size-sm);
+            font-weight: 600;
+            letter-spacing: 0.05em; }
+          #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input {
+            transition-duration: 0.3s; }
+            #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input:hover {
+              background: var(--bg-accent);
+              color: var(--text-secondary);
+              border-color: var(--border-accent); }
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
             display: none; }
     #Post #posting-form > tbody > tr#enter-your-post {
       display: block; }
-      #Post #posting-form > tbody > tr#enter-your-post > td {
+      #Post #posting-form > tbody > tr#enter-your-post > td.pformleft {
         display: block; }
-        #Post #posting-form > tbody > tr#enter-your-post > td textarea {
+        #Post #posting-form > tbody > tr#enter-your-post > td.pformleft br,
+        #Post #posting-form > tbody > tr#enter-your-post > td.pformleft .desc,
+        #Post #posting-form > tbody > tr#enter-your-post > td.pformleft tr:not([align="center"]) {
+          display: none; }
+        #Post #posting-form > tbody > tr#enter-your-post > td.pformleft table {
+          display: block; }
+          #Post #posting-form > tbody > tr#enter-your-post > td.pformleft table tbody {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
+            border-radius: 2px;
+            margin: -15px 0 15px;
+            font-size: 0;
+            line-height: 0;
+            padding: 10px; }
+      #Post #posting-form > tbody > tr#enter-your-post > td.pformright {
+        display: block; }
+        #Post #posting-form > tbody > tr#enter-your-post > td.pformright textarea {
           width: 100%;
           height: 400px;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+          padding: 15px;
+          line-height: 160%;
+          font-size: var(--size-lg); }
     #Post #posting-form > tbody > tr#post-options {
       display: block; }
       #Post #posting-form > tbody > tr#post-options .pformright {
@@ -264,13 +440,20 @@ a[href=""] {
           #Post #posting-form > tbody > tr#post-options .pformright .input-wrap + br + .input-wrap:not(:last-child) {
             display: none; }
     #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child), #Post #posting-form > tbody > tr#post-as {
-      display: block; }
+      display: block;
+      padding: 15px; }
       #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) td, #Post #posting-form > tbody > tr#post-as td {
         display: block;
         text-align: center; }
         #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) td select, #Post #posting-form > tbody > tr#post-as td select {
+          max-width: 350px;
+          height: 35px;
           width: 100%;
-          max-width: 250px; }
+          background: var(--bg-quaternary);
+          line-height: 160%;
+          font-size: var(--size-lg); }
+    #Post #posting-form > tbody > tr#post-as:not(:nth-last-child(2)) {
+      padding-bottom: 0; }
     #Post #posting-form > tbody > tr#post-icon-options {
       display: block; }
       #Post #posting-form > tbody > tr#post-icon-options .pformleft {
@@ -283,7 +466,22 @@ a[href=""] {
       display: block; }
       #Post #posting-form > tbody > tr:last-child .pformstrip:only-child {
         display: flex;
-        justify-content: center; }
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap; }
+        #Post #posting-form > tbody > tr:last-child .pformstrip:only-child input {
+          background: var(--bg-accent);
+          border: 1px solid var(--border-accent);
+          color: var(--text-on-accent);
+          font-family: var(--font-head);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          font-weight: 700;
+          padding: 15px 30px;
+          transition-duration: 0.3s; }
+          #Post #posting-form > tbody > tr:last-child .pformstrip:only-child input:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary); }
 
 #Post #topic-summary {
   margin-top: var(--spacing-md); }
@@ -291,9 +489,17 @@ a[href=""] {
     #Post #topic-summary {
       margin-top: var(--spacing-lg); } }
   #Post #topic-summary > .tableborder .pformstrip {
-    display: block;
-    max-width: max-content;
-    padding: var(--spacing-xs) var(--spacing-sm); }
+    font-size: calc(var(--size-xs) + 1px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--border-accent-transparent);
+    border-bottom: 1px solid var(--border-accent-transparent);
+    padding: 10px;
+    margin: 20px auto; }
+    #Post #topic-summary > .tableborder .pformstrip a {
+      color: var(--text-secondary); }
   #Post #topic-summary > .tableborder > table {
     display: block;
     margin-top: var(--spacing-md); }
@@ -301,71 +507,177 @@ a[href=""] {
       #Post #topic-summary > .tableborder > table {
         margin-top: var(--spacing-lg); } }
     #Post #topic-summary > .tableborder > table tbody {
-      display: flex;
-      flex-direction: column; }
+      display: grid;
+      gap: 15px 50px;
+      margin: 0 auto;
+      max-width: 1150px;
+      font-size: var(--size-lg);
+      line-height: 200%; }
+      @media (min-width: 1025px) {
+        #Post #topic-summary > .tableborder > table tbody {
+          grid-template-columns: 250px auto; } }
+      @media (min-width: 1281px) {
+        #Post #topic-summary > .tableborder > table tbody {
+          grid-template-columns: 300px auto; } }
       #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) {
+        margin-top: 30px; }
+        @media (max-width: 768px) {
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) {
+            align-self: end;
+            padding-right: 10px; } }
+        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) > td:first-child {
+          display: flex;
+          align-items: end;
+          gap: 20px;
+          font-family: var(--font-head);
+          text-transform: uppercase;
+          color: var(--text-secondary);
+          font-size: 35px;
+          line-height: 100%;
+          margin: 0;
+          transition-duration: 0.5s;
+          width: 100%; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) > td:first-child::after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: var(--bg-accent);
+            display: block;
+            min-width: 20px;
+            bottom: 8px;
+            position: relative;
+            flex-shrink: 1; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) > td:first-child b {
+            font-size: 0.5em;
+            line-height: 100%;
+            width: max-content;
+            max-width: calc(100% - 40px);
+            flex: 0 0 max-content; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) > td:first-child a {
+            color: var(--text-secondary); }
+        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) > td:last-child {
+          text-transform: uppercase;
+          font-weight: 300;
+          letter-spacing: 0.2em;
+          text-align: justify;
+          line-height: 140%;
+          margin: 10px 0 0;
+          transition-duration: 0.5s;
+          font-size: calc(var(--size-xs) + 1px); }
+      #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-sm);
-        padding: var(--spacing-lg); }
-        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td {
-          padding: 0;
-          width: 100%; }
-      #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
-        display: block;
-        padding: var(--spacing-lg);
-        margin: var(--spacing-md) 0 var(--spacing-lg); }
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-accent-transparent);
+        padding: 15px; }
+        @media (min-width: 769px) {
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
+            padding: 30px 30px 10px; } }
         #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td {
-          display: block;
-          width: 100%;
-          padding: 0;
-          text-align: justify;
-          line-height: 200%; }
+          flex-grow: 1;
+          text-align: justify; }
           #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:first-child {
             display: none; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td.no-template {
+            max-width: 450px;
+            margin: 45px auto;
+            border-top: 1px solid var(--border-accent);
+            padding: 30px;
+            border-bottom: 1px solid var(--border-accent);
+            background: var(--bg-quaternary); }
 
 #Post #post-preview .pformstrip {
-  display: block;
-  max-width: max-content;
-  padding: var(--spacing-xs) var(--spacing-sm); }
+  display: none; }
 
 #Post #post-preview .row1 {
-  padding: var(--spacing-lg) !important;
-  margin-top: var(--spacing-md); }
+  margin: 105px auto 0;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-accent-transparent);
+  padding: 15px !important;
+  max-width: 800px;
+  text-align: justify; }
+  @media (min-width: 769px) {
+    #Post #post-preview .row1 {
+      margin-top: 60px;
+      padding: 30px !important; } }
+  #Post #post-preview .row1 .postcolor.no-template {
+    max-width: 450px;
+    margin: 45px auto;
+    border-top: 1px solid var(--border-accent);
+    padding: 30px;
+    border-bottom: 1px solid var(--border-accent);
+    background: var(--bg-quaternary); }
 
 /***** Registration ******/
-#Reg main > .tableborder:first-of-type .tablepad b {
-  margin: var(--spacing-md) 0;
-  display: block;
-  max-width: max-content;
-  padding: var(--spacing-xs) var(--spacing-sm); }
-  #Reg main > .tableborder:first-of-type .tablepad b + br {
+#Reg main > .tableborder:first-of-type > .pformstrip {
+  display: none; }
+
+#Reg main > .tableborder:first-of-type > .tablepad {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 2px;
+  padding: 15px;
+  font-size: var(--size-lg);
+  line-height: 200%;
+  text-align: justify;
+  font-weight: 400;
+  font-family: var(--font-body); }
+  @media (min-width: 601px) {
+    #Reg main > .tableborder:first-of-type > .tablepad {
+      padding: 30px; } }
+  #Reg main > .tableborder:first-of-type > .tablepad b {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 12px;
+    text-transform: uppercase;
+    z-index: 1;
+    max-width: 100%;
+    width: max-content;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-accent);
+    border-bottom: 1px solid var(--border-accent);
+    padding: 0 0.7em;
+    letter-spacing: 0.2em;
+    font-weight: 500 !important;
+    margin-bottom: 20px; }
+  #Reg main > .tableborder:first-of-type > .tablepad br {
     display: none; }
+
+#Reg main > .tableborder:first-of-type .input-wrap {
+  max-width: max-content;
+  margin: 30px auto;
+  gap: 10px; }
 
 #Reg main > .tableborder:first-of-type .row2:last-child {
-  margin-top: var(--spacing-lg); }
+  margin-top: 30px; }
+  #Reg main > .tableborder:first-of-type .row2:last-child input[type="submit"] {
+    background: var(--bg-accent);
+    border: 1px solid var(--border-accent);
+    color: var(--text-on-accent);
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    padding: 15px 30px;
+    transition-duration: 0.3s;
+    margin-bottom: 30px; }
+    #Reg main > .tableborder:first-of-type .row2:last-child input[type="submit"]:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary); }
 
-#Reg main > .tableborder:first-of-type,
-#Reg main > form > .tableborder {
-  padding: var(--spacing-lg); }
-  #Reg main > .tableborder:first-of-type .maintitle,
-  #Reg main > form > .tableborder .maintitle {
-    text-align: left;
-    margin: var(--spacing-lg) 0;
-    line-height: 160%;
-    max-width: max-content;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg) !important; }
-  #Reg main > .tableborder:first-of-type .tablepad b + br + br,
-  #Reg main > .tableborder:first-of-type .tablepad b + br + br + br,
-  #Reg main > form > .tableborder .tablepad b + br + br,
-  #Reg main > form > .tableborder .tablepad b + br + br + br {
-    display: none; }
+#Reg main > .tableborder:first-of-type .tablepad b + br + br,
+#Reg main > .tableborder:first-of-type .tablepad b + br + br + br,
+#Reg main > form > .tableborder .tablepad b + br + br,
+#Reg main > form > .tableborder .tablepad b + br + br + br {
+  display: none; }
 
 #Reg main > form {
   display: flex;
   flex-direction: column; }
   #Reg main > form > br,
-  #Reg main > form .maintitle + .pformstrip {
+  #Reg main > form .maintitle + .pformstrip,
+  #Reg main > form > b,
+  #Reg main > form > p {
     display: none; }
   #Reg main > form .tablepad > table {
     display: block; }
@@ -376,11 +688,16 @@ a[href=""] {
         flex-direction: column; }
         #Reg main > form .tablepad > table > tbody > tr:first-child > td {
           width: 100%; }
+          #Reg main > form .tablepad > table > tbody > tr:first-child > td > div > b {
+            display: none; }
           #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child,
           #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
             display: grid;
-            grid-template-columns: repeat(2, calc(50% - (var(--spacing-lg) / 2)));
-            gap: var(--spacing-lg); }
+            gap: 30px; }
+            @media (min-width: 769px) {
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
+                grid-template-columns: repeat(2, calc(50% - 30px / 2)); } }
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > br,
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > br {
               display: none; }
@@ -388,6 +705,9 @@ a[href=""] {
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset {
               width: 100%;
               box-sizing: border-box; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset > br,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset > br {
+                display: none; }
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset input,
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset select,
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset textarea,
@@ -395,6 +715,57 @@ a[href=""] {
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset select,
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset textarea {
                 width: 100%; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset input,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset select,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset input,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset select {
+                height: 35px; }
+                #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset input + span,
+                #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset select + span,
+                #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset input + span,
+                #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset select + span {
+                  display: none; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset .input-wrap,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset .input-wrap {
+                gap: 10px; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table {
+                background: var(--bg-tertiary);
+                padding: 10px;
+                border-radius: 2px;
+                border: 1px solid var(--border-accent); }
+                @media (min-width: 601px) {
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table,
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table {
+                    padding: 20px; } }
+                #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table tr,
+                #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table tr {
+                  display: flex;
+                  gap: 10px; }
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table tr td:only-child,
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table tr td:only-child {
+                    flex: 0 0 100%; }
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table tr td:not(:only-child),
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table tr td:not(:only-child) {
+                    flex: 0 0 50%; }
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table tr td:last-child:nth-child(3),
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table tr td:last-child:nth-child(3) {
+                    display: none; }
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table tr td a,
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table tr td a {
+                    color: var(--text-accent); }
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset table tr td span,
+                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset table tr td span {
+                    display: block;
+                    line-height: 100%;
+                    margin-bottom: 10px; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset .warning,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset .warning {
+                color: var(--text-on-accent);
+                background: var(--bg-accent) !important;
+                border-color: var(--bg-accent) !important;
+                padding: 10px !important;
+                margin: 0 0 10px 0 !important; }
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > div > b,
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > div > b {
               display: none; }
@@ -428,43 +799,84 @@ a[href=""] {
               text-align: left; }
               #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap .fancy-input {
                 margin-right: var(--spacing-sm); }
+          #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child input[type="submit"] {
+            background: var(--bg-accent);
+            border: 1px solid var(--border-accent);
+            color: var(--text-on-accent);
+            font-family: var(--font-head);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            padding: 15px 30px;
+            transition-duration: 0.3s;
+            margin-bottom: 30px; }
+            #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child input[type="submit"]:hover {
+              background: var(--bg-tertiary);
+              color: var(--text-secondary); }
 
 /***** Login ******/
-#Login .textNodes {
-  padding: var(--spacing-lg); }
-  #Login .textNodes br {
+#Login .container {
+  margin: 0 auto 30px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-accent-transparent);
+  border-radius: 2px;
+  max-width: 800px;
+  padding: 30px; }
+  #Login .container br {
     display: none; }
-  #Login .textNodes .tableborder > .maintitle {
-    text-align: left;
-    margin: var(--spacing-lg) 0;
-    line-height: 160%;
-    max-width: max-content;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
-  #Login .textNodes form .tablebasic {
+  #Login .container a {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: calc(var(--size-xs) + 1px); }
+  #Login .container form .tablebasic {
     margin-bottom: var(--spacing-lg); }
-    #Login .textNodes form .tablebasic:first-of-type {
+    #Login .container form .tablebasic:first-of-type {
       width: 100%; }
-      #Login .textNodes form .tablebasic:first-of-type tbody {
+      #Login .container form .tablebasic:first-of-type tbody {
         width: 100%;
         display: flex;
         flex-direction: column; }
-        #Login .textNodes form .tablebasic:first-of-type tbody .pformleftw {
+        #Login .container form .tablebasic:first-of-type tbody .pformleftw {
           display: none; }
-        #Login .textNodes form .tablebasic:first-of-type tbody tr {
+        #Login .container form .tablebasic:first-of-type tbody tr {
           width: 100%;
           padding: var(--spacing-xs) 0; }
-        #Login .textNodes form .tablebasic:first-of-type tbody td,
-        #Login .textNodes form .tablebasic:first-of-type tbody input {
+        #Login .container form .tablebasic:first-of-type tbody td,
+        #Login .container form .tablebasic:first-of-type tbody input {
           width: 100%;
           display: block; }
-      #Login .textNodes form .tablebasic:first-of-type + .pformstrip {
+        #Login .container form .tablebasic:first-of-type tbody input {
+          height: 35px;
+          width: 100%;
+          background: var(--bg-quaternary);
+          line-height: 160%;
+          font-size: var(--size-lg); }
+      #Login .container form .tablebasic:first-of-type + .pformstrip {
         display: none; }
-    #Login .textNodes form .tablebasic:last-of-type {
+    #Login .container form .tablebasic:last-of-type {
       display: none; }
+    #Login .container form .tablebasic ~ .pformstrip input {
+      background: var(--bg-accent);
+      border: 1px solid var(--border-accent);
+      color: var(--text-on-accent);
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      padding: 15px 30px;
+      transition-duration: 0.3s; }
+      #Login .container form .tablebasic ~ .pformstrip input:hover {
+        background: var(--bg-tertiary);
+        color: var(--text-secondary); }
 
 /***** Search Pages (Posts by User, Topics by User, Active Topics) *****/
 #Search main > br:nth-child(2) {
   display: none; }
+
+#Search.code-show main > #search-topics .pagelinks,
+#Search.code-getactive .pagelinks {
+  margin-bottom: 15px; }
 
 #Search.code-show main > #search-topics .tablebasic,
 #Search.code-getactive .tablebasic {
@@ -486,16 +898,20 @@ a[href=""] {
       #Search.code-show main > #search-topics .tablebasic > tbody,
       #Search.code-getactive .tablebasic > tbody {
         grid-template-columns: repeat(3, 1fr); } }
-    @media (min-width: 1281px) {
-      #Search.code-show main > #search-topics .tablebasic > tbody,
-      #Search.code-getactive .tablebasic > tbody {
-        grid-template-columns: repeat(4, 1fr); } }
     #Search.code-show main > #search-topics .tablebasic > tbody > tr,
     #Search.code-getactive .tablebasic > tbody > tr {
-      display: flex;
-      flex-wrap: wrap;
-      padding: var(--spacing-md);
-      gap: 0 var(--spacing-md); }
+      display: grid;
+      grid-template-rows: max-content max-content max-content max-content auto;
+      gap: 10px;
+      padding: 20px 15px;
+      border: 1px solid var(--border-accent);
+      border-left-width: 10px;
+      border-right-width: 10px;
+      background: var(--bg-tertiary);
+      text-transform: uppercase;
+      font-size: calc(var(--size-xs) + 1px);
+      letter-spacing: 0.1em;
+      line-height: 160%; }
       #Search.code-show main > #search-topics .tablebasic > tbody > tr:first-child,
       #Search.code-getactive .tablebasic > tbody > tr:first-child {
         display: none; }
@@ -505,6 +921,37 @@ a[href=""] {
         width: 100%;
         text-align: left;
         padding: 0; }
+        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td .desc,
+        #Search.code-getactive .tablebasic > tbody > tr > td .desc {
+          display: block;
+          margin-top: 10px; }
+          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight)),
+          #Search.code-getactive .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight)) {
+            padding: 5px 10px;
+            font-size: var(--size-xs);
+            color: var(--text-secondary);
+            line-height: 160%;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.2em; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::before, #Search.code-show main > #search-topics .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::after,
+            #Search.code-getactive .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::before,
+            #Search.code-getactive .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::after {
+              position: absolute;
+              content: '';
+              top: 0;
+              width: 5px;
+              height: 100%;
+              border: 1px solid var(--border-accent);
+              display: block; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::before,
+            #Search.code-getactive .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::before {
+              left: 0;
+              border-right: 0; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::after,
+            #Search.code-getactive .tablebasic > tbody > tr > td .desc:not(:has(tag-highlight))::after {
+              right: 0;
+              border-left: 0; }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(1), #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(2), #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(7),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(1),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(2),
@@ -515,24 +962,91 @@ a[href=""] {
           order: 1; }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table {
-            padding-bottom: var(--spacing-md); }
+            font-size: 0; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table td:first-child,
+            #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table td:first-child {
+              display: none; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table a,
+            #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table a {
+              display: inline-block;
+              text-transform: uppercase;
+              font-family: var(--font-head);
+              font-weight: 800;
+              color: var(--text-secondary) !important;
+              font-size: 22px;
+              line-height: 110%;
+              max-width: max-content;
+              padding: 0px 5px;
+              letter-spacing: -1px;
+              transition-duration: 0.3s;
+              z-index: 1; }
+              #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table a::before,
+              #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table a::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 10px;
+                width: 100%;
+                background: var(--bg-accent);
+                z-index: -1;
+                transition-duration: 0.3s; }
+              #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table a:hover,
+              #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table a:hover {
+                letter-spacing: 0; }
+                #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table a:hover::before,
+                #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table a:hover::before {
+                  width: 80%; }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4) {
           order: 3;
           padding-top: var(--spacing-sm); }
+          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4) a,
+          #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4) a {
+            font-size: calc(var(--size-md) + 1px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            line-height: 160%;
+            color: var(--text-accent); }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4)::before,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4)::before {
-            content: 'Posted in '; }
+            content: 'Posted in ';
+            display: block;
+            font-weight: 700;
+            color: var(--text-secondary); }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5) {
           order: 4;
           padding-bottom: var(--spacing-sm); }
+          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5) a,
+          #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5) a {
+            font-size: calc(var(--size-md) + 1px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            line-height: 160%;
+            color: var(--text-accent); }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5)::before,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5)::before {
-            content: 'Started by '; }
+            content: 'Started by ';
+            display: block;
+            font-weight: 700;
+            color: var(--text-secondary); }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(6),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(6) {
-          order: 2; }
+          order: 2;
+          padding: 5px 10px;
+          color: var(--text-secondary);
+          display: inline-block;
+          border-top: 1px solid var(--border-accent-transparent);
+          border-bottom: 1px solid var(--border-accent-transparent);
+          text-align: center;
+          margin: 10px 0 0;
+          font-weight: 700;
+          text-transform: uppercase;
+          font-size: calc(var(--size-xs) + 1px);
+          letter-spacing: 0.1em;
+          line-height: 160%;
+          height: max-content; }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(6)::after,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(6)::after {
             content: ' Replies'; }
@@ -540,18 +1054,54 @@ a[href=""] {
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) {
           display: flex;
           flex-direction: column;
-          order: 5; }
+          order: 5;
+          font-style: italic; }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > a,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) > a {
-            order: -1; }
+            order: -1;
+            font-weight: 700;
+            font-style: normal;
+            color: var(--text-secondary); }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > b,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) > b {
-            order: -1; }
+            order: -1;
+            font-style: normal;
+            font-size: calc(var(--size-md) + 1px);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            line-height: 160%; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > b a,
+            #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) > b a {
+              color: var(--text-accent); }
+
+#Search.code-show main > #search-topics .maintitle {
+  font-size: 18px; }
+  #Search.code-show main > #search-topics .maintitle a {
+    color: var(--text-secondary); }
+
+#Search.code-show main > #search-topics .tablebasic + .titlemedium {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  font-size: var(--size-lg);
+  letter-spacing: 0.2em;
+  width: 100%;
+  margin: 30px auto;
+  line-height: 100%;
+  padding: 20px 30px;
+  overflow: hidden;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-accent);
+  border-bottom: 1px solid var(--border-accent);
+  text-align: center;
+  font-weight: bold; }
 
 #Search.code-getactive main > form > div:not(.pagelinks) {
   width: 100% !important; }
   #Search.code-getactive main > form > div:not(.pagelinks) fieldset {
     margin: 0; }
+
+#Search.code-getactive .tablebasic + .titlemedium {
+  display: none; }
 
 #Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
   position: sticky;
@@ -568,24 +1118,95 @@ a[href=""] {
 #Search.code-show main > .tableborder .tablebasic {
   display: block; }
   #Search.code-show main > .tableborder .tablebasic tbody {
-    display: flex;
-    flex-direction: column; }
+    display: grid;
+    gap: 15px 50px;
+    margin: 0 auto;
+    max-width: 1150px;
+    font-size: var(--size-lg);
+    line-height: 200%; }
+    @media (min-width: 1025px) {
+      #Search.code-show main > .tableborder .tablebasic tbody {
+        grid-template-columns: 250px auto; } }
+    @media (min-width: 1281px) {
+      #Search.code-show main > .tableborder .tablebasic tbody {
+        grid-template-columns: 300px auto; } }
     #Search.code-show main > .tableborder .tablebasic tbody tr td {
       padding: 0; }
     #Search.code-show main > .tableborder .tablebasic tbody tr:first-child {
+      margin-top: 30px; }
+      @media (max-width: 768px) {
+        #Search.code-show main > .tableborder .tablebasic tbody tr:first-child {
+          align-self: end;
+          padding-right: 10px; } }
+      #Search.code-show main > .tableborder .tablebasic tbody tr:first-child > td:first-child {
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-head);
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        font-size: 35px;
+        line-height: 100%;
+        margin: 0;
+        transition-duration: 0.5s; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:first-child > td:first-child span {
+          font-size: 0.5em;
+          line-height: 100%;
+          display: grid;
+          align-items: center;
+          grid-template-columns: max-content auto;
+          gap: 20px;
+          max-width: 100%; }
+          #Search.code-show main > .tableborder .tablebasic tbody tr:first-child > td:first-child span::after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: var(--bg-accent);
+            display: block;
+            min-width: 20px; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:first-child > td:first-child a {
+          color: var(--text-secondary); }
+      #Search.code-show main > .tableborder .tablebasic tbody tr:first-child > td:last-child {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.2em;
+        text-align: justify;
+        line-height: 140%;
+        margin: 10px 0 0;
+        transition-duration: 0.5s;
+        font-size: calc(var(--size-xs) + 1px); }
+    #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) {
       display: flex;
       flex-direction: column;
-      padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
-      line-height: 160%;
-      max-width: max-content; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) {
-      margin: var(--spacing-md) 0; }
-      #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) td:first-child {
-        display: none; }
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-accent-transparent);
+      padding: 15px; }
+      @media (min-width: 769px) {
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) {
+          padding: 30px 30px 10px; } }
+      #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) td {
+        flex-grow: 1;
+        text-align: justify; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) td:first-child {
+          display: none; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) td.no-template {
+          max-width: 450px;
+          margin: 45px auto;
+          border-top: 1px solid var(--border-accent);
+          padding: 30px;
+          border-bottom: 1px solid var(--border-accent);
+          background: var(--bg-quaternary); }
     #Search.code-show main > .tableborder .tablebasic tbody tr:last-child {
-      padding: var(--spacing-sm); }
+      grid-column: 1 / -1;
+      height: max-content;
+      font-size: calc(var(--size-xs) + 1px);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: flex;
+      justify-content: end; }
+      #Search.code-show main > .tableborder .tablebasic tbody tr:last-child a {
+        color: var(--text-secondary); }
 
-#Search.code-show div:empty {
+#Search.code-show div:not(.bg):empty {
   display: none; }
 
 /***** Redirect ******/
@@ -595,7 +1216,91 @@ a[href=""] {
   width: auto;
   height: 100vh;
   padding: 0; }
+  #redirect-screen > table {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed; }
+    #redirect-screen > table::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png);
+      opacity: 0.7;
+      z-index: 1; }
+    #redirect-screen > table::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: var(--bg-image, url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_default_min.jpg));
+      opacity: var(--bg-opacity);
+      background-size: cover;
+      filter: grayscale(1);
+      mix-blend-mode: var(--bg-blend, hard-light);
+      background-position: var(--bg-position, center);
+      background-repeat: no-repeat;
+      z-index: 1; }
   #redirect-screen .tablefill {
     max-width: 325px;
     line-height: 200%;
-    z-index: 3; }
+    z-index: 3;
+    background: var(--bg-tertiary, #2d2d2d);
+    border: 1px solid var(--border-accent-transparent, rgba(145, 74, 74, 0.6));
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 10px; }
+    #redirect-screen .tablefill td {
+      text-align: justify; }
+      #redirect-screen .tablefill td a {
+        color: var(--text-secondary, whitesmoke);
+        font-size: 9px;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 10px; }
+
+#board-message {
+  margin: 0 auto 30px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-accent-transparent);
+  border-radius: 2px;
+  max-width: 800px;
+  padding: 30px; }
+  #board-message a {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: calc(var(--size-xs) + 1px); }
+  #board-message .maintitle {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    font-size: 24px;
+    letter-spacing: 0.3em;
+    width: 100%;
+    margin: 0 auto 30px;
+    line-height: 100%;
+    padding: 20px 30px;
+    overflow: hidden;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-accent);
+    border-bottom: 1px solid var(--border-accent);
+    text-align: center;
+    font-weight: bold; }
+    #board-message .maintitle a {
+      color: var(--text-secondary);
+      font-size: 24px; }
+      @media only screen and (min-width: 480px) {
+        #board-message .maintitle a {
+          font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+      @media only screen and (min-width: 1440px) {
+        #board-message .maintitle a {
+          font-size: 36px; } }
+    #board-message .maintitle img {
+      display: none; }

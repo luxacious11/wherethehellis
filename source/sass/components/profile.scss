@@ -23,6 +23,8 @@
     gap: 0 70px;
     transition-duration: 0.5s;
     grid-template-columns: 1fr;
+    font-size: var(--size-lg);
+    line-height: 200%;
 
     @include mq-up(sm) {
         grid-template-columns: calc(40% - 35px) calc(60% - 35px);
@@ -42,7 +44,7 @@
             }
     
             p {
-                font-size: var(--size-sm);
+                font-size: var(--size-md);
             }
 
             .profile--menu {
@@ -306,6 +308,10 @@
         display: grid;
         gap: 5px;
 
+        calc {
+            display: none;
+        }
+
         &:not(:last-child) {
             margin-bottom: 40px;
         }
@@ -433,14 +439,13 @@
 
             &:hover {
                 color: var(--text-secondary);
-                border-left-width: var(--size-xs);
-                padding-left: calc(var(--size-xs) + 4px);
+                border-color: var(--border-accent-transparent);
             }
         }
     }
 
     &--nothreads {
-        font-size: var(--size-sm);
+        font-size: var(--size-md);
         text-transform: uppercase;
         letter-spacing: 0.2em;
         font-weight: 300;
@@ -452,6 +457,7 @@
             font-weight: 700;
             font-size: var(--size-sm);
             margin-top: 10px;
+            padding-top: 6px;
         }
     }
 

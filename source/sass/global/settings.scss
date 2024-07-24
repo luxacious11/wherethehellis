@@ -89,6 +89,10 @@
                         grid-column: 1 / 2;
                         grid-row: 1 / 2;
                     }
+
+                    &::before {
+                        color: var(--text-secondary);
+                    }
                 }
             }
             &--latest {
@@ -144,8 +148,8 @@
     }
 
     &.c-7,
-    &.c-8 {
-
+    &.c-8,
+    &.subforums {
         h2 {
            font-size: 40px;
         }
@@ -171,14 +175,6 @@
 
     &.is-active::after {
         content: '\f068';
-    }
-}
-
-ul {
-    li {
-        &::marker {
-            content: '\f178';
-        }
     }
 }
 

@@ -6,6 +6,8 @@
 
 <!--Styles-->
 <link rel="stylesheet" href="../../dist/css/styles.css" />
+<link rel="stylesheet" href="../../dist/css/templates.css" />
+<link rel="stylesheet" href="https://files.jcink.net/uploads2/legends/splide_core_min.css" />
 
 <!--Fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +18,13 @@
 
 <!--Icons-->
 <link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+<link href="https://dawneggleton.github.io/css/sharp.css" rel="stylesheet" />
 
 <!--Script Libraries-->
 <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
 <script src="../../dist/js/clipboard.js"></script>
 <script src="../../dist/js/functions.js"></script>
 
@@ -60,8 +64,7 @@
             <a href="./user-emailset.html">Emails</a>
         </div>`;
 
-    const localStoreLinks = `<a href="./store.html" class="accordion--trigger" data-category="home">Home</a>
-        <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
+    const localStoreLinks = `<div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
         <div class="accordion--content" data-category="shop">
             <a href="./store-category.html">Category</a>
         </div>
@@ -463,6 +466,7 @@ function checkform()
         </main>
 
         
-        <script src="../../dist/js/scripts.js"></script>   
+        <script src="../../dist/js/scripts.js"></script>
+<script src="../../dist/js/templates.js"></script>   
     </body>
 </html>

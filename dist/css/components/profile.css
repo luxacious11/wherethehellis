@@ -17,7 +17,9 @@
   display: grid;
   gap: 0 70px;
   transition-duration: 0.5s;
-  grid-template-columns: 1fr; }
+  grid-template-columns: 1fr;
+  font-size: var(--size-lg);
+  line-height: 200%; }
   @media (min-width: 769px) {
     .profile {
       grid-template-columns: calc(40% - 35px) calc(60% - 35px);
@@ -38,7 +40,7 @@
         font-size: 70px; } }
   @media (min-width: 769px) {
       .profile.is-first p {
-        font-size: var(--size-sm); }
+        font-size: var(--size-md); }
       .profile.is-first .profile--menu {
         left: calc(50vw - 40px); } }
   .profile ~ div {
@@ -231,6 +233,8 @@
   .profile--item {
     display: grid;
     gap: 5px; }
+    .profile--item calc {
+      display: none; }
     .profile--item:not(:last-child) {
       margin-bottom: 40px; }
     .profile--item > strong {
@@ -315,10 +319,9 @@
       transition-duration: 0.3s; }
       .profile--links a:hover {
         color: var(--text-secondary);
-        border-left-width: var(--size-xs);
-        padding-left: calc(var(--size-xs) + 4px); }
+        border-color: var(--border-accent-transparent); }
   .profile--nothreads {
-    font-size: var(--size-sm);
+    font-size: var(--size-md);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-weight: 300;
@@ -326,7 +329,8 @@
   .profile power-clip tag-highlight {
     font-weight: 700;
     font-size: var(--size-sm);
-    margin-top: 10px; }
+    margin-top: 10px;
+    padding-top: 6px; }
   .profile .accordion--trigger {
     font-family: var(--font-head);
     font-size: 16px;

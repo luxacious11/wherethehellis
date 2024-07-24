@@ -37,7 +37,7 @@
     line-height: 0;
     height: 98px; }
   .stats--online a {
-    font-size: var(--size-xl);
+    font-size: calc(var(--size-xl) + 2px);
     font-family: var(--font-head);
     text-transform: uppercase;
     font-weight: 700;
@@ -68,9 +68,8 @@
     display: block;
     line-height: 160%; }
     .stats--today a span:hover {
-      border-left-width: calc(var(--size-xs) + 5px);
-      padding-left: calc(var(--size-xs) + 4px);
-      letter-spacing: 0.15em; }
+      color: var(--text-secondary);
+      border-color: var(--border-accent-transparent); }
 
 .stats--links {
   display: grid;
@@ -106,6 +105,8 @@
   .stats--links a {
     transition-duration: 0.3s; }
     .stats--links a:hover {
+      color: var(--text-secondary);
+      border-color: var(--border-accent-transparent);
       border-left-width: 25px;
       padding-left: 25px;
       letter-spacing: 0.15em; }
@@ -213,7 +214,7 @@
       color: var(--text-primary); }
   .stats--recent .recent-topics-info a:nth-child(2) {
     font-style: normal;
-    font-size: var(--size-sm);
+    font-size: var(--size-md);
     font-weight: 900;
     color: var(--accent);
     line-height: 200%;

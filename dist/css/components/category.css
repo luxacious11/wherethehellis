@@ -3,6 +3,10 @@
 ********************************/
 .category {
   margin: 100px 0; }
+  .category.subforums {
+    padding: 0 20px;
+    margin: 60px auto 0;
+    max-width: 1140px; }
   .category h2 {
     font-family: var(--font-head);
     text-transform: uppercase;
@@ -92,7 +96,7 @@
       text-transform: uppercase;
       color: var(--text-secondary);
       font-style: normal;
-      font-size: var(--size-lg);
+      font-size: var(--size-xl);
       font-weight: 900;
       line-height: 200%;
       margin-bottom: -0.35em;
@@ -101,7 +105,7 @@
         color: var(--text-primary); }
     .forum--latest > span > a {
       font-style: normal;
-      font-size: var(--size-sm);
+      font-size: var(--size-md);
       font-weight: 900;
       color: var(--text-accent);
       line-height: 200%;
@@ -119,7 +123,7 @@
     justify-content: center;
     text-transform: uppercase;
     font-weight: 300;
-    font-size: var(--size-xl);
+    font-size: calc(var(--size-xl) + 2px);
     padding: 10px 0; }
     @media (min-width: 601px) {
       .forum--stats {
@@ -141,7 +145,7 @@
     border-top: 2px dashed var(--border-secondary);
     padding-top: 10px;
     margin-top: 10px;
-    font-size: calc(var(--size-sm) + 1px);
+    font-size: calc(var(--size-md) + 1px);
     font-weight: 300;
     letter-spacing: 0.1em;
     line-height: 200%;
@@ -196,7 +200,6 @@
       transition-duration: 0.3s; }
       .forum--links a:hover {
         color: var(--text-secondary);
-        border-left-width: calc(var(--size-xs) + 5px);
-        padding-left: calc(var(--size-xs) + 4px); }
+        border-color: var(--border-accent-transparent); }
   .forum br {
     display: none; }

@@ -2,11 +2,11 @@
     Global
 ********************************/
 body {
-  font-family: var(--font-body);
-  font-size: var(--size-md);
+  font-family: var(--font-body, "Lato", san-serif);
+  font-size: var(--size-md, 12px);
   line-height: 200%;
-  color: var(--text-primary);
-  background: var(--bg-primary); }
+  color: var(--text-primary, #c6c6c6);
+  background: var(--bg-primary, #121212); }
 
 main {
   margin: 0 20px;
@@ -93,7 +93,21 @@ img {
 .ucp--description .h5,
 .ucp--description .h6,
 .ucp--description .h7,
-.ucp--description .h8 {
+.ucp--description .h8,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 {
   margin-top: 0;
   margin-bottom: 15px;
   line-height: 120%; }
@@ -166,7 +180,21 @@ img {
   .ucp--description .h5:not(:first-child),
   .ucp--description .h6:not(:first-child),
   .ucp--description .h7:not(:first-child),
-  .ucp--description .h8:not(:first-child) {
+  .ucp--description .h8:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8:not(:first-child) {
     margin-top: 30px; }
   .postcolor h2 + br,
   .postcolor h3 + br,
@@ -237,8 +265,107 @@ img {
   .ucp--description .h5 + br,
   .ucp--description .h6 + br,
   .ucp--description .h7 + br,
-  .ucp--description .h8 + br {
+  .ucp--description .h8 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + br {
     display: none; }
+  .postcolor h2 a,
+  .postcolor h3 a,
+  .postcolor h4 a,
+  .postcolor h5 a,
+  .postcolor h6 a,
+  .postcolor h7 a,
+  .postcolor h8 a,
+  .postcolor .h2 a,
+  .postcolor .h3 a,
+  .postcolor .h4 a,
+  .postcolor .h5 a,
+  .postcolor .h6 a,
+  .postcolor .h7 a,
+  .postcolor .h8 a,
+  .webpage--content h2 a,
+  .webpage--content h3 a,
+  .webpage--content h4 a,
+  .webpage--content h5 a,
+  .webpage--content h6 a,
+  .webpage--content h7 a,
+  .webpage--content h8 a,
+  .webpage--content .h2 a,
+  .webpage--content .h3 a,
+  .webpage--content .h4 a,
+  .webpage--content .h5 a,
+  .webpage--content .h6 a,
+  .webpage--content .h7 a,
+  .webpage--content .h8 a,
+  .profile .scroll h2 a,
+  .profile .scroll h3 a,
+  .profile .scroll h4 a,
+  .profile .scroll h5 a,
+  .profile .scroll h6 a,
+  .profile .scroll h7 a,
+  .profile .scroll h8 a,
+  .profile .scroll .h2 a,
+  .profile .scroll .h3 a,
+  .profile .scroll .h4 a,
+  .profile .scroll .h5 a,
+  .profile .scroll .h6 a,
+  .profile .scroll .h7 a,
+  .profile .scroll .h8 a,
+  .member--item .scroll h2 a,
+  .member--item .scroll h3 a,
+  .member--item .scroll h4 a,
+  .member--item .scroll h5 a,
+  .member--item .scroll h6 a,
+  .member--item .scroll h7 a,
+  .member--item .scroll h8 a,
+  .member--item .scroll .h2 a,
+  .member--item .scroll .h3 a,
+  .member--item .scroll .h4 a,
+  .member--item .scroll .h5 a,
+  .member--item .scroll .h6 a,
+  .member--item .scroll .h7 a,
+  .member--item .scroll .h8 a,
+  .ucp--description h2 a,
+  .ucp--description h3 a,
+  .ucp--description h4 a,
+  .ucp--description h5 a,
+  .ucp--description h6 a,
+  .ucp--description h7 a,
+  .ucp--description h8 a,
+  .ucp--description .h2 a,
+  .ucp--description .h3 a,
+  .ucp--description .h4 a,
+  .ucp--description .h5 a,
+  .ucp--description .h6 a,
+  .ucp--description .h7 a,
+  .ucp--description .h8 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 a {
+    color: inherit; }
   .postcolor h2 + h2,
   .postcolor h2 + h3,
   .postcolor h2 + h4,
@@ -1218,7 +1345,203 @@ img {
   .ucp--description .h8 + .h5,
   .ucp--description .h8 + .h6,
   .ucp--description .h8 + .h7,
-  .ucp--description .h8 + .h8 {
+  .ucp--description .h8 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 + .h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + h8,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h2,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h3,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h4,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h5,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h6,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h7,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 + .h8 {
     margin-top: 0; }
 
 .postcolor h2,
@@ -1240,7 +1563,11 @@ img {
 .ucp--description h2,
 .ucp--description .h2,
 .ucp--description h3,
-.ucp--description .h3 {
+.ucp--description .h3,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 {
   font-family: var(--font-head);
   text-transform: uppercase;
   font-weight: 900;
@@ -1262,7 +1589,9 @@ img {
 .member--item .scroll h2,
 .member--item .scroll .h2,
 .ucp--description h2,
-.ucp--description .h2 {
+.ucp--description .h2,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 {
   font-size: 24px; }
   @media only screen and (min-width: 480px) {
     .postcolor h2,
@@ -1274,7 +1603,9 @@ img {
     .member--item .scroll h2,
     .member--item .scroll .h2,
     .ucp--description h2,
-    .ucp--description .h2 {
+    .ucp--description .h2,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 {
       font-size: calc(24px + 16 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .postcolor h2,
@@ -1286,7 +1617,9 @@ img {
     .member--item .scroll h2,
     .member--item .scroll .h2,
     .ucp--description h2,
-    .ucp--description .h2 {
+    .ucp--description .h2,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2 {
       font-size: 40px; } }
   .postcolor h2[data-size="small"],
   .postcolor .h2[data-size="small"],
@@ -1297,7 +1630,9 @@ img {
   .member--item .scroll h2[data-size="small"],
   .member--item .scroll .h2[data-size="small"],
   .ucp--description h2[data-size="small"],
-  .ucp--description .h2[data-size="small"] {
+  .ucp--description .h2[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h2[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h2[data-size="small"] {
     font-size: 28px; }
 
 .postcolor h3,
@@ -1309,7 +1644,9 @@ img {
 .member--item .scroll h3,
 .member--item .scroll .h3,
 .ucp--description h3,
-.ucp--description .h3 {
+.ucp--description .h3,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 {
   font-size: 16px; }
   @media only screen and (min-width: 480px) {
     .postcolor h3,
@@ -1321,7 +1658,9 @@ img {
     .member--item .scroll h3,
     .member--item .scroll .h3,
     .ucp--description h3,
-    .ucp--description .h3 {
+    .ucp--description .h3,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 {
       font-size: calc(16px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .postcolor h3,
@@ -1333,7 +1672,9 @@ img {
     .member--item .scroll h3,
     .member--item .scroll .h3,
     .ucp--description h3,
-    .ucp--description .h3 {
+    .ucp--description .h3,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3 {
       font-size: 28px; } }
   .postcolor h3[data-size="small"],
   .postcolor .h3[data-size="small"],
@@ -1344,7 +1685,9 @@ img {
   .member--item .scroll h3[data-size="small"],
   .member--item .scroll .h3[data-size="small"],
   .ucp--description h3[data-size="small"],
-  .ucp--description .h3[data-size="small"] {
+  .ucp--description .h3[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h3[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h3[data-size="small"] {
     font-size: 24px; }
 
 .postcolor h4,
@@ -1366,7 +1709,11 @@ img {
 .ucp--description h4,
 .ucp--description .h4,
 .ucp--description h5,
-.ucp--description .h5 {
+.ucp--description .h5,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 {
   display: block;
   text-transform: uppercase;
   font-family: var(--font-head);
@@ -1398,7 +1745,11 @@ img {
   .ucp--description h4::before,
   .ucp--description .h4::before,
   .ucp--description h5::before,
-  .ucp--description .h5::before {
+  .ucp--description .h5::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5::before {
     content: '';
     position: absolute;
     left: 0;
@@ -1415,7 +1766,9 @@ img {
 .member--item .scroll h4,
 .member--item .scroll .h4,
 .ucp--description h4,
-.ucp--description .h4 {
+.ucp--description .h4,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 {
   font-size: 20px;
   padding: 0 12px 0 10px; }
   @media only screen and (min-width: 480px) {
@@ -1428,7 +1781,9 @@ img {
     .member--item .scroll h4,
     .member--item .scroll .h4,
     .ucp--description h4,
-    .ucp--description .h4 {
+    .ucp--description .h4,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .postcolor h4,
@@ -1440,7 +1795,9 @@ img {
     .member--item .scroll h4,
     .member--item .scroll .h4,
     .ucp--description h4,
-    .ucp--description .h4 {
+    .ucp--description .h4,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4 {
       font-size: 28px; } }
   .postcolor h4::before,
   .postcolor .h4::before,
@@ -1451,7 +1808,9 @@ img {
   .member--item .scroll h4::before,
   .member--item .scroll .h4::before,
   .ucp--description h4::before,
-  .ucp--description .h4::before {
+  .ucp--description .h4::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4::before {
     bottom: 4px;
     height: 15px; }
   .postcolor h4[data-size="small"],
@@ -1463,7 +1822,9 @@ img {
   .member--item .scroll h4[data-size="small"],
   .member--item .scroll .h4[data-size="small"],
   .ucp--description h4[data-size="small"],
-  .ucp--description .h4[data-size="small"] {
+  .ucp--description .h4[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h4[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h4[data-size="small"] {
     font-size: 20px; }
 
 .postcolor h5,
@@ -1475,7 +1836,9 @@ img {
 .member--item .scroll h5,
 .member--item .scroll .h5,
 .ucp--description h5,
-.ucp--description .h5 {
+.ucp--description .h5,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 {
   font-size: 16px;
   padding: 0 7px 0 5px; }
   @media only screen and (min-width: 480px) {
@@ -1488,7 +1851,9 @@ img {
     .member--item .scroll h5,
     .member--item .scroll .h5,
     .ucp--description h5,
-    .ucp--description .h5 {
+    .ucp--description .h5,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 {
       font-size: calc(16px + 6 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .postcolor h5,
@@ -1500,7 +1865,9 @@ img {
     .member--item .scroll h5,
     .member--item .scroll .h5,
     .ucp--description h5,
-    .ucp--description .h5 {
+    .ucp--description .h5,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5 {
       font-size: 22px; } }
   .postcolor h5::before,
   .postcolor .h5::before,
@@ -1511,7 +1878,9 @@ img {
   .member--item .scroll h5::before,
   .member--item .scroll .h5::before,
   .ucp--description h5::before,
-  .ucp--description .h5::before {
+  .ucp--description .h5::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5::before {
     bottom: 4px;
     height: 10px; }
   .postcolor h5[data-size="small"],
@@ -1523,7 +1892,9 @@ img {
   .member--item .scroll h5[data-size="small"],
   .member--item .scroll .h5[data-size="small"],
   .ucp--description h5[data-size="small"],
-  .ucp--description .h5[data-size="small"] {
+  .ucp--description .h5[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h5[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h5[data-size="small"] {
     font-size: 16px; }
 
 .postcolor h6,
@@ -1535,7 +1906,9 @@ img {
 .member--item .scroll h6,
 .member--item .scroll .h6,
 .ucp--description h6,
-.ucp--description .h6 {
+.ucp--description .h6,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 {
   font-family: var(--font-head);
   text-transform: uppercase;
   font-size: 14px;
@@ -1554,7 +1927,9 @@ img {
     .member--item .scroll h6,
     .member--item .scroll .h6,
     .ucp--description h6,
-    .ucp--description .h6 {
+    .ucp--description .h6,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 {
       font-size: calc(14px + 4 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .postcolor h6,
@@ -1566,7 +1941,9 @@ img {
     .member--item .scroll h6,
     .member--item .scroll .h6,
     .ucp--description h6,
-    .ucp--description .h6 {
+    .ucp--description .h6,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6 {
       font-size: 18px; } }
   .postcolor h6::before,
   .postcolor .h6::before,
@@ -1577,7 +1954,9 @@ img {
   .member--item .scroll h6::before,
   .member--item .scroll .h6::before,
   .ucp--description h6::before,
-  .ucp--description .h6::before {
+  .ucp--description .h6::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6::before {
     content: '';
     width: 30px;
     height: 1px;
@@ -1592,7 +1971,9 @@ img {
   .member--item .scroll h6[data-size="small"],
   .member--item .scroll .h6[data-size="small"],
   .ucp--description h6[data-size="small"],
-  .ucp--description .h6[data-size="small"] {
+  .ucp--description .h6[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h6[data-size="small"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h6[data-size="small"] {
     font-size: 14px; }
 
 .postcolor h7,
@@ -1604,7 +1985,9 @@ img {
 .member--item .scroll h7,
 .member--item .scroll .h7,
 .ucp--description h7,
-.ucp--description .h7 {
+.ucp--description .h7,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h7,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h7 {
   display: block;
   text-transform: uppercase;
   font-size: var(--size-sm);
@@ -1627,7 +2010,9 @@ img {
 .member--item .scroll h8,
 .member--item .scroll .h8,
 .ucp--description h8,
-.ucp--description .h8 {
+.ucp--description .h8,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8 {
   display: block;
   text-transform: uppercase;
   font-size: var(--size-xs);
@@ -1655,7 +2040,11 @@ img {
   .ucp--description h8::before,
   .ucp--description h8::after,
   .ucp--description .h8::before,
-  .ucp--description .h8::after {
+  .ucp--description .h8::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1671,7 +2060,9 @@ img {
   .member--item .scroll h8::before,
   .member--item .scroll .h8::before,
   .ucp--description h8::before,
-  .ucp--description .h8::before {
+  .ucp--description .h8::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8::before {
     left: 0;
     border-right: none; }
   .postcolor h8::after,
@@ -1683,7 +2074,9 @@ img {
   .member--item .scroll h8::after,
   .member--item .scroll .h8::after,
   .ucp--description h8::after,
-  .ucp--description .h8::after {
+  .ucp--description .h8::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 h8::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 .h8::after {
     right: 0;
     border-left: none; }
 
@@ -1691,7 +2084,8 @@ img {
 .webpage--content blockquote,
 .profile .scroll blockquote,
 .member--item .scroll blockquote,
-.ucp--description blockquote {
+.ucp--description blockquote,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 blockquote {
   background: var(--accent-30);
   padding: 15px 20px;
   border-radius: 2px;
@@ -1708,7 +2102,9 @@ img {
   .member--item .scroll blockquote::before,
   .member--item .scroll blockquote::after,
   .ucp--description blockquote::before,
-  .ucp--description blockquote::after {
+  .ucp--description blockquote::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 blockquote::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 blockquote::after {
     content: '';
     position: absolute;
     top: -1px;
@@ -1719,14 +2115,16 @@ img {
   .webpage--content blockquote::before,
   .profile .scroll blockquote::before,
   .member--item .scroll blockquote::before,
-  .ucp--description blockquote::before {
+  .ucp--description blockquote::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 blockquote::before {
     left: 0;
     border-right: none; }
   .postcolor blockquote::after,
   .webpage--content blockquote::after,
   .profile .scroll blockquote::after,
   .member--item .scroll blockquote::after,
-  .ucp--description blockquote::after {
+  .ucp--description blockquote::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 blockquote::after {
     right: 0;
     border-left: none; }
 
@@ -1734,19 +2132,28 @@ img {
 .webpage--content b,
 .profile .scroll b,
 .member--item .scroll b,
-.ucp--description b {
+.ucp--description b,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 b {
   text-decoration: none;
   padding: 0 10px;
   background: var(--bg-accent);
   display: inline-block;
   color: var(--text-on-accent);
   font-weight: 800; }
+  .postcolor b i,
+  .webpage--content b i,
+  .profile .scroll b i,
+  .member--item .scroll b i,
+  .ucp--description b i,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 b i {
+    color: var(--text-on-accent); }
 
 .postcolor i,
 .webpage--content i,
 .profile .scroll i,
 .member--item .scroll i,
-.ucp--description i {
+.ucp--description i,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 i {
   color: var(--text-accent);
   font-size: 1.1em; }
 
@@ -1754,7 +2161,8 @@ img {
 .webpage--content u,
 .profile .scroll u,
 .member--item .scroll u,
-.ucp--description u {
+.ucp--description u,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 u {
   text-decoration: none;
   padding: 0 3px;
   z-index: 1;
@@ -1763,13 +2171,14 @@ img {
   .webpage--content u::before,
   .profile .scroll u::before,
   .member--item .scroll u::before,
-  .ucp--description u::before {
+  .ucp--description u::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 u::before {
     content: '';
     position: absolute;
-    bottom: 2px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%;
+    height: 20%;
     background: var(--bg-accent);
     z-index: -1;
     display: block; }
@@ -1778,28 +2187,19 @@ img {
 .webpage--content s,
 .profile .scroll s,
 .member--item .scroll s,
-.ucp--description s {
-  text-decoration: none;
+.ucp--description s,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 s {
   display: inline-block;
-  padding: 0 3px; }
-  .postcolor s::before,
-  .webpage--content s::before,
-  .profile .scroll s::before,
-  .member--item .scroll s::before,
-  .ucp--description s::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--bg-accent); }
+  padding: 0 3px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--bg-accent); }
 
 .postcolor tag-spoiler,
 .webpage--content tag-spoiler,
 .profile .scroll tag-spoiler,
 .member--item .scroll tag-spoiler,
-.ucp--description tag-spoiler {
+.ucp--description tag-spoiler,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-spoiler {
   padding: 5px 10px;
   background: var(--bg-secondary);
   border-radius: 2px;
@@ -1810,20 +2210,23 @@ img {
   .webpage--content tag-spoiler:hover,
   .profile .scroll tag-spoiler:hover,
   .member--item .scroll tag-spoiler:hover,
-  .ucp--description tag-spoiler:hover {
+  .ucp--description tag-spoiler:hover,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-spoiler:hover {
     background: var(--bg-primary); }
   .postcolor tag-spoiler.is-visible,
   .webpage--content tag-spoiler.is-visible,
   .profile .scroll tag-spoiler.is-visible,
   .member--item .scroll tag-spoiler.is-visible,
-  .ucp--description tag-spoiler.is-visible {
+  .ucp--description tag-spoiler.is-visible,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-spoiler.is-visible {
     color: var(--text-primary); }
 
 .postcolor a,
 .webpage--content a,
 .profile .scroll a,
 .member--item .scroll a,
-.ucp--description a {
+.ucp--description a,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 a {
   color: var(--text-accent);
   font-family: var(--font-head);
   font-weight: 600; }
@@ -1831,7 +2234,8 @@ img {
   .webpage--content a[target="_blank"]:not(.staffOnly)::after,
   .profile .scroll a[target="_blank"]:not(.staffOnly)::after,
   .member--item .scroll a[target="_blank"]:not(.staffOnly)::after,
-  .ucp--description a[target="_blank"]:not(.staffOnly)::after {
+  .ucp--description a[target="_blank"]:not(.staffOnly)::after,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 a[target="_blank"]:not(.staffOnly)::after {
     font-size: 1.2em;
     font-family: 'Font Awesome 6 Pro';
     top: -3px;
@@ -1842,7 +2246,8 @@ img {
 .webpage--content hr,
 .profile .scroll hr,
 .member--item .scroll hr,
-.ucp--description hr {
+.ucp--description hr,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hr {
   display: block;
   height: 6px;
   margin: 60px auto;
@@ -1855,7 +2260,8 @@ img {
 .webpage--content hl,
 .profile .scroll hl,
 .member--item .scroll hl,
-.ucp--description hl {
+.ucp--description hl,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl {
   display: block;
   height: 4px;
   background: var(--bg-accent);
@@ -1874,7 +2280,10 @@ img {
   .member--item .scroll hl[data-style="THIN"],
   .ucp--description hl[data-style="thin"],
   .ucp--description hl[data-style="Thin"],
-  .ucp--description hl[data-style="THIN"] {
+  .ucp--description hl[data-style="THIN"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="thin"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="Thin"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="THIN"] {
     height: 1px; }
   .postcolor hl[data-style="outline"], .postcolor hl[data-style="Outline"], .postcolor hl[data-style="OUTLINE"],
   .webpage--content hl[data-style="outline"],
@@ -1888,7 +2297,10 @@ img {
   .member--item .scroll hl[data-style="OUTLINE"],
   .ucp--description hl[data-style="outline"],
   .ucp--description hl[data-style="Outline"],
-  .ucp--description hl[data-style="OUTLINE"] {
+  .ucp--description hl[data-style="OUTLINE"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="outline"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="Outline"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="OUTLINE"] {
     background: var(--bg-accent-transparent);
     border-top: 1px solid var(--border-accent);
     border-bottom: 1px solid var(--border-accent);
@@ -1905,7 +2317,10 @@ img {
   .member--item .scroll hl[data-style="DOTTED"],
   .ucp--description hl[data-style="dotted"],
   .ucp--description hl[data-style="Dotted"],
-  .ucp--description hl[data-style="DOTTED"] {
+  .ucp--description hl[data-style="DOTTED"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="dotted"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="Dotted"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="DOTTED"] {
     background: none;
     height: 0;
     border-top: 3px dotted var(--border-accent); }
@@ -1921,7 +2336,10 @@ img {
   .member--item .scroll hl[data-style="DASHED"],
   .ucp--description hl[data-style="dashed"],
   .ucp--description hl[data-style="Dashed"],
-  .ucp--description hl[data-style="DASHED"] {
+  .ucp--description hl[data-style="DASHED"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="dashed"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="Dashed"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-style="DASHED"] {
     background: none;
     height: 0;
     border-top: 2px dashed var(--border-accent); }
@@ -1937,7 +2355,10 @@ img {
   .member--item .scroll hl[data-width="XS"],
   .ucp--description hl[data-width="xs"],
   .ucp--description hl[data-width="Xs"],
-  .ucp--description hl[data-width="XS"] {
+  .ucp--description hl[data-width="XS"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="xs"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="Xs"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="XS"] {
     width: 250px; }
   .postcolor hl[data-width="sm"], .postcolor hl[data-width="Sm"], .postcolor hl[data-width="SMALL"],
   .webpage--content hl[data-width="sm"],
@@ -1951,7 +2372,10 @@ img {
   .member--item .scroll hl[data-width="SMALL"],
   .ucp--description hl[data-width="sm"],
   .ucp--description hl[data-width="Sm"],
-  .ucp--description hl[data-width="SMALL"] {
+  .ucp--description hl[data-width="SMALL"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="sm"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="Sm"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="SMALL"] {
     width: 325px; }
   .postcolor hl[data-width="lg"], .postcolor hl[data-width="Lg"], .postcolor hl[data-width="LG"],
   .webpage--content hl[data-width="lg"],
@@ -1965,7 +2389,10 @@ img {
   .member--item .scroll hl[data-width="LG"],
   .ucp--description hl[data-width="lg"],
   .ucp--description hl[data-width="Lg"],
-  .ucp--description hl[data-width="LG"] {
+  .ucp--description hl[data-width="LG"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="lg"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="Lg"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="LG"] {
     width: 475px; }
   .postcolor hl[data-width="xl"], .postcolor hl[data-width="Xl"], .postcolor hl[data-width="XL"],
   .webpage--content hl[data-width="xl"],
@@ -1979,14 +2406,18 @@ img {
   .member--item .scroll hl[data-width="XL"],
   .ucp--description hl[data-width="xl"],
   .ucp--description hl[data-width="Xl"],
-  .ucp--description hl[data-width="XL"] {
+  .ucp--description hl[data-width="XL"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="xl"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="Xl"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl[data-width="XL"] {
     width: 550px; }
 
 .postcolor vl,
 .webpage--content vl,
 .profile .scroll vl,
 .member--item .scroll vl,
-.ucp--description vl {
+.ucp--description vl,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl {
   display: block;
   height: 200px;
   background: var(--bg-accent);
@@ -2004,7 +2435,10 @@ img {
   .member--item .scroll vl[data-style="THIN"],
   .ucp--description vl[data-style="thin"],
   .ucp--description vl[data-style="Thin"],
-  .ucp--description vl[data-style="THIN"] {
+  .ucp--description vl[data-style="THIN"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="thin"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="Thin"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="THIN"] {
     width: 1px; }
   .postcolor vl[data-style="outline"], .postcolor vl[data-style="Outline"], .postcolor vl[data-style="OUTLINE"],
   .webpage--content vl[data-style="outline"],
@@ -2018,7 +2452,10 @@ img {
   .member--item .scroll vl[data-style="OUTLINE"],
   .ucp--description vl[data-style="outline"],
   .ucp--description vl[data-style="Outline"],
-  .ucp--description vl[data-style="OUTLINE"] {
+  .ucp--description vl[data-style="OUTLINE"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="outline"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="Outline"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="OUTLINE"] {
     background: var(--bg-accent-transparent);
     border-left: 1px solid var(--border-accent);
     border-right: 1px solid var(--border-accent);
@@ -2035,7 +2472,10 @@ img {
   .member--item .scroll vl[data-style="DOTTED"],
   .ucp--description vl[data-style="dotted"],
   .ucp--description vl[data-style="Dotted"],
-  .ucp--description vl[data-style="DOTTED"] {
+  .ucp--description vl[data-style="DOTTED"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="dotted"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="Dotted"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="DOTTED"] {
     background: none;
     width: 0;
     border-left: 3px dotted var(--border-accent); }
@@ -2051,7 +2491,10 @@ img {
   .member--item .scroll vl[data-style="DASHED"],
   .ucp--description vl[data-style="dashed"],
   .ucp--description vl[data-style="Dashed"],
-  .ucp--description vl[data-style="DASHED"] {
+  .ucp--description vl[data-style="DASHED"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="dashed"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="Dashed"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-style="DASHED"] {
     background: none;
     width: 0;
     border-left: 2px dashed var(--border-accent); }
@@ -2067,7 +2510,10 @@ img {
   .member--item .scroll vl[data-height="XXS"],
   .ucp--description vl[data-height="xxs"],
   .ucp--description vl[data-height="Xxs"],
-  .ucp--description vl[data-height="XXS"] {
+  .ucp--description vl[data-height="XXS"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="xxs"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="Xxs"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="XXS"] {
     height: 30px; }
   .postcolor vl[data-height="xs"], .postcolor vl[data-height="Xs"], .postcolor vl[data-height="XS"],
   .webpage--content vl[data-height="xs"],
@@ -2081,7 +2527,10 @@ img {
   .member--item .scroll vl[data-height="XS"],
   .ucp--description vl[data-height="xs"],
   .ucp--description vl[data-height="Xs"],
-  .ucp--description vl[data-height="XS"] {
+  .ucp--description vl[data-height="XS"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="xs"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="Xs"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="XS"] {
     height: 50px; }
   .postcolor vl[data-height="sm"], .postcolor vl[data-height="Sm"], .postcolor vl[data-height="SM"],
   .webpage--content vl[data-height="sm"],
@@ -2095,7 +2544,10 @@ img {
   .member--item .scroll vl[data-height="SM"],
   .ucp--description vl[data-height="sm"],
   .ucp--description vl[data-height="Sm"],
-  .ucp--description vl[data-height="SM"] {
+  .ucp--description vl[data-height="SM"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="sm"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="Sm"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="SM"] {
     height: 125px; }
   .postcolor vl[data-height="lg"], .postcolor vl[data-height="Lg"], .postcolor vl[data-height="LG"],
   .webpage--content vl[data-height="lg"],
@@ -2109,7 +2561,10 @@ img {
   .member--item .scroll vl[data-height="LG"],
   .ucp--description vl[data-height="lg"],
   .ucp--description vl[data-height="Lg"],
-  .ucp--description vl[data-height="LG"] {
+  .ucp--description vl[data-height="LG"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="lg"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="Lg"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="LG"] {
     height: 275px; }
   .postcolor vl[data-height="xl"], .postcolor vl[data-height="Xl"], .postcolor vl[data-height="XL"],
   .webpage--content vl[data-height="xl"],
@@ -2123,14 +2578,18 @@ img {
   .member--item .scroll vl[data-height="XL"],
   .ucp--description vl[data-height="xl"],
   .ucp--description vl[data-height="Xl"],
-  .ucp--description vl[data-height="XL"] {
+  .ucp--description vl[data-height="XL"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="xl"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="Xl"],
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl[data-height="XL"] {
     height: 350px; }
 
 .postcolor tag-relationship,
 .webpage--content tag-relationship,
 .profile .scroll tag-relationship,
 .member--item .scroll tag-relationship,
-.ucp--description tag-relationship {
+.ucp--description tag-relationship,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship {
   display: grid;
   grid-template-columns: 50px auto;
   gap: 10px;
@@ -2140,7 +2599,8 @@ img {
   .webpage--content tag-relationship > img,
   .profile .scroll tag-relationship > img,
   .member--item .scroll tag-relationship > img,
-  .ucp--description tag-relationship > img {
+  .ucp--description tag-relationship > img,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > img {
     width: 50px;
     height: 50px;
     border-radius: 2px; }
@@ -2153,7 +2613,9 @@ img {
   .member--item .scroll tag-relationship > a,
   .member--item .scroll tag-relationship > b,
   .ucp--description tag-relationship > a,
-  .ucp--description tag-relationship > b {
+  .ucp--description tag-relationship > b,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b {
     font-family: var(--font-head) !important;
     color: var(--text-secondary) !important;
     text-transform: uppercase;
@@ -2182,7 +2644,11 @@ img {
     .ucp--description tag-relationship > a::before,
     .ucp--description tag-relationship > a::after,
     .ucp--description tag-relationship > b::before,
-    .ucp--description tag-relationship > b::after {
+    .ucp--description tag-relationship > b::after,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a::before,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a::after,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b::before,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b::after {
       content: '';
       position: absolute;
       top: 0;
@@ -2198,7 +2664,9 @@ img {
     .member--item .scroll tag-relationship > a::before,
     .member--item .scroll tag-relationship > b::before,
     .ucp--description tag-relationship > a::before,
-    .ucp--description tag-relationship > b::before {
+    .ucp--description tag-relationship > b::before,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a::before,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b::before {
       left: 0;
       border-right: 0; }
     .postcolor tag-relationship > a::after,
@@ -2210,7 +2678,9 @@ img {
     .member--item .scroll tag-relationship > a::after,
     .member--item .scroll tag-relationship > b::after,
     .ucp--description tag-relationship > a::after,
-    .ucp--description tag-relationship > b::after {
+    .ucp--description tag-relationship > b::after,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a::after,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b::after {
       right: 0;
       border-left: 0; }
     .postcolor tag-relationship > a:first-child,
@@ -2222,7 +2692,9 @@ img {
     .member--item .scroll tag-relationship > a:first-child,
     .member--item .scroll tag-relationship > b:first-child,
     .ucp--description tag-relationship > a:first-child,
-    .ucp--description tag-relationship > b:first-child {
+    .ucp--description tag-relationship > b:first-child,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a:first-child,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b:first-child {
       grid-column: 1 / -1; }
     .postcolor tag-relationship > a:not(:first-child),
     .postcolor tag-relationship > b:not(:first-child),
@@ -2233,20 +2705,24 @@ img {
     .member--item .scroll tag-relationship > a:not(:first-child),
     .member--item .scroll tag-relationship > b:not(:first-child),
     .ucp--description tag-relationship > a:not(:first-child),
-    .ucp--description tag-relationship > b:not(:first-child) {
+    .ucp--description tag-relationship > b:not(:first-child),
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a:not(:first-child),
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > b:not(:first-child) {
       align-self: center; }
   .postcolor tag-relationship > a,
   .webpage--content tag-relationship > a,
   .profile .scroll tag-relationship > a,
   .member--item .scroll tag-relationship > a,
-  .ucp--description tag-relationship > a {
+  .ucp--description tag-relationship > a,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a {
     background: var(--accent-30);
     transition-duration: 0.3s; }
     .postcolor tag-relationship > a:hover,
     .webpage--content tag-relationship > a:hover,
     .profile .scroll tag-relationship > a:hover,
     .member--item .scroll tag-relationship > a:hover,
-    .ucp--description tag-relationship > a:hover {
+    .ucp--description tag-relationship > a:hover,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a:hover {
       background: var(--bg-accent-transparent); }
       .postcolor tag-relationship > a:hover::before, .postcolor tag-relationship > a:hover::after,
       .webpage--content tag-relationship > a:hover::before,
@@ -2256,7 +2732,9 @@ img {
       .member--item .scroll tag-relationship > a:hover::before,
       .member--item .scroll tag-relationship > a:hover::after,
       .ucp--description tag-relationship > a:hover::before,
-      .ucp--description tag-relationship > a:hover::after {
+      .ucp--description tag-relationship > a:hover::after,
+      #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a:hover::before,
+      #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a:hover::after {
         width: 50%; }
     .postcolor tag-relationship > a::before, .postcolor tag-relationship > a::after,
     .webpage--content tag-relationship > a::before,
@@ -2266,7 +2744,9 @@ img {
     .member--item .scroll tag-relationship > a::before,
     .member--item .scroll tag-relationship > a::after,
     .ucp--description tag-relationship > a::before,
-    .ucp--description tag-relationship > a::after {
+    .ucp--description tag-relationship > a::after,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a::before,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > a::after {
       top: -1px;
       width: 8px;
       transition-duration: 0.3s; }
@@ -2274,7 +2754,8 @@ img {
   .webpage--content tag-relationship > span,
   .profile .scroll tag-relationship > span,
   .member--item .scroll tag-relationship > span,
-  .ucp--description tag-relationship > span {
+  .ucp--description tag-relationship > span,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > span {
     grid-column: 1 / -1;
     font-size: calc(var(--size-sm) + 1px);
     line-height: 160%; }
@@ -2282,14 +2763,16 @@ img {
   .webpage--content tag-relationship > br,
   .profile .scroll tag-relationship > br,
   .member--item .scroll tag-relationship > br,
-  .ucp--description tag-relationship > br {
+  .ucp--description tag-relationship > br,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-relationship > br {
     display: none; }
 
 .postcolor tag-shiptitle,
 .webpage--content tag-shiptitle,
 .profile .scroll tag-shiptitle,
 .member--item .scroll tag-shiptitle,
-.ucp--description tag-shiptitle {
+.ucp--description tag-shiptitle,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-shiptitle {
   grid-column: 1 / -1;
   display: block;
   text-transform: uppercase;
@@ -2306,14 +2789,16 @@ img {
   .webpage--content tag-shiptitle:not(:first-child),
   .profile .scroll tag-shiptitle:not(:first-child),
   .member--item .scroll tag-shiptitle:not(:first-child),
-  .ucp--description tag-shiptitle:not(:first-child) {
+  .ucp--description tag-shiptitle:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-shiptitle:not(:first-child) {
     margin-top: 10px; }
 
 .postcolor tag-shipsubtitle,
 .webpage--content tag-shipsubtitle,
 .profile .scroll tag-shipsubtitle,
 .member--item .scroll tag-shipsubtitle,
-.ucp--description tag-shipsubtitle {
+.ucp--description tag-shipsubtitle,
+#Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-shipsubtitle {
   grid-column: 1 / -1;
   font-family: var(--font-head);
   text-transform: uppercase;
@@ -2328,7 +2813,8 @@ img {
   .webpage--content tag-shipsubtitle::before,
   .profile .scroll tag-shipsubtitle::before,
   .member--item .scroll tag-shipsubtitle::before,
-  .ucp--description tag-shipsubtitle::before {
+  .ucp--description tag-shipsubtitle::before,
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-shipsubtitle::before {
     content: '';
     width: 30px;
     height: 1px;
@@ -2338,8 +2824,59 @@ img {
   .webpage--content tag-shipsubtitle:not(:first-child),
   .profile .scroll tag-shipsubtitle:not(:first-child),
   .member--item .scroll tag-shipsubtitle:not(:first-child),
-  .ucp--description tag-shipsubtitle:not(:first-child) {
+  .ucp--description tag-shipsubtitle:not(:first-child),
+  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-shipsubtitle:not(:first-child) {
     margin-top: 10px; }
+
+.tw {
+  margin: 20px auto;
+  max-width: 450px; }
+  .tw--header {
+    font-size: 14px;
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    line-height: 120%; }
+    @media only screen and (min-width: 480px) {
+      .tw--header {
+        font-size: calc(14px + 4 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      .tw--header {
+        font-size: 18px; } }
+    .tw--header::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--bg-accent);
+      display: inline-block; }
+  .tw--body {
+    display: block;
+    text-transform: uppercase;
+    font-size: var(--size-sm);
+    letter-spacing: 0.05em;
+    line-height: 250%;
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: 600;
+    text-align: justify; }
+    .tw--body::before, .tw--body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      border: 1px solid var(--border-accent); }
+    .tw--body::before {
+      left: 0;
+      border-right: none; }
+    .tw--body::after {
+      right: 0;
+      border-left: none; }
 
 #loading {
   position: fixed;
@@ -2375,17 +2912,45 @@ tag-tabset {
 
 ul {
   margin: 20px 0;
-  padding-left: 10px; }
+  padding-left: 0; }
   ul li {
-    padding-left: 10px; }
+    padding-left: 0;
+    list-style: none; }
+    ul li::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--text-accent);
+      display: inline-block;
+      top: -5px;
+      margin-right: 15px;
+      position: relative; }
     ul li:not(:last-child) {
       margin-bottom: 10px; }
-    ul li::marker {
-      font-family: 'Font Awesome 6 Pro';
-      font-weight: 300;
-      font-style: normal;
-      font-size: 0.7em;
-      color: var(--text-accent); }
+    ul li > b:first-child {
+      margin-right: 10px; }
+
+fieldset {
+  border: 0;
+  text-align: left;
+  font-size: calc(var(--size-xs) + 1px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600; }
+  fieldset legend {
+    font-family: var(--font-head);
+    font-size: 12px;
+    text-transform: uppercase;
+    z-index: 1;
+    max-width: 100%;
+    width: max-content;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-accent);
+    border-bottom: 1px solid var(--border-accent);
+    padding: 0 0.7em;
+    letter-spacing: 0.2em;
+    font-weight: 500 !important;
+    margin-bottom: 10px; }
 
 button,
 input[type="submit"],
@@ -2484,15 +3049,21 @@ tag-code,
     color: var(--text-primary); }
 
 .copyright,
-#mark-as-read-subto {
+#mark-as-read-subto,
+#delcookiesrow {
   text-transform: uppercase;
   font-size: calc(var(--size-xs) + 1px);
   letter-spacing: 0.1em;
   line-height: 160%;
   margin: 0 auto 30px; }
   .copyright a,
-  #mark-as-read-subto a {
+  #mark-as-read-subto a,
+  #delcookiesrow a {
     color: var(--text-secondary); }
+
+#delcookiesrow {
+  margin-bottom: 0;
+  text-align: center; }
 
 .pagination_pagetxt {
   font-size: 0; }
@@ -2577,6 +3148,16 @@ tag-code,
   padding: 0 10px; }
   .macro--button:hover {
     background: var(--bg-secondary); }
+
+.macro--message {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: var(--font-head);
+  grid-column: 1 / -1;
+  text-align: center;
+  max-width: 450px;
+  margin: 0 auto 60px;
+  color: var(--text-secondary); }
 
 .accordion--trigger {
   cursor: pointer; }
