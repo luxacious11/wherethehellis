@@ -109,6 +109,11 @@
     .nav--popout a + tag-code, .nav--switcher a + tag-code, .nav--alerts a + tag-code {
       margin-top: 30px; }
 
+.nav--alerts a {
+  text-align: left; }
+  .nav--alerts a:hover::before {
+    left: 0; }
+
 .nav--options {
   position: absolute;
   background: var(--bg-secondary);
@@ -208,7 +213,7 @@
   background: var(--bg-secondary);
   padding: 15px;
   top: 55px;
-  right: 0;
+  left: 0;
   border-bottom: 3px solid var(--border-accent-transparent);
   height: max-content;
   z-index: 9;
@@ -222,7 +227,6 @@
     .nav--login {
       border-right: 3px solid var(--border-accent-transparent);
       border-bottom: 0;
-      right: auto;
       left: calc(100% + 5px);
       bottom: 0;
       top: auto;

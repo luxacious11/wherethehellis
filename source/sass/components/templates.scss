@@ -397,6 +397,11 @@ tag-content {
     display: block;
     white-space: pre-line;
 
+    .user-tagged {
+        font-size: 1.1em;
+        text-transform: uppercase;
+    }
+
     tag-wrap[data-type="post"] & {
         background: var(--bg-quaternary);
         padding: 15px;
@@ -448,7 +453,7 @@ tag-content {
         }
     }
 
-    & > br:first-child,
+    & > br:first-child:not(:has(+ br)),
     & > br:last-child {
         display: none;
     }
@@ -717,6 +722,7 @@ tag-contact {
         text-transform: uppercase;
         font-weight: 900;
         font-size: 18px;
+        color: var(--text-on-accent) !important;
     }
 
     p {

@@ -11,6 +11,13 @@
     main {
         max-width: none;
 
+        & > .category.subforums {
+            & + table:first-of-type {
+                border-top: 1px solid var(--border-accent-transparent);
+                margin-top: 60px;
+            }
+        }
+
         & > table {
             width: calc(100% + 40px);
             padding: 10px 20px;
@@ -32,11 +39,15 @@
 
             &:first-of-type {
                 position: sticky;
-                top: 30px;
+                top: 85px;
                 z-index: 2;
                 transition-duration: 0.3s;
                 background: var(--bg-secondary);
                 border-bottom: 1px solid var(--border-accent-transparent);
+
+                @include mq-up(sm) {
+                    top: 29px;
+                }
             }
 
             &:not(:first-of-type) {

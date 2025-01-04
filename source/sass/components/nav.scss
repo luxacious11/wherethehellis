@@ -138,6 +138,15 @@
             }
         }
     }
+    &--alerts {
+        a {
+            text-align: left;
+            
+            &:hover::before {
+                left: 0;
+            }
+        }
+    }
     &--options {
         position: absolute;
         background: var(--bg-secondary);
@@ -273,7 +282,7 @@
         background: var(--bg-secondary);
         padding: 15px;
         top: 55px;
-        right: 0;
+        left: 0;
         border-bottom: 3px solid var(--border-accent-transparent);
         height: max-content;
         z-index: 9;
@@ -289,7 +298,6 @@
         @include mq-up(sm) {
             border-right: 3px solid var(--border-accent-transparent);
             border-bottom: 0;
-            right: auto;
             left: calc(100% + 5px);
             bottom: 0;
             top: auto;

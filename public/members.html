@@ -200,10 +200,219 @@
         <main>
             <a name="top"></a>
 		
-            <form action='index.php' method='get'>
-                <input type='hidden' name='act' value='Members' />
-                <!--Members-->
-            </form>
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+            
+            <section class="members">
+                <div class="members--menu">
+                    <div class="members--menu-inner">
+                        <button class="onlyMobile" onclick="toggleListMenu(this)">
+                            <i class="fa-solid fa-ellipsis-h"></i>
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="accordion scroll">
+                    <!-- |pages| -->
+                            <input id="quicksearch" class="forminput memberlist-namesearch" type="text" size="25" name="name" value="" placeholder="Filter by name...">
+                            <div class="accordion--trigger">
+                                <span>Status</span>
+                            </div>
+                            <div class="accordion--content members--filter-group" data-filter-group="status">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                                <label><input type="checkbox" value=".active">active</label>
+                                <label><input type="checkbox" value=".pending">pending</label>
+                            </div>
+                            <div class="accordion--trigger">
+                                <span>Type</span>
+                            </div>
+                            <div class="accordion--content members--filter-group" data-filter-group="type">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                                <label><input type="checkbox" value=".character">character</label>
+                                <label><input type="checkbox" value=".writer">writer</label>
+                            </div>
+                            <div class="accordion--trigger">
+                                <span>Alias</span>
+                            </div>
+                            <div class="accordion--content members--filter-group" data-filter-group="alias">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                            </div>
+                            <div class="accordion--trigger">
+                                <span>Age</span>
+                            </div>
+                            <div class="accordion--content members--filter-group" data-filter-group="age">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                                <label><input type="checkbox" value=".1825">18 - 25</label>
+                                <label><input type="checkbox" value=".2635">26 - 35</label>
+                                <label><input type="checkbox" value=".3645">36 - 45</label>
+                                <label><input type="checkbox" value=".4655">46 - 55</label>
+                                <label><input type="checkbox" value=".55">55+</label>
+                            </div>
+                            <div class="accordion--trigger">
+                                <span>Relationship</span>
+                            </div>
+                            <div class="accordion--content members--filter-group" data-filter-group="relationship">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                                <label><input type="checkbox" value=".single">single</label>
+                                <label><input type="checkbox" value=".dating">dating</label>
+                                <label><input type="checkbox" value=".engaged">engaged</label>
+                                <label><input type="checkbox" value=".married">married</label>
+                                <label><input type="checkbox" value=".itscomplicated">complicated</label>
+                                <label><input type="checkbox" value=".separated">separated</label>
+                                <label><input type="checkbox" value=".divorced">divorced</label>
+                                <label><input type="checkbox" value=".widowed">widowed</label>
+                            </div>
+                            <div class="accordion--trigger">
+                                <span>Neighborhood</span>
+                            </div>
+                            <div class="accordion--content members--filter-group" data-filter-group="neighborhood">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                                <label><input type="checkbox" value=".thedockyards">The Dockyards</label>
+                                <label><input type="checkbox" value=".thegraveyard">The Graveyard</label>
+                                <label><input type="checkbox" value=".stanthonyvillage">St. Anthony Village</label>
+                                <label><input type="checkbox" value=".westfall">Westfall</label>
+                                <label><input type="checkbox" value=".logancreek">Logan Creek</label>
+                                <label><input type="checkbox" value=".oaklandterrace">Oakland Terrace</label>
+                                <label><input type="checkbox" value=".hollandheights">Holland Heights</label>
+                                <label><input type="checkbox" value=".brentwoodridge">Brentwood Ridge</label>
+                                <label><input type="checkbox" value=".bayroad">Bay Road</label>
+                                <label><input type="checkbox" value=".essexplaza">Essex Plaza</label>
+                                <label><input type="checkbox" value=".pacificmarket">Pacific Market</label>
+                                <label><input type="checkbox" value=".castlepeakgatedcommunity">Castlepeak Gated Community</label>
+                                <label><input type="checkbox" value=".hawthornehills">Hawthorne Hills</label>
+                                <label><input type="checkbox" value=".thepitch">The Pitch</label>
+                                <label><input type="checkbox" value=".elsewhereinlimbo">Elsewhere in Limbo</label>
+                                <label><input type="checkbox" value=".outsidelimbo">Outside Limbo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="members--list"><div class="members--list-inner"><form action='index.php' method='get'><input type='hidden' name='act' value='Members' />
+                    <div class="scroll"><div id="members--rows"><div class="member-sizer"></div></div></div>
+                </form></div></div>
+                <script>
+                    //remove loading screen
+                    document.onreadystatechange = function() {
+                        if (
+                            (document.querySelectorAll('body#Members').length > 0 && document.readyState === "complete")
+                            || (document.querySelectorAll('body#Members').length === 0 && document.readyState === "interactive")
+                        ) {
+                            document.querySelector('body').classList.remove('loading');
+                            document.querySelector('#loading').remove();
+                        }
+                    };
+            
+            
+                    //set variables
+                    let accounts = [];
+                    let filters = {};
+                    let $container = $('#members--rows');
+                    let typeSearch = `#quicksearch`;
+                    let memName = `.member--name`;
+                    let visible = `is-visible`;
+                    let filterGroup = `.members--filter-group`;
+                    let filterOptions = `.members--filter-group input`;
+                    let gridItem = `.grid-item`;
+                    let defaultShow = `.active.character`;
+            
+                    //<% MEMBERLIST_ROWS %>
+                    </script><script src="../dist/js/fakeAccounts.js"></script><script>
+            
+                    populatePage(accounts);
+            
+                    //initialize isotope
+                    // quick search regex
+                    let qsRegex;
+                    let elements = document.querySelectorAll(gridItem);
+                    
+                    // init Isotope
+                    $(window).on('load', function() {
+                        $container.isotope({
+                            itemSelector: gridItem,
+                            percentPosition: true,
+                            masonry: {
+                                columnWidth: '.member-sizer',
+                                gutter: 30
+                            },
+                            filter: defaultShow,
+                        });
+            
+                        //handle filter storage
+                        let queryParamsArray = window.location.search.split('&').map(param => param.split('='));
+                        let queryParams = {};
+                        queryParamsArray.forEach(param => {
+                            queryParams[param[0]] = param[1];
+                        });
+                        for (const param in queryParams) {
+                            if(param !== '') {
+                                let key = param;
+                                let values = queryParams[param].split('_');
+                
+                                if(document.querySelector(`[data-filter-group="${key}"]`) && values.length > 0) {
+                                    document.querySelector(`[data-filter-group="${key}"] .all`).classList.remove('is-checked');
+                                    values.forEach(value => {
+                                        document.querySelector(`[data-filter-group="${key}"] [value="${value}"]`)
+                                        .closest('label')
+                                        .classList.add('is-checked');
+                                    });
+                                    setCustomFilter();
+                                }
+                            }
+                        }
+            
+                        if(window.location.search.split('typesearch=')[1]) {
+                            document.querySelector(typeSearch).value = window.location.search.split('typesearch=')[1].split('&')[0];
+                            setCustomFilter();
+                        }
+                    });
+                
+                    //use value of input select to filter
+                    let checkboxes = document.querySelectorAll(filterOptions);
+                    checkboxes.forEach(checkbox => {
+                        checkbox.addEventListener('change', e => {
+                            if(e.currentTarget.classList.contains('all')) {
+                                e.currentTarget.checked = true;
+                                e.currentTarget.parentElement.classList.add('is-checked');
+                                e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
+                                    input.checked = false;
+                                    input.parentElement.classList.remove('is-checked');
+                                });
+                            } else {
+                                if(e.currentTarget.parentElement.classList.contains('is-checked')) {
+                                    e.currentTarget.checked = false;
+                                    e.currentTarget.parentElement.classList.remove('is-checked');
+                                } else {
+                                    e.currentTarget.checked = true;
+                                    e.currentTarget.parentElement.classList.add('is-checked');
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
+                                }
+                            }
+                            let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
+                            let checked = 0;
+                            labels.forEach(label => {
+                                if(label.classList.contains('is-checked')) {
+                                    checked++;
+                                }
+                            });
+                            if(checked === 0) {
+                                e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
+                                e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
+                            }
+                            //set filters
+                            setCustomFilter();
+                        });
+                    });
+                
+                    // use value of search field to filter
+                    document.querySelector(typeSearch).addEventListener('keyup', e => {
+                    appendSearchQuery('typesearch', e.currentTarget.value);
+                        setCustomFilter();
+                    });
+                </script>
+            </section>
 
             <!-- Copyright Information -->
             <div class="tableborder" align="center">

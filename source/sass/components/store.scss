@@ -356,7 +356,7 @@
                     &:not(:first-child):not(:last-child) {
                         display: grid;
                         grid-template-columns: 1fr 1fr;
-                        grid-template-rows: repeat(auto-fit, minmax(0, max-content));
+                        grid-template-rows: max-content max-content auto max-content max-content;
                         gap: 10px;
                         background: var(--bg-tertiary);
                         border: 1px solid var(--border-accent-transparent);
@@ -436,6 +436,10 @@
                                         color: var(--text-secondary);
                                     }
                                 }
+                            }
+    
+                            &:nth-child(6):last-child {
+                                grid-column: 1 / -1;
                             }
     
                             &:nth-child(7):last-child {

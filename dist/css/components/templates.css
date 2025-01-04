@@ -268,6 +268,9 @@ tag-image {
 tag-content {
   display: block;
   white-space: pre-line; }
+  tag-content .user-tagged {
+    font-size: 1.1em;
+    text-transform: uppercase; }
   tag-wrap[data-type="post"] tag-content {
     background: var(--bg-quaternary);
     padding: 15px; }
@@ -317,7 +320,7 @@ tag-content {
       tag-wrap[data-type="quote"][data-size="LARGE"] tag-content {
         font-size: 40px;
         font-weight: 200; } }
-  tag-content > br:first-child,
+  tag-content > br:first-child:not(:has(+ br)),
   tag-content > br:last-child {
     display: none; }
   tag-content:has(.user-tagged:last-child) {
@@ -511,7 +514,8 @@ tag-contact {
     font-family: var(--font-head);
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 18px; }
+    font-size: 18px;
+    color: var(--text-on-accent) !important; }
   tag-contact p {
     margin: 0 0 5px;
     line-height: 100%;

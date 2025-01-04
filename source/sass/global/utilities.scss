@@ -100,20 +100,20 @@ tag-hl {
     gap: 30px;
     grid-template-rows: max-content;
 
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    h7,
-    h8,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6,
-    .h7,
-    .h8 {
+    & > h2,
+    & > h3,
+    & > h4,
+    & > h5,
+    & > h6,
+    & > h7,
+    & > h8,
+    & > .h2,
+    & > .h3,
+    & > .h4,
+    & > .h5,
+    & > .h6,
+    & > .h7,
+    & > .h8 {
         margin-bottom: 0;
     }
 

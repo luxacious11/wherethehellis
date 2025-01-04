@@ -75,7 +75,9 @@ body {
 
     //Set up
     &[class*="g-"],
-    [class*="g-"] {
+    [class*="g-"],
+    &[class*="mgroup-"],
+    [class*="mgroup-"] {
         --accent: rgb(var(--rgb));
         --accent-60: rgba(var(--rgb), 0.6);
         --accent-30: rgba(var(--rgb), 0.3);
@@ -93,16 +95,24 @@ body {
     //Other
     &.g-1,
     .g-1,
+    &.mgroup-1,
+    .mgroup-1,
     &.g-2,
     .g-2,
+    &.mgroup-2,
+    .mgroup-2,
     &.g-3,
-    .g-3 {
+    .g-3,
+    &.mgroup-3,
+    .mgroup-3 {
         --rgb: 145, 74, 74;
     }
 
     //Banned & Inactive
     &.g-5,
-    .g-5 {
+    .g-5,
+    &.mgroup-5,
+    .mgroup-5 {
         --rgb: 121, 121, 121;
         --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_inactive_min.jpg);
         --bg-opacity: 0.2;
@@ -111,6 +121,8 @@ body {
     //Staff
     &.g-4,
     .g-4,
+    &.mgroup-4,
+    .mgroup-4,
     [data-group="staff"],
     [data-group="Staff"],
     [data-group="STAFF"] {
@@ -121,6 +133,8 @@ body {
     //Sorted
     &.g-6,
     .g-6,
+    &.mgroup-6,
+    .mgroup-6,
     [data-group="writer"],
     [data-group="Writer"],
     [data-group="WRITER"] {
@@ -131,6 +145,8 @@ body {
     //Tiger
     &.g-7,
     .g-7,
+    &.mgroup-7,
+    .mgroup-7,
     [data-group="tiger"],
     [data-group="Tiger"],
     [data-group="TIGER"] {
@@ -141,6 +157,8 @@ body {
     //Wolf
     &.g-8,
     .g-8,
+    &.mgroup-8,
+    .mgroup-8,
     [data-group="wolf"],
     [data-group="Wolf"],
     [data-group="WOLF"] {
@@ -151,6 +169,8 @@ body {
     //Rabbit
     &.g-9,
     .g-9,
+    &.mgroup-9,
+    .mgroup-9,
     [data-group="rabbit"],
     [data-group="Rabbit"],
     [data-group="RABBIT"] {
@@ -161,6 +181,8 @@ body {
     //Adder
     &.g-10,
     .g-10,
+    &.mgroup-10,
+    .mgroup-10,
     [data-group="adder"],
     [data-group="Adder"],
     [data-group="ADDER"] {
@@ -172,6 +194,8 @@ body {
     //Eagle
     &.g-11,
     .g-11,
+    &.mgroup-11,
+    .mgroup-11,
     [data-group="eagle"],
     [data-group="Eagle"],
     [data-group="EAGLE"] {
@@ -183,6 +207,8 @@ body {
     //Otter
     &.g-12,
     .g-12,
+    &.mgroup-12,
+    .mgroup-12,
     [data-group="otter"],
     [data-group="Otter"],
     [data-group="OTTER"] {
@@ -194,6 +220,8 @@ body {
     //Crow
     &.g-13,
     .g-13,
+    &.mgroup-13,
+    .mgroup-13,
     [data-group="crow"],
     [data-group="Crow"],
     [data-group="CROW"] {
@@ -204,6 +232,8 @@ body {
     //Deer
     &.g-14,
     .g-14,
+    &.mgroup-14,
+    .mgroup-14,
     [data-group="deer"],
     [data-group="Deer"],
     [data-group="DEER"] {
@@ -214,6 +244,8 @@ body {
     //Unicorn
     &.g-15,
     .g-15,
+    &.mgroup-15,
+    .mgroup-15,
     [data-group="unicorn"],
     [data-group="Unicorn"],
     [data-group="UNICORN"] {
@@ -225,6 +257,8 @@ body {
     //Phoenix
     &.g-16,
     .g-16,
+    &.mgroup-16,
+    .mgroup-16,
     [data-group="phoenix"],
     [data-group="Phoenix"],
     [data-group="PHOENIX"] {
@@ -236,6 +270,8 @@ body {
     //Dragon
     &.g-17,
     .g-17,
+    &.mgroup-17,
+    .mgroup-17,
     [data-group="dragon"],
     [data-group="Dragon"],
     [data-group="DRAGON"] {
@@ -247,11 +283,91 @@ body {
     //Selkie
     &.g-18,
     .g-18,
+    &.mgroup-18,
+    .mgroup-18,
     [data-group="selkie"],
     [data-group="Selkie"],
     [data-group="SELKIE"] {
         --rgb: 38, 104, 117;
         --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_selkie_min.jpg);
         --bg-opacity: 0.2;
+    }
+
+    //Grizzly
+    &.g-19,
+    .g-19,
+    &.mgroup-19,
+    .mgroup-19,
+    [data-group="grizzly"],
+    [data-group="Grizzly"],
+    [data-group="GRIZZLY"] {
+        --rgb: 91, 73, 68;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_grizzly_min.jpg);
+        --bg-opacity: 0.2;
+    }
+
+    //Hyena
+    &.g-20,
+    .g-20,
+    &.mgroup-20,
+    .mgroup-20,
+    [data-group="hyena"],
+    [data-group="Hyena"],
+    [data-group="HYENA"] {
+        --rgb: 125, 85, 92;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_hyena_min.jpg);
+        --bg-opacity: 0.15;
+    }
+
+    //Rat
+    &.g-21,
+    .g-21,
+    &.mgroup-21,
+    .mgroup-21,
+    [data-group="rat"],
+    [data-group="Rat"],
+    [data-group="RAT"] {
+        --rgb: 69, 77, 70;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_rat_min.jpg);
+        --bg-opacity: 0.2;
+    }
+
+    //Sloth
+    &.g-22,
+    .g-22,
+    &.mgroup-22,
+    .mgroup-22,
+    [data-group="sloth"],
+    [data-group="Sloth"],
+    [data-group="SLOTH"] {
+        --rgb: 96, 68, 90;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_sloth_min.jpg);
+        --bg-opacity: 0.2;
+    }
+
+    //Griffin
+    &.g-23,
+    .g-23,
+    &.mgroup-23,
+    .mgroup-23,
+    [data-group="griffin"],
+    [data-group="Griffin"],
+    [data-group="GRIFFIN"] {
+        --rgb: 66, 86, 106;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_griffin_min.jpg);
+        --bg-opacity: 0.2;
+    }
+
+    //Kelpie
+    &.g-24,
+    .g-24,
+    &.mgroup-24,
+    .mgroup-24,
+    [data-group="kelpie"],
+    [data-group="Kelpie"],
+    [data-group="KELPIE"] {
+        --rgb: 69, 87, 69;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_kelpie_min.jpg);
+        --bg-opacity: 0.3;
     }
 }

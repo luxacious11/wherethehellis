@@ -128,6 +128,9 @@ function clipPlotClaims(data) {
         if(role.type === 'claim') {
             html = formatClaim(role.Character, [`Played by <a href="?showuser=${role.ParentID}">${role.Member}</a>`], role.GroupID, `?showuser=${role.AccountID}`);
         } else if(role.type === 'reserve') {
+            if(role.plot === 'all aboard the freedom train' && role.section === 'project freedom' && role.role === 'medical staff') {
+                console.log(roles);
+            }
             html = formatClaim(`Reserved by ${role.Member}`, [`Expires ${setExpiry(role.Timestamp)}`]);
         }
         document.querySelector(`[data-plot="${role.Role.plot}"][data-section="${role.Role.section}"][data-role="${role.Role.role}"]`).insertAdjacentHTML('beforeend', html);

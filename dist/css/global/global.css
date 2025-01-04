@@ -2135,18 +2135,17 @@ img {
 .ucp--description b,
 #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 b {
   text-decoration: none;
-  padding: 0 10px;
-  background: var(--bg-accent);
-  display: inline-block;
-  color: var(--text-on-accent);
-  font-weight: 800; }
+  color: var(--text-accent);
+  font-weight: 900;
+  font-size: 1.15em;
+  font-family: var(--font-head); }
   .postcolor b i,
   .webpage--content b i,
   .profile .scroll b i,
   .member--item .scroll b i,
   .ucp--description b i,
   #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 b i {
-    color: var(--text-on-accent); }
+    color: var(--text-secondary); }
 
 .postcolor i,
 .webpage--content i,
@@ -2166,22 +2165,7 @@ img {
   text-decoration: none;
   padding: 0 3px;
   z-index: 1;
-  display: inline-block; }
-  .postcolor u::before,
-  .webpage--content u::before,
-  .profile .scroll u::before,
-  .member--item .scroll u::before,
-  .ucp--description u::before,
-  #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 u::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    background: var(--bg-accent);
-    z-index: -1;
-    display: block; }
+  border-bottom: 0.3em solid var(--border-accent); }
 
 .postcolor s,
 .webpage--content s,
@@ -2189,7 +2173,6 @@ img {
 .member--item .scroll s,
 .ucp--description s,
 #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 s {
-  display: inline-block;
   padding: 0 3px;
   text-decoration-thickness: 2px;
   text-decoration-color: var(--bg-accent); }
@@ -2265,9 +2248,17 @@ img {
   display: block;
   height: 4px;
   background: var(--bg-accent);
-  margin: 60px auto;
+  margin: 30px auto;
   max-width: 400px;
   border: 0; }
+  @media (min-width: 481px) {
+    .postcolor hl,
+    .webpage--content hl,
+    .profile .scroll hl,
+    .member--item .scroll hl,
+    .ucp--description hl,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 hl {
+      margin: 60px auto; } }
   .postcolor hl[data-style="thin"], .postcolor hl[data-style="Thin"], .postcolor hl[data-style="THIN"],
   .webpage--content hl[data-style="thin"],
   .webpage--content hl[data-style="Thin"],
@@ -2421,8 +2412,16 @@ img {
   display: block;
   height: 200px;
   background: var(--bg-accent);
-  margin: 60px auto;
+  margin: 30px auto;
   width: 4px; }
+  @media (min-width: 481px) {
+    .postcolor vl,
+    .webpage--content vl,
+    .profile .scroll vl,
+    .member--item .scroll vl,
+    .ucp--description vl,
+    #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 vl {
+      margin: 60px auto; } }
   .postcolor vl[data-style="thin"], .postcolor vl[data-style="Thin"], .postcolor vl[data-style="THIN"],
   .webpage--content vl[data-style="thin"],
   .webpage--content vl[data-style="Thin"],
@@ -2828,10 +2827,12 @@ img {
   #Search.code-show main > .tableborder .tablebasic tr:nth-child(2) .post1 tag-shipsubtitle:not(:first-child) {
     margin-top: 10px; }
 
-.tw {
+.tw,
+.note {
   margin: 20px auto;
   max-width: 450px; }
-  .tw--header {
+  .tw--header,
+  .note--header {
     font-size: 14px;
     font-family: var(--font-head);
     text-transform: uppercase;
@@ -2843,18 +2844,22 @@ img {
     margin-bottom: 15px;
     line-height: 120%; }
     @media only screen and (min-width: 480px) {
-      .tw--header {
+      .tw--header,
+      .note--header {
         font-size: calc(14px + 4 * (100vw - 480px) / (1280 - 480)); } }
     @media only screen and (min-width: 1280px) {
-      .tw--header {
+      .tw--header,
+      .note--header {
         font-size: 18px; } }
-    .tw--header::before {
+    .tw--header::before,
+    .note--header::before {
       content: '';
       width: 30px;
       height: 1px;
       background: var(--bg-accent);
       display: inline-block; }
-  .tw--body {
+  .tw--body,
+  .note--body {
     display: block;
     text-transform: uppercase;
     font-size: var(--size-sm);
@@ -2864,17 +2869,21 @@ img {
     width: 100%;
     font-weight: 600;
     text-align: justify; }
-    .tw--body::before, .tw--body::after {
+    .tw--body::before, .tw--body::after,
+    .note--body::before,
+    .note--body::after {
       content: '';
       position: absolute;
       top: 0;
       width: 5px;
       height: 100%;
       border: 1px solid var(--border-accent); }
-    .tw--body::before {
+    .tw--body::before,
+    .note--body::before {
       left: 0;
       border-right: none; }
-    .tw--body::after {
+    .tw--body::after,
+    .note--body::after {
       right: 0;
       border-left: none; }
 
@@ -2978,8 +2987,11 @@ textarea {
   overflow-y: auto;
   scrollbar-color: var(--bg-accent) transparent;
   scrollbar-width: thin;
-  padding-right: 10px;
-  margin-right: -10px; }
+  padding-right: 10px; }
+  @media (min-width: 769px) {
+    .scroll {
+      padding-right: 10px;
+      margin-right: -10px; } }
   .scroll::-webkit-scrollbar {
     width: 6px; }
   .scroll::-webkit-scrollbar-thumb {

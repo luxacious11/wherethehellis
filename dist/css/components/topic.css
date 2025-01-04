@@ -6,6 +6,9 @@
 
 #SF main {
   max-width: none; }
+  #SF main > .category.subforums + table:first-of-type {
+    border-top: 1px solid var(--border-accent-transparent);
+    margin-top: 60px; }
   #SF main > table {
     width: calc(100% + 40px);
     padding: 10px 20px;
@@ -22,11 +25,14 @@
         gap: 10px; }
     #SF main > table:first-of-type {
       position: sticky;
-      top: 30px;
+      top: 85px;
       z-index: 2;
       transition-duration: 0.3s;
       background: var(--bg-secondary);
       border-bottom: 1px solid var(--border-accent-transparent); }
+      @media (min-width: 769px) {
+        #SF main > table:first-of-type {
+          top: 30px; } }
     #SF main > table:not(:first-of-type) {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-accent-transparent);

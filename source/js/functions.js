@@ -677,7 +677,7 @@ function formatName(name) {
         surnames.shift();
         formattedName = `<b>${nameArray[0]}</b><span>${surnames.join(' ')}</span>`
     } else {
-        formattedName = `<b>${nameArray[0]}</b>`;
+        formattedName = `<span>${nameArray[0]}</span>`;
     }
     return formattedName;
 }
@@ -1026,6 +1026,130 @@ function initStickyBar() {
         }
     });
 }
+function tagLabel(type, data, label) {
+    if(type === 'channel') {
+        return `<label class="input-wrap">
+            <input type="radio" name="tag-channel" data-channel="${data}">
+            <div class="fancy-input radio"></div>
+            <span>${label}</span>
+        </label>`;
+    } else if(type === 'identifier') {
+        return `<label class="input-wrap">
+            <input type="checkbox" name="tag-identifier" data-tag="${data}">
+            <div class="fancy-input"></div>
+            <span>${label}</span>
+        </label>`;
+    } else if(type === 'mentions') {
+        return `<label class="input-wrap">
+            <input type="checkbox" name="tag-mention" data-tag="${data}">
+            <div class="fancy-input"></div>
+            <span>${label}</span>
+        </label>`;
+    }
+}
+function initDiscordTagging(location) {
+    let channels = ``, users = ``, mentions = ``;
+    discordChannels.forEach(channel => {
+        channels += tagLabel('channel', `https://discord.com/api/webhooks/${channel.hook}`, channel.title);
+    })
+    discordTags.forEach(user => {
+        users += tagLabel('identifier', user.id, user.alias);
+        mentions += tagLabel('mentions', user.id, user.alias);
+    });
+    if(discordRoles.length > 0) {
+        users += `<hr>`;
+    }
+    discordRoles.forEach(role => {
+        users += tagLabel('identifier', role.id, role.title);
+    });
+
+    document.querySelector(location).insertAdjacentHTML('beforeend', `<div class="invisibleElTagging"></div><div class="alert-options">
+        <button onClick="toggleAlerts(this)" class="macro--button"><i class="fa-solid fa-tags"></i><i class="fa-solid fa-xmark"></i></button>
+        <div class="alert-select">
+            <div class="alert-section channel">
+                <b>Channel <tag-required>*</tag-required></b>
+                <div class="scroll">
+                    ${channels}
+                </div>
+            </div>
+            <div class="alert-section users">
+                <b>Tagged For</b>
+                <div class="scroll">
+                    ${users}
+                </div>
+            </div>
+            <div class="alert-section mentions">
+                <b>Mentions</b>
+                <div class="scroll">
+                    ${mentions}
+                </div>
+            </div>
+            <input type="button" name="sendAlert" id="sendAlert" value="Send Alert" />
+        </div>
+    </div>`);
+
+    document.querySelector('#sendAlert').addEventListener('click', e => {
+        let channel = Array.from(document.querySelectorAll('.alert-section.channel input')).filter(item => item.checked)[0].dataset.channel;
+        let tags = Array.from(document.querySelectorAll('.alert-section.users input')).filter(item => item.checked);
+        let mentioned = Array.from(document.querySelectorAll('.alert-section.mentions input')).filter(item => item.checked);
+        let tagString = ``, mentionString = ``;
+
+        tags.forEach(tag => {
+            if(tag.dataset.tag !== '') {
+                tagString += `<@${tag.dataset.tag}> `;
+            }
+        });
+        mentioned.forEach(mention => {
+            if(mention.dataset.tag !== '') {
+                mentionString += `<@${mention.dataset.tag}> `;
+            }
+        });
+        let tagList = `**Tagged:** ${tagString}`;
+	if(mentioned.length > 0) {
+	    tagList += `\n**Mentions:** ${mentionString}`;
+	}
+        let topic = document.querySelector('.topic-title').innerText;
+        let url = `${window.location.origin}${window.location.search}view=getnewpost`;
+        var includes = [...new Set(Array.from(document.querySelectorAll('.post--header > a')).map(item => item.dataset.fullName))];
+        var characterList = ``;
+        includes.forEach((character, i) => {
+            if(includes.length > 2 && i < includes.length && i !== 0) {
+                characterList += `, `;
+            }
+            if(includes.length === 2 && i !== 0) {
+                characterList += ` `;
+            }
+            if ((includes.length === 2 && i !== 0) || (includes.length > 2 && i === includes.length - 1)) {
+                characterList += `and `;
+            }
+            characterList += capitalize(character.toLowerCase()).trim();
+        });
+        let triggerBlock = document.querySelectorAll('.post--main');
+        let triggers = triggerBlock.length > 0 && triggerBlock[triggerBlock.length - 1].querySelector('.profile--warning span') ? triggerBlock[triggerBlock.length - 1].querySelector('.profile--warning span').innerText : false;
+        let message = `Featuring ${characterList}`;
+        if(triggers) {
+            message += `\n**TW:** ${triggers}`;
+        }
+        
+        if(channel !== '' && tagString !== '') {
+            sendDiscordTag(channel, `You've been tagged!`, `[${capitalize(topic.toLowerCase(), [` `, `-`])}](<${url}>)
+            ${message}`, tagList);
+        }
+        document.querySelectorAll('.alert-select .scroll input').forEach(option => option.checked = false);
+        document.querySelector('#sendAlert').value = 'Sent!';
+        setTimeout(function () {
+            document.querySelector('#sendAlert').value = 'Send Alert';
+        }, 1000);
+    });
+}
+function toggleAlerts(e) {
+    e.closest('.alert-options').querySelector('.alert-select').classList.toggle('is-open');
+    if(e.closest('.alert-options').querySelector('.alert-select').classList.contains('is-open')) {
+        document.querySelector('.invisibleElTagging').classList.add('menu-open');
+    } else {
+        document.querySelector('.invisibleElTagging').classList.remove('menu-open');
+    }
+}
 
 /****** Post Initialization ******/
 function initPostRowDescription() {
@@ -1048,95 +1172,42 @@ function initPostContentAlter(selector = '.post--content .postcolor') {
     });
     document.querySelectorAll('.post.g-4 .charOnly, .post.g-6 .charOnly, .post.g-3.type-Member .charOnly').forEach(item => item.remove());
 }
-function initDiscordTagging() {
-    let channels = ``, users = ``;
-    taggingChannels.forEach(channel => channels += `<option value="${channel.hook}">${channel.name}</option>`);
-    taggingUsers.sort((a, b) => {
-        if(a.name < b.name) {
-            return -1;
-        } else if (a.name > b.name) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }).forEach(user => users += `<option value="${user.id}">${user.name}</option>`);
-
-    document.querySelector('#ST main > table').insertAdjacentHTML('afterend', `<div class="alert-options">
-        <select id="alert-channel">
-            <option value="">-- None --</option>
-            ${channels}
-        </select>
-        <select id="alert-user">
-            <option value="">-- None --</option>
-            ${users}
-        </select>
-        <input type="button" name="sendAlert" id="sendAlert" value="Send Alert" />
-    </div>`);
-
-    document.querySelector('#sendAlert').addEventListener('click', e => {
-        let channel = document.querySelector('#alert-channel');
-        let user = document.querySelector('#alert-user');
-        let topic = document.querySelector('.topic-title').innerText;
-        let url = `${window.location.origin}${window.location.search}view=getnewpost`;
-        var characters = document.querySelector('.topic-title').innerText;
-        var includes = [...new Set(Array.from(document.querySelectorAll('.post--header > a')).map(item => item.dataset.fullName))];
-        var characterList = ``;
-        includes.forEach((character, i) => {
-            if(includes.length > 2 && i < includes.length && i !== 0) {
-                characterList += `, `;
-            }
-            if(includes.length === 2 && i !== 0) {
-                characterList += ` `;
-            }
-            if ((includes.length === 2 && i !== 0) || (includes.length > 2 && i === includes.length - 1)) {
-                characterList += `and `;
-            }
-            characterList += capitalize(character.toLowerCase()).trim();
-        });
-        let triggerBlock = document.querySelectorAll('.post--main');
-        let triggers = triggerBlock.length > 0 && triggerBlock[triggerBlock.length - 1].querySelector('.profile--warning span') ? triggerBlock[triggerBlock.length - 1].querySelector('.profile--warning span').innerText : false;
-        let message = `Featuring ${characterList}`;
-        if(triggers) {
-            message += `\n**TW:** ${triggers}`;
-        }
-
-        if(channel.options[channel.selectedIndex].value !== '' && user.options[user.selectedIndex].value !== '') {
-            sendDiscordTag(channel.options[channel.selectedIndex].value, `You've been tagged!`, `[${capitalize(topic.toLowerCase(), [` `, `-`])}](<${url}>)
-    ${message}`, `<@${user.options[user.selectedIndex].value}>`);
-        }
-
-        document.querySelector('#alert-channel').value = '';
-        document.querySelector('#alert-user').value = '';
-        document.querySelector('#sendAlert').value = 'Sent!';
-        setTimeout(function () {
-            document.querySelector('#sendAlert').value = 'Send Alert';
-        }, 1000);
-    });
-}
 
 /****** Members Initialization ******/
 function initMembers() {
     initAccordion();
 }
 function formatMemberRow(type, data, extraFilters = '') {
-    let mainInfo = ``;
     let tagList = ``;
+    let info = ``;
+    let details = ``;
     if(type === 'character') {
-        tagList = `${type}`;
-        mainInfo = ``;
+        tagList += `${data.character.ageClass} ${data.character.powerClass} ${data.character.neighborhoodClass} ${data.character.relationshipClass}`;
+        info += `<span>Played by <a href="?showuser=${data.universal.parentId}">${data.writer.alias}</a></span>
+            <span>${data.character.age} years old</span>
+            <span>${data.character.pronouns}</span>
+            <span>${data.character.powerType}</span>
+            <span>${data.character.neighborhood}</span>`;
+        details = data.character.overview;
     } else {
-        tagList = `${type}`;
-        mainInfo = ``;
+        info += `<span>${data.writer.pronouns}</span>
+            <span>${data.writer.age} years old</span>
+            <span>${data.writer.timezone}</span>
+            <span>${data.writer.pov} Person</span>
+            <span>${data.writer.tense} Tense</span>`;
+        details = data.writer.triggers;
     }
-    return `<div class="grid-item ml--item ${tagList} m-${data.id}">
+    return `<div class="members--member grid-item g-${data.universal.groupID} ${data.writer.aliasClass} ${type} ${tagList} ${extraFilters}">
         <div class="member">
-            ${type}
-        </div>
-        <div class="hidden">
-            <span class="mem--name">name</span>
-            <span class="mem--age">age</span>
-            <span class="mem--posts">posts</span>
-            <span class="mem--join">joined</span>
+            <div class="member--image">
+                <img src="${data.universal.imageTall}" loading="lazy" class="tall" />
+                <img src="${data.universal.imageWide}" loading="lazy" class="wide" />
+            </div>
+            <div class="member--aside">
+                <a href="?showuser=${data.universal.id}" class="member--name">${data.universal.name}</a>
+                <div class="member--info">${info}</div>
+                <div class="member--details scroll">${details}</div>
+            </div>
         </div>
     </div>`;
 }
@@ -1146,24 +1217,26 @@ function populatePage(array) {
 
     for (let i = 0; i < array.length; i++) {
         //Make Member Array
-        let member = {raw: array[i].alias, clean: array[i].aliasClass};
+        let member = {raw: array[i].writer.alias, clean: array[i].writer.aliasClass};
         if(jQuery.inArray(member.clean, membersClean) == -1 && member.clean != '') {
             membersClean.push(member.clean);
             members.push(member);
         }
 
-        switch(array[i].groupID) {
+        switch(array[i].universal.groupID) {
             //member only
             case 4:
             case 6:
-                html += formatMemberRow('writer', array[i]);
+                html += formatMemberRow('writer', array[i], 'active');
                 break;
-            //depends
+            //depends unsorted
+            case 1:
             case 3:
-                if(array[i].type === 'character') {
-                    html += formatMemberRow('character', array[i]);
+            case 5:
+                if(array[i].universal.type === 'character') {
+                    html += formatMemberRow('character', array[i], 'pending');
                 } else {
-                    html += formatMemberRow('writer', array[i]);
+                    html += formatMemberRow('writer', array[i], 'pending');
                 }
                 break;
             //character only
@@ -1172,7 +1245,7 @@ function populatePage(array) {
                 break;
         }
     }
-    document.querySelector('#ml--rows').insertAdjacentHTML('beforeend', html);
+    document.querySelector('#members--rows').insertAdjacentHTML('beforeend', html);
 
 
     //sort member array
@@ -1188,12 +1261,12 @@ function populatePage(array) {
 
     //Append Arrays
     members.forEach(member => {
-        document.querySelector('.ml--filter-group[data-filter-group="member"]').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
+        document.querySelector('.members--filter-group[data-filter-group="alias"]').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
     });
 }
 function setCustomFilter() {
     //get search value
-    qsRegex = document.querySelector(typeSearch).value;
+    qsRegex = document.querySelector(typeSearch).value.toLowerCase().trim();
     
     //add show class to all items to reset
     elements.forEach(el => el.classList.add(visible));
@@ -1280,14 +1353,10 @@ function setCustomFilter() {
 
     //join array into string
     filter = filter.join(', ');
-
-    // bind sort button click
-    let currentSort = document.querySelector('.ml--sort.is-checked');
         
     //render isotope
     $container.isotope({
         filter: filter,
-        sortBy: currentSort.dataset.sort,
     });
     $container.isotope('layout');
 }
@@ -1304,6 +1373,9 @@ function debounce(fn, threshold) {
         }
         setTimeout(delayed, threshold || 100);
     };
+}
+function toggleListMenu(e) {
+    e.closest('.members--menu').classList.toggle('is-open');
 }
 
 /****** UserCP/Messages ******/

@@ -58,6 +58,26 @@ const prevResExists = `<blockquote class="fullWidth warning">Uh-oh! You've reser
 const claimExists = `<blockquote class="fullWidth warning">Uh-oh! This is already in play! Maybe we can help you find another option - reach out in the Discord for help!</blockquote>`;
 const limitReached = `<blockquote class="fullWidth warning">Uh-oh! This role has limited spots and it looks like they're all taken and/or reserved at this moment!</blockquote>`;
 
+const discordChannels = [
+	{title: `#comm-tags`, hook: `1271222320991572092/kwuhkboyP53-YNhS8gl6hDXg9Vn1wsT8Ze2D6i_B9Ud8N4Br3g29gVkw4-VhkRes1FSZ`},
+	{title: `#thread-tags`, hook: `1271222190804697118/6naqTrj3fJxo9T81vEfa1oErwXswUbnUKIT37Ae37Kzu52khA69CVvcPzpMhoQ7ewnRn`},
+	{title: `#open-comms`, hook: `1271222533085200486/8vdCv6z9xa-CqOlIHNOPM18K4NkGzVssqfdugRG8VNKBzYDX9zmpML89qAJbLeTt6sPZ`},
+	{title: `#open-threads`, hook: `1271222406140268574/hlTvUhenV3StLFL_GZjjO11BZyImPMP7iKptRVxiSH2rAa32XqIpFZIRtlIBJZM_212o`},
+];
+
+const discordTags = [
+    {alias: `Dashin`, id: `177638202755121152`},
+    {alias: `Hermes`, id: `830491813407883306`},
+    {alias: `Iris`, id: `691131810213527592`},
+    {alias: `Lux`, id: `253627726886469642`},
+    {alias: `Silence`, id: `224926781243785218`},
+    {alias: `Spyder`, id: `189583247141765120`},
+];
+
+const discordRoles = [
+    {title: `Open`, id: `&1239530723178840125`},
+];
+
 const colors = {
     'tiger': [153, 117, 78],
     'wolf': [88, 92, 98],

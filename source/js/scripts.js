@@ -85,6 +85,12 @@ document.querySelector('.invisibleEl').addEventListener('click', e => {
     });
 	e.target.classList.remove('menu-open');
 });
+document.querySelector('.invisibleElTagging').addEventListener('click', e => {
+	document.querySelectorAll('.alert-select').forEach(el => {
+        el.classList.remove('is-open');
+    });
+	e.target.classList.remove('menu-open');
+});
 
 /********** Index & Category View Only **********/
 if(pageType === 'idx' || pageType === 'SC') {
@@ -108,7 +114,7 @@ if(pageType === 'ST') {
     initPostContentAlter();
     initStickyBar();
     initMarkdown();
-    //initDiscordTagging();
+    initDiscordTagging('#ST main > table > tbody > tr > td:last-child');
 }
 
 /********** Member List Only **********/

@@ -211,8 +211,8 @@
       font-weight: 900;
       padding: 5px 15px;
       line-height: 160%;
-      width: max-content;
-      max-width: 100%;
+      width: 100%;
+      max-width: max-content;
       background: none; }
       .webpage .claim > a::before, .webpage .claim > a::after,
       .webpage .claim > b::before,
