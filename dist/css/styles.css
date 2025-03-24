@@ -285,6 +285,57 @@ body {
     --rgb: 69, 87, 69;
     --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_kelpie_min.jpg);
     --bg-opacity: 0.3; }
+  body.g-25,
+  body .g-25, body.mgroup-25,
+  body .mgroup-25,
+  body [data-group="basilisk"],
+  body [data-group="Basilisk"],
+  body [data-group="BASILISK"] {
+    --rgb: 137, 125, 121;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_basilisk_min.jpg); }
+  body.g-26,
+  body .g-26, body.mgroup-26,
+  body .mgroup-26,
+  body [data-group="lion"],
+  body [data-group="Lion"],
+  body [data-group="LION"] {
+    --rgb: 214, 185, 129;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_lion_min.jpg);
+    --bg-opacity: 0.2; }
+  body.g-27,
+  body .g-27, body.mgroup-27,
+  body .mgroup-27,
+  body [data-group="turtle"],
+  body [data-group="Turtle"],
+  body [data-group="TURTLE"] {
+    --rgb: 163, 190, 109;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_turtle_min.jpg); }
+  body.g-28,
+  body .g-28, body.mgroup-28,
+  body .mgroup-28,
+  body [data-group="horse"],
+  body [data-group="Horse"],
+  body [data-group="HORSE"] {
+    --rgb: 61, 116, 93;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_horse_min.jpg);
+    --bg-opacity: 0.15; }
+  body.g-29,
+  body .g-29, body.mgroup-29,
+  body .mgroup-29,
+  body [data-group="pegasus"],
+  body [data-group="Pegasus"],
+  body [data-group="PEGASUS"] {
+    --rgb: 71, 151, 165;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_pegasus_min.jpg);
+    --bg-opacity: 0.2; }
+  body.g-30,
+  body .g-30, body.mgroup-30,
+  body .mgroup-30,
+  body [data-group="fox"],
+  body [data-group="Fox"],
+  body [data-group="FOX"] {
+    --rgb: 120, 78, 96;
+    --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_fox_min.jpg); }
 
 /*******************************
     Global
@@ -3474,6 +3525,7 @@ tag-code,
 .pagination_page:hover {
   background: var(--bg-secondary); }
 
+.pagination_first,
 .pagination_last {
   border: 1px solid var(--border-accent);
   background: var(--bg-quaternary);
@@ -3500,6 +3552,7 @@ tag-code,
   padding: 0 10px;
   text-transform: uppercase;
   letter-spacing: 0.05em; }
+  .pagination_first:hover,
   .pagination_last:hover {
     background: var(--bg-secondary); }
 
@@ -5533,7 +5586,7 @@ tag-hl {
       border-bottom: 1px solid var(--border-accent-transparent); }
       @media (min-width: 769px) {
         #SF main > table:first-of-type {
-          top: 30px; } }
+          top: 29px; } }
     #SF main > table:not(:first-of-type) {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-accent-transparent);
@@ -5798,7 +5851,7 @@ tag-hl {
       @media (min-width: 769px) {
         #ST main > table:first-of-type,
         #Post main > table:first-of-type {
-          top: 30px; } }
+          top: 29px; } }
     #ST main > table:not(:first-of-type),
     #Post main > table:not(:first-of-type) {
       background: var(--bg-secondary);
@@ -6176,6 +6229,11 @@ tag-hl {
     margin-top: 1px; }
     .post--item.abilities:last-child {
       padding-bottom: 2px; }
+    .post--item a {
+      color: var(--text-accent);
+      font-size: 0.8em;
+      top: -2px;
+      margin-left: 5px; }
     .post--item > strong {
       font-family: var(--font-head);
       font-size: var(--size-xl);

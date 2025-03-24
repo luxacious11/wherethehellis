@@ -36,7 +36,7 @@
       @media (min-width: 769px) {
         #ST main > table:first-of-type,
         #Post main > table:first-of-type {
-          top: 30px; } }
+          top: 29px; } }
     #ST main > table:not(:first-of-type),
     #Post main > table:not(:first-of-type) {
       background: var(--bg-secondary);
@@ -331,6 +331,11 @@
     margin-top: 1px; }
     .post--item.abilities:last-child {
       padding-bottom: 2px; }
+    .post--item a {
+      color: var(--text-accent);
+      font-size: 0.8em;
+      top: -2px;
+      margin-left: 5px; }
     .post--item > strong {
       font-family: var(--font-head);
       font-size: var(--size-xl);

@@ -370,4 +370,79 @@ body {
         --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_kelpie_min.jpg);
         --bg-opacity: 0.3;
     }
+
+    //Basilisk
+    &.g-25,
+    .g-25,
+    &.mgroup-25,
+    .mgroup-25,
+    [data-group="basilisk"],
+    [data-group="Basilisk"],
+    [data-group="BASILISK"] {
+        --rgb: 137, 125, 121;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_basilisk_min.jpg);
+    }
+
+    //Lion
+    &.g-26,
+    .g-26,
+    &.mgroup-26,
+    .mgroup-26,
+    [data-group="lion"],
+    [data-group="Lion"],
+    [data-group="LION"] {
+        --rgb: 214, 185, 129;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_lion_min.jpg);
+        --bg-opacity: 0.2;
+    }
+
+    //Turtle
+    &.g-27,
+    .g-27,
+    &.mgroup-27,
+    .mgroup-27,
+    [data-group="turtle"],
+    [data-group="Turtle"],
+    [data-group="TURTLE"] {
+        --rgb: 163, 190, 109;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_turtle_min.jpg);
+    }
+
+    //Horse
+    &.g-28,
+    .g-28,
+    &.mgroup-28,
+    .mgroup-28,
+    [data-group="horse"],
+    [data-group="Horse"],
+    [data-group="HORSE"] {
+        --rgb: 61, 116, 93;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_horse_min.jpg);
+        --bg-opacity: 0.15;
+    }
+
+    //Pegasus
+    &.g-29,
+    .g-29,
+    &.mgroup-29,
+    .mgroup-29,
+    [data-group="pegasus"],
+    [data-group="Pegasus"],
+    [data-group="PEGASUS"] {
+        --rgb: 71, 151, 165;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_pegasus_min.jpg);
+        --bg-opacity: 0.2;
+    }
+
+    //Fox
+    &.g-30,
+    .g-30,
+    &.mgroup-30,
+    .mgroup-30,
+    [data-group="fox"],
+    [data-group="Fox"],
+    [data-group="FOX"] {
+        --rgb: 120, 78, 96;
+        --bg-image: url(https://files.jcink.net/uploads2/wherethehellis/Background_Images/bg_fox_min.jpg);
+    }
 }

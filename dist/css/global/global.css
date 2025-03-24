@@ -3110,6 +3110,7 @@ tag-code,
 .pagination_page:hover {
   background: var(--bg-secondary); }
 
+.pagination_first,
 .pagination_last {
   border: 1px solid var(--border-accent);
   background: var(--bg-quaternary);
@@ -3125,6 +3126,7 @@ tag-code,
   padding: 0 10px;
   text-transform: uppercase;
   letter-spacing: 0.05em; }
+  .pagination_first:hover,
   .pagination_last:hover {
     background: var(--bg-secondary); }
 
